@@ -14,14 +14,8 @@ public class Portfel {
     private double wartoscPortfela;
     private Waluta walutaRozliczeniowa;
 
-    private ArrayList<Kurs> kursyWalut = new ArrayList<Kurs>();
-
     public Portfel(Waluta walutaPortfela){
         this.walutaRozliczeniowa = walutaPortfela;
-    }
-
-    public ArrayList<Kurs> getKursyWalut() {
-        return kursyWalut;
     }
 
     public double przeliczPortfel(){    //waluta hardcoded, w razie potrzeby można dodać wybór waluty rozliczeniowej
@@ -34,17 +28,9 @@ public class Portfel {
         for(Entry<Fundusz, Integer> entry : jednostkiFunduszy.entrySet()){
             wartoscPortfela+=entry.getKey().getWartoscJednostki()*entry.getValue();
         }
-        //TODO konwersja wartości walut jako osobna metoda
+
         for(Entry<Waluta, Integer> entry : waluty.entrySet()){
-            for(Kurs kurs : kursyWalut){
-                if((kurs.getWaluta1().equals(entry.getKey()) && kurs.getWaluta2().equals(walutaRozliczeniowa)) ||
-                        (kurs.getWaluta2().equals(entry.getKey()) && kurs.getWaluta1().equals(walutaRozliczeniowa))){
-                    if(kurs.getWaluta1().equals(walutaRozliczeniowa))
-                        wartoscPortfela+=kurs.getCenaSprzedazy21() * entry.getValue();
-                    else
-                        wartoscPortfela+=kurs.getCenaKupna12() * entry.getValue();
-                }
-            }
+            wartoscPortfela+=entry.getKey().getCena()*entry.getValue();
         }
 
         return wartoscPortfela;

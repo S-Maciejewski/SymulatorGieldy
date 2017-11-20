@@ -1,10 +1,14 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public abstract class PodmiotInwestujacy {
     private String imie;
     private String nazwisko;
     private Portfel portfel;
-    private int agresja;
+    private int agresja;    //zakres od 0 do 100
+    private double budzet;
 
 
     public String getImie() {
@@ -31,11 +35,39 @@ public abstract class PodmiotInwestujacy {
         this.portfel = portfel;
     }
 
-    public int getAgresja() {
-        return agresja;
+
+    //TODO działania inwstorów
+
+    public void zakupAkcje(ArrayList<Spolka> akcje){
+
     }
 
-    public void setAgresja(int agresja) {
-        this.agresja = agresja;
+    public void zakupSurowce(){
+
+    }
+
+    public void zakupWaluty(){
+
+    }
+
+    public void podejmijDzialanie(Aktywa stanAktywow){
+        Random rand = new Random();
+        int randNum;
+
+        randNum = rand.nextInt(100);
+        if(randNum+agresja>=100){
+            zakupAkcje(stanAktywow.getSpolki());
+        }
+
+        randNum = rand.nextInt(100);
+        if(randNum+agresja>=100){
+            zakupSurowce();
+        }
+
+        randNum = rand.nextInt(100);
+        if(randNum+agresja>=100){
+            zakupWaluty();
+        }
+
     }
 }
