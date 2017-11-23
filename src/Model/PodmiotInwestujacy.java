@@ -39,7 +39,11 @@ public abstract class PodmiotInwestujacy {
     //TODO działania inwstorów
 
     public void zakupAkcje(ArrayList<Spolka> akcje){
+        Random rand = new Random();
+        Spolka spolka = akcje.get(rand.nextInt(akcje.size()));
 
+        //TODO wyliczyć zakup akcji
+        //portfel.dodajAkcje(spolka, ilosc);
     }
 
     public void zakupSurowce(){
@@ -47,6 +51,10 @@ public abstract class PodmiotInwestujacy {
     }
 
     public void zakupWaluty(){
+
+    }
+
+    public void zakupJednostkiFunduszu(){
 
     }
 
@@ -67,6 +75,11 @@ public abstract class PodmiotInwestujacy {
         randNum = rand.nextInt(100);
         if(randNum+agresja>=100){
             zakupWaluty();
+        }
+
+        randNum = rand.nextInt(100);
+        if(randNum+agresja>=100){
+            zakupJednostkiFunduszu();
         }
 
     }

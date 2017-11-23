@@ -10,14 +10,27 @@ public class Spolka {
     private double kursAktualny;
     private double kursMinimalny;
     private double kursMaksymalny;
-    private double zysk;
+    private double zysk;            //TODO Aktualizacje zysku, przychodu i obrotów
     private double przychod;
     private double kapitalWlasny;
     private double kapitalZakladowy;
     private double obroty;
+    private double stabilnoscKursu; //TODO Domyślne wartości? 5?
 
     private int wolumen;
     private int liczbaAkcji;
+    private int liczbaAkcjiWObrocie;
+
+    public void przeliczWartosciMinMax(){
+        if(kursMinimalny>kursAktualny)
+            kursMinimalny=kursAktualny;
+        if(kursMaksymalny<kursAktualny)
+            kursMaksymalny=kursAktualny;
+    }
+
+    public void ustawKursOtwarcia(){
+        kursOtwarcia = kursAktualny;
+    }
 
     public String getNazwa() {
         return nazwa;
@@ -121,5 +134,21 @@ public class Spolka {
 
     public void setLiczbaAkcji(int liczbaAkcji) {
         this.liczbaAkcji = liczbaAkcji;
+    }
+
+    public int getliczbaAkcjiWObrocie() {
+        return liczbaAkcjiWObrocie;
+    }
+
+    public void setliczbaAkcjiWObrocie(int liczbaAkcjiWObrocie) {
+        this.liczbaAkcjiWObrocie = liczbaAkcjiWObrocie;
+    }
+
+    public double getStabilnoscKursu() {
+        return stabilnoscKursu;
+    }
+
+    public void setStabilnoscKursu(double stabilnoscKursu) {
+        this.stabilnoscKursu = stabilnoscKursu;
     }
 }

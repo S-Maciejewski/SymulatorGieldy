@@ -6,14 +6,14 @@ public class Aktywa {
     private ArrayList<Spolka> spolki = new ArrayList<>();
     private ArrayList<Surowiec> surowce = new ArrayList<>();
     private ArrayList<Waluta> waluty = new ArrayList<>();
-
+    private ArrayList<Fundusz> funduszeInwestycyjne = new ArrayList<>();
 
     public ArrayList<Waluta> getWaluty() {
         return waluty;
     }
 
     public void dodajWalute(Waluta waluta) {
-        this.waluty.add(waluta);
+        waluty.add(waluta);
     }
 
     public ArrayList<Surowiec> getSurowce() {
@@ -21,7 +21,7 @@ public class Aktywa {
     }
 
     public void dodajSurowiec(Surowiec surowiec) {
-        this.surowce.add(surowiec);
+        surowce.add(surowiec);
     }
 
     public ArrayList<Spolka> getSpolki() {
@@ -29,6 +29,14 @@ public class Aktywa {
     }
 
     public void dodajSpolke(Spolka spolka) {
-        this.spolki.add(spolka);
+        spolki.add(spolka);
+    }
+
+    public ArrayList<Fundusz> getFunduszeInwestycyjne() {
+        return funduszeInwestycyjne;
+    }
+
+    public void dodajFundusz(Fundusz fundusz){
+        funduszeInwestycyjne.add(fundusz);
     }
 }

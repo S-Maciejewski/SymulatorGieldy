@@ -10,6 +10,13 @@ public class Surowiec {
     private double wartoscMin;
     private double wartoscMax;
 
+    public void przeliczWartosciMinMax(){
+        if(wartosc<wartoscMin)
+            wartoscMin=wartosc;
+        if(wartosc>wartoscMax)
+            wartoscMax=wartosc;
+    }
+
     public String getNazwa() {
         return nazwa;
     }

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Waluta {
     private String nazwa;
     private ArrayList<String> listaKrajow = new ArrayList<String>();
-    private double cena; //cena wzgledem waluty glownej
+    private double wartosc; //Wartość w głównej walucie giełdy
 
-    public Waluta(String nazwa, double cena){
+    public Waluta(String nazwa, double wartosc){
         this.nazwa = nazwa;
-        this.cena = cena;
+        this.wartosc = wartosc;
     }
 
     public String getNazwa() {
@@ -28,11 +28,12 @@ public class Waluta {
         this.listaKrajow.add(nazwaKraju);
     }
 
-    public double getCena() {
-        return cena;
+    public double getWartosc() {
+        return wartosc;
     }
 
-    public void setCena(double cena) {
-        this.cena = cena;
+    public void setWartosc(double wartosc) {
+        this.wartosc = wartosc;
     }
 }
+

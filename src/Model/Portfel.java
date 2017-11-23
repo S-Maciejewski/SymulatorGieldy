@@ -30,7 +30,7 @@ public class Portfel {
         }
 
         for(Entry<Waluta, Integer> entry : waluty.entrySet()){
-            wartoscPortfela+=entry.getKey().getCena()*entry.getValue();
+            wartoscPortfela+=entry.getKey().getWartosc()*entry.getValue();
         }
 
         return wartoscPortfela;
