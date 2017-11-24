@@ -31,6 +31,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Infrastructure/mainWindow.fxml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Repository/Waluty.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Infrastructure/Main.java" afterPath="$PROJECT_DIR$/src/Infrastructure/Main.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,11 +89,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="408">
+              <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -108,7 +109,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ekonomia.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Ekonomia.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="925">
@@ -163,8 +164,8 @@
         <option value="$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java" />
         <option value="$PROJECT_DIR$/src/Model/Surowiec.java" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Ekonomia.java" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Main.java" />
         <option value="$PROJECT_DIR$/src/Model/Portfel.java" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Main.java" />
       </list>
     </option>
   </component>
@@ -423,12 +424,12 @@
       <workItem from="1511180315281" duration="572000" />
       <workItem from="1511187300550" duration="8389000" />
       <workItem from="1511441509296" duration="3594000" />
-      <workItem from="1511558662034" duration="443000" />
+      <workItem from="1511558662034" duration="829000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17433000" />
+    <option name="totallyTimeSpent" value="17819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -854,10 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="925">
+          <caret line="40" column="48" lean-forward="true" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -870,10 +871,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="40" column="48" lean-forward="true" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
+        <state relative-caret-position="408">
+          <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
           <folding />
         </state>
       </provider>
