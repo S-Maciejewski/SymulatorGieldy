@@ -7,12 +7,10 @@ import java.util.Random;
 
 public class Ekonomia {
     private ArrayList<Gielda> gieldy = new ArrayList<>();
+
     private Aktywa aktywa = new Aktywa();
+
     private int nrSesji = 0;
-
-    public void zainicjujSwiat(){
-
-    }
 
     public void przeliczSesje(){
 
