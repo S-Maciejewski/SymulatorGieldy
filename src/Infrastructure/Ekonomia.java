@@ -20,7 +20,7 @@ public class Ekonomia {
         losoweZmianyCen();
         aktualizacjaParametrowAktywow();
     }
-
+    //TODO NTH Stabilność zależna od giełdy
     private void losoweZmianyCen(){
         for(Surowiec surowiec : aktywa.getSurowce()){
             Random rand = new Random();
@@ -53,6 +53,7 @@ public class Ekonomia {
         for(Spolka spolka : aktywa.getSpolki()){
             spolka.przeliczWartosciMinMax();
             spolka.ustawKursOtwarcia();
+            spolka.setWolumen(0);   //Zerowanie wolumenu na koniec każdej sesji
         }
 
         for(Fundusz fundusz : aktywa.getFunduszeInwestycyjne()){

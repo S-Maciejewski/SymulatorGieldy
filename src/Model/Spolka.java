@@ -12,9 +12,9 @@ public class Spolka {
     private double kursMaksymalny;
     private double zysk;            //TODO Aktualizacje zysku, przychodu i obrotów
     private double przychod;
+    private double obroty;
     private double kapitalWlasny;
     private double kapitalZakladowy;
-    private double obroty;
     private double stabilnoscKursu; //TODO Domyślne wartości? 5?
 
     private int wolumen;
