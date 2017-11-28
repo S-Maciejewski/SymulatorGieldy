@@ -4,6 +4,7 @@ public class Fundusz extends PodmiotInwestujacy {
 
     private double wartoscJednostki;
     private int iloscJendostek;
+    private int iloscJednostekNaSprzedaz;
 
     public Fundusz(String imieSzefa, String nazwiskoSzefa, Waluta walutaRozliczeniowa) {
         setImie(imieSzefa);
@@ -25,5 +26,13 @@ public class Fundusz extends PodmiotInwestujacy {
 
     public void wyliczWartoscJednostki() {
         this.wartoscJednostki = getPortfel().przeliczPortfel() / iloscJendostek;
+    }
+
+    public int getIloscJednostekNaSprzedaz() {
+        return iloscJednostekNaSprzedaz;
+    }
+
+    public void setIloscJednostekNaSprzedaz(int iloscJednostekNaSprzedaz) {
+        this.iloscJednostekNaSprzedaz = iloscJednostekNaSprzedaz;
     }
 }

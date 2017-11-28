@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fe9d9e8-4518-4ad8-bb2e-5bd8acf162d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Kurs.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Kurs.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/Ekonomia.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/Ekonomia.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Fundusz.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Fundusz.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/PodmiotInwestujacy.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/PodmiotInwestujacy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Portfel.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Portfel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Spolka.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Spolka.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Infrastructure/Ekonomia.java" afterPath="$PROJECT_DIR$/src/Infrastructure/Ekonomia.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Fundusz.java" afterPath="$PROJECT_DIR$/src/Model/Fundusz.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java" afterPath="$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Portfel.java" afterPath="$PROJECT_DIR$/src/Model/Portfel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Spolka.java" afterPath="$PROJECT_DIR$/src/Model/Spolka.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+              <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
               <folding>
                 <element signature="e#564#565#0" expanded="true" />
                 <element signature="e#592#593#0" expanded="true" />
@@ -31,25 +37,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ekonomia.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Ekonomia.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="55" column="79" lean-forward="false" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
+            <state relative-caret-position="363">
+              <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+                <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PodmiotInwestujacy.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PodmiotInwestujacy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="method#sprzedajAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#sprzedajSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#sprzedajWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#sprzedajJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#zakupAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#zakupSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#zakupWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#zakupJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#podejmijDzialanie#0;class#PodmiotInwestujacy#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Portfel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Portfel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fundusz.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Fundusz.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="75" column="43" lean-forward="false" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
-              <folding />
+              <caret line="27" column="80" lean-forward="true" selection-start-line="27" selection-start-column="80" selection-end-line="27" selection-end-column="80" />
+              <folding>
+                <element signature="method#Fundusz#0;class#Fundusz#0" expanded="false" />
+                <element signature="e#700#701#0" expanded="true" />
+                <element signature="e#787#788#0" expanded="true" />
+                <element signature="method#setIloscJednostekNaSprzedaz#0;class#Fundusz#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Surowiec.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
-              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+              <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -68,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Waluta.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -77,9 +121,12 @@
       <file leaf-file-name="Spolka.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Spolka.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="-8">
+              <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+              <folding>
+                <element signature="e#3279#3280#0" expanded="true" />
+                <element signature="e#3343#3344#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,7 +135,7 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Aktywa.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,9 +155,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Infrastructure/Main.java" />
+        <option value="$PROJECT_DIR$/src/Model/Portfel.java" />
         <option value="$PROJECT_DIR$/src/Model/Spolka.java" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Ekonomia.java" />
+        <option value="$PROJECT_DIR$/src/Model/Fundusz.java" />
         <option value="$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Ekonomia.java" />
       </list>
     </option>
   </component>
@@ -123,8 +172,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1046" />
+    <option name="width" value="1612" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -163,9 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -201,6 +247,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,6 +259,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Inne/GieldaPO" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -345,12 +395,13 @@
       <workItem from="1511783381183" duration="2279000" />
       <workItem from="1511799777596" duration="996000" />
       <workItem from="1511814543226" duration="597000" />
-      <workItem from="1511870488584" duration="3807000" />
+      <workItem from="1511870488584" duration="7400000" />
+      <workItem from="1511879288262" duration="3360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8208000" />
+    <option name="totallyTimeSpent" value="15161000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -364,19 +415,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.175" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.175" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14605543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14765458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -393,15 +444,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="330">
+          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
             <element signature="e#564#565#0" expanded="true" />
             <element signature="e#592#593#0" expanded="true" />
@@ -409,21 +460,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/Nazwy.java">
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="1210">
+          <caret line="55" column="79" lean-forward="false" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Portfel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="26" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Fundusz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="method#Fundusz#0;class#Fundusz#0" expanded="false" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="method#setIloscJednostekNaSprzedaz#0;class#Fundusz#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Surowiec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Waluta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="286">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Spolka.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+            <element signature="e#3279#3280#0" expanded="true" />
+            <element signature="e#3343#3344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Aktywa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2882">
+          <caret line="131" column="20" lean-forward="true" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="20" />
+          <folding>
+            <element signature="method#sprzedajAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#sprzedajSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#sprzedajWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#sprzedajJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#zakupAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#zakupSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#zakupWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#zakupJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#podejmijDzialanie#0;class#PodmiotInwestujacy#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -454,6 +574,38 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/Nazwy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -519,45 +671,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#592#593#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Spolka.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Aktywa.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Kurs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Kurs.java" />
     <entry file="file://$PROJECT_DIR$/src/Model/Waluta.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -565,27 +691,83 @@
     <entry file="file://$PROJECT_DIR$/src/Model/Surowiec.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Spolka.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="55" column="79" lean-forward="false" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
+        <state relative-caret-position="-8">
+          <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+          <folding>
+            <element signature="e#3279#3280#0" expanded="true" />
+            <element signature="e#3343#3344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Portfel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Fundusz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="27" column="80" lean-forward="true" selection-start-line="27" selection-start-column="80" selection-end-line="27" selection-end-column="80" />
+          <folding>
+            <element signature="method#Fundusz#0;class#Fundusz#0" expanded="false" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="method#setIloscJednostekNaSprzedaz#0;class#Fundusz#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="method#sprzedajAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#sprzedajSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#sprzedajWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#sprzedajJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#zakupAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#zakupSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#zakupWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#zakupJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#podejmijDzialanie#0;class#PodmiotInwestujacy#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="75" column="43" lean-forward="false" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
-          <folding />
+          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

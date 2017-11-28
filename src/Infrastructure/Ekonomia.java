@@ -7,16 +7,17 @@ import java.util.Random;
 
 public class Ekonomia {
     private ArrayList<Gielda> gieldy = new ArrayList<>();
+    private ArrayList<PodmiotInwestujacy> inwestorzy = new ArrayList<>();
 
     private Aktywa aktywa = new Aktywa();
 
     private int nrSesji = 0;
 
     public void przeliczSesje(){
-
-
+        for(PodmiotInwestujacy inwestor : inwestorzy){  //TODO Wielowątkowość inwestorów
+            inwestor.podejmijDzialanie(aktywa);
+        }
         
-
         losoweZmianyCen();
         aktualizacjaParametrowAktywow();
     }
@@ -57,7 +58,7 @@ public class Ekonomia {
         }
 
         for(Fundusz fundusz : aktywa.getFunduszeInwestycyjne()){
-            fundusz.wyliczWartoscJednostki();   //TODO Odpowiednia zależność od agresywności funduszu
+            fundusz.wyliczWartoscJednostki();
         }
 
     }

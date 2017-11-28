@@ -1,6 +1,8 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 
 public abstract class PodmiotInwestujacy {
@@ -37,28 +39,90 @@ public abstract class PodmiotInwestujacy {
 
 
     //TODO działania inwstorów wielowątkowych
+    private void sprzedajAkcje() {
+        Random rand = new Random();
+        int i = 0, randNum = rand.nextInt(portfel.getAkcje().size()), ilosc;
 
-    public void zakupAkcje(ArrayList<Spolka> akcje) {
+        for (Entry<Spolka, Integer> entry : portfel.getAkcje().entrySet()) {
+            if (i == randNum) {
+                ilosc = (int) Math.floor(entry.getValue() * agresja / 100);
+
+                entry.setValue(entry.getValue() - ilosc);
+                entry.getKey().setLiczbaAkcjiNaSprzedaz(entry.getKey().getLiczbaAkcjiNaSprzedaz() + ilosc);
+                entry.getKey().setWolumen(entry.getKey().getWolumen() + ilosc);
+                budzet += entry.getKey().getKursAktualny() * ilosc;
+                break;
+            }
+            i++;
+        }
+    }
+
+    private void sprzedajSurowce() {
+        Random rand = new Random();
+        int i = 0, randNum = rand.nextInt(portfel.getSurowce().size()), ilosc = 0;
+
+        for (Entry<Surowiec, Integer> entry : portfel.getSurowce().entrySet()) {
+            if (i == randNum) {
+                ilosc = (int) Math.floor(entry.getValue() * agresja / 100);
+
+                entry.setValue(entry.getValue() - ilosc);
+                budzet += entry.getKey().getWartosc() * ilosc;
+                break;
+            }
+            i++;
+        }
+    }
+
+    private void sprzedajWaluty() {
+        Random rand = new Random();
+        int i = 0, randNum = rand.nextInt(portfel.getSurowce().size()), ilosc = 0;
+
+        for (Entry<Waluta, Integer> entry : portfel.getWaluty().entrySet()) {
+            if (i == randNum) {
+                ilosc = (int) Math.floor(entry.getValue() * agresja / 100);
+
+                entry.setValue(entry.getValue() - ilosc);
+                budzet += entry.getKey().getWartosc() * ilosc;
+                break;
+            }
+            i++;
+        }
+    }
+
+    private void sprzedajJednostkiFunduszu() {
+        Random rand = new Random();
+        int i = 0, randNum = rand.nextInt(portfel.getSurowce().size()), ilosc = 0;
+
+        for (Entry<Fundusz, Integer> entry : portfel.getJednostkiFunduszy().entrySet()) {
+            if (i == randNum) {
+                ilosc = (int) Math.floor(entry.getValue() * agresja / 100);
+
+                entry.setValue(entry.getValue() - ilosc);
+                entry.getKey().setIloscJednostekNaSprzedaz(entry.getKey().getIloscJednostekNaSprzedaz() + ilosc);
+                budzet += entry.getKey().getWartoscJednostki() * ilosc;
+                break;
+            }
+            i++;
+        }
+    }
+
+    private void zakupAkcje(ArrayList<Spolka> akcje) {
         Random rand = new Random();
         Spolka spolka = akcje.get(rand.nextInt(akcje.size()));
-        int ilosc = rand.nextInt(spolka.getliczbaAkcjiWObrocie());
+        int iloscMax = (int) Math.floor(budzet / spolka.getKursAktualny());
+        int ilosc = rand.nextInt(iloscMax * agresja / 100);
 
-        //Zapobieganie wiecznej pętli w przypadku niskiego budżetu / wysokich cen
-        for (int i = 0; i < 5 && ilosc * spolka.getKursAktualny() > budzet; i++) {
-            spolka = akcje.get(rand.nextInt(akcje.size()));
-
-            for (int j = 0; j < 5 && ilosc * spolka.getKursAktualny() > budzet; j++) {
-                ilosc = rand.nextInt(spolka.getliczbaAkcjiWObrocie());
-            }
+        if (iloscMax > spolka.getLiczbaAkcjiNaSprzedaz()) {
+            ilosc = rand.nextInt(spolka.getLiczbaAkcjiNaSprzedaz() * agresja / 100);
         }
 
         portfel.dodajAkcje(spolka, ilosc);
         budzet -= spolka.getKursAktualny() * ilosc;
-        spolka.setliczbaAkcjiWObrocie(spolka.getliczbaAkcjiWObrocie() - ilosc);
+        spolka.setLiczbaAkcjiNaSprzedaz(spolka.getLiczbaAkcjiNaSprzedaz() - ilosc);
         spolka.setWolumen(spolka.getWolumen() + ilosc);
     }
 
-    public void zakupSurowce(ArrayList<Surowiec> surowce) {
+    private void zakupSurowce(ArrayList<Surowiec> surowce) {
         Random rand = new Random();
         Surowiec surowiec = surowce.get(rand.nextInt(surowce.size()));
         int iloscMax = (int) Math.floor(budzet / surowiec.getWartosc());
@@ -67,7 +131,7 @@ public abstract class PodmiotInwestujacy {
         portfel.dodajSurowiec(surowiec, ilosc);
     }
 
-    public void zakupWaluty(ArrayList<Waluta> waluty) {
+    private void zakupWaluty(ArrayList<Waluta> waluty) {
         Random rand = new Random();
         Waluta waluta = waluty.get(rand.nextInt(waluty.size()));
         int iloscMax = (int) Math.floor(budzet / waluta.getWartosc());
@@ -76,13 +140,42 @@ public abstract class PodmiotInwestujacy {
         portfel.dodajWalute(waluta, ilosc);
     }
 
-    public void zakupJednostkiFunduszu() {
+    private void zakupJednostkiFunduszu(ArrayList<Fundusz> fundusze) {
+        Random rand = new Random();
+        Fundusz fundusz = fundusze.get(rand.nextInt(fundusze.size()));
+        int iloscMax = (int) Math.floor(budzet / fundusz.getWartoscJednostki());
+        int ilosc = rand.nextInt(iloscMax * agresja / 100);
 
+        if (iloscMax > fundusz.getIloscJendostek()) {
+            ilosc = rand.nextInt(fundusz.getIloscJendostek() * agresja / 100);
+        }
+
+        portfel.dodajJednostkeFunduszu(fundusz, ilosc);
     }
 
     public void podejmijDzialanie(Aktywa stanAktywow) {
         Random rand = new Random();
         int randNum;
+
+        randNum = rand.nextInt(100);
+        if (randNum + agresja >= 100) {
+            sprzedajAkcje();
+        }
+
+        randNum = rand.nextInt(100);
+        if (randNum + agresja >= 100) {
+            sprzedajSurowce();
+        }
+
+        randNum = rand.nextInt(100);
+        if (randNum + agresja >= 100) {
+            sprzedajWaluty();
+        }
+
+        randNum = rand.nextInt(100);
+        if (randNum + agresja >= 100) {
+            sprzedajJednostkiFunduszu();
+        }
 
         randNum = rand.nextInt(100);
         if (randNum + agresja >= 100) {
@@ -101,7 +194,7 @@ public abstract class PodmiotInwestujacy {
 
         randNum = rand.nextInt(100);
         if (randNum + agresja >= 100) {
-            zakupJednostkiFunduszu();
+            zakupJednostkiFunduszu(stanAktywow.getFunduszeInwestycyjne());
         }
 
     }

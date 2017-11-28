@@ -19,7 +19,7 @@ public class Spolka {
 
     private int wolumen;
     private int liczbaAkcji;
-    private int liczbaAkcjiWObrocie;
+    private int liczbaAkcjiNaSprzedaz;
 
     public void przeliczWartosciMinMax(){
         if(kursMinimalny>kursAktualny)
@@ -136,12 +136,12 @@ public class Spolka {
         this.liczbaAkcji = liczbaAkcji;
     }
 
-    public int getliczbaAkcjiWObrocie() {
-        return liczbaAkcjiWObrocie;
+    public int getLiczbaAkcjiNaSprzedaz() {
+        return liczbaAkcjiNaSprzedaz;
     }
 
-    public void setliczbaAkcjiWObrocie(int liczbaAkcjiWObrocie) {
-        this.liczbaAkcjiWObrocie = liczbaAkcjiWObrocie;
+    public void setLiczbaAkcjiNaSprzedaz(int liczbaAkcjiWObrocie) {
+        this.liczbaAkcjiNaSprzedaz = liczbaAkcjiWObrocie;
     }
 
     public double getStabilnoscKursu() {
