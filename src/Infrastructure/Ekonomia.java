@@ -17,7 +17,7 @@ public class Ekonomia {
         for(PodmiotInwestujacy inwestor : inwestorzy){  //TODO Wielowątkowość inwestorów
             inwestor.podejmijDzialanie(aktywa);
         }
-        
+
         losoweZmianyCen();
         aktualizacjaParametrowAktywow();
     }

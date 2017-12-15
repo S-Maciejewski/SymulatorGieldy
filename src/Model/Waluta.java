@@ -3,9 +3,10 @@ package Model;
 import java.util.ArrayList;
 
 public class Waluta {
+
     private String nazwa;
     private ArrayList<String> listaKrajow = new ArrayList<String>();
-    private double wartosc; //Wartość w głównej walucie giełdy
+    private double wartosc; //Wartość w głównej walucie
 
     public Waluta(String nazwa, double wartosc){
         this.nazwa = nazwa;

@@ -11,9 +11,9 @@ public class Surowiec {
     private double wartoscMax;
 
     public void przeliczWartosciMinMax(){
-        if(wartosc<wartoscMin)
+        if(wartosc<=wartoscMin)
             wartoscMin=wartosc;
-        if(wartosc>wartoscMax)
+        if(wartosc>=wartoscMax)
             wartoscMax=wartosc;
     }
 

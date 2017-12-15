@@ -5,10 +5,10 @@ import java.util.Random;
 
 
 public class Nazwy {
-    ArrayList<String> nazwySpolek = new ArrayList<String>();
-    ArrayList<String> imiona = new ArrayList<String>();
-    ArrayList<String> nazwiska = new ArrayList<String>();
-    Random random;
+    private ArrayList<String> nazwySpolek = new ArrayList<String>();
+    private ArrayList<String> imiona = new ArrayList<String>();
+    private ArrayList<String> nazwiska = new ArrayList<String>();
+    private Random random;
 
     public Nazwy(){
         random = new Random();
