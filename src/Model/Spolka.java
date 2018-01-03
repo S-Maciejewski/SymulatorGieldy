@@ -21,6 +21,15 @@ public class Spolka {
     private int liczbaAkcji;
     private int liczbaAkcjiNaSprzedaz;
 
+    //TODO konstruktory zgodne z wymaganiami zadania (paramtery losowe nawet kiedy użytkownik tworzy spółkę)
+    public Spolka(String nazwa, Date data, double kurs, double kapitalZakladowy, int akcje, int akcjeNaSprzedaz){
+
+    }
+
+    public Spolka(){
+
+    }
+
     public void przeliczWartosciMinMax(){
         if(kursMinimalny>kursAktualny)
             kursMinimalny=kursAktualny;
@@ -36,17 +45,17 @@ public class Spolka {
         return nazwa;
     }
 
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
+//    public void setNazwa(String nazwa) {
+//        this.nazwa = nazwa;
+//    }
 
     public Date getDataPierwszejWyceny() {
         return dataPierwszejWyceny;
     }
 
-    public void setDataPierwszejWyceny(Date dataPierwszejWyceny) {
-        this.dataPierwszejWyceny = dataPierwszejWyceny;
-    }
+//    public void setDataPierwszejWyceny(Date dataPierwszejWyceny) {
+//        this.dataPierwszejWyceny = dataPierwszejWyceny;
+//    }
 
     public double getKursOtwarcia() {
         return kursOtwarcia;
@@ -108,9 +117,9 @@ public class Spolka {
         return kapitalZakladowy;
     }
 
-    public void setKapitalZakladowy(double kapitalZakladowy) {
-        this.kapitalZakladowy = kapitalZakladowy;
-    }
+//    public void setKapitalZakladowy(double kapitalZakladowy) {
+//        this.kapitalZakladowy = kapitalZakladowy;
+//    }
 
     public double getObroty() {
         return obroty;

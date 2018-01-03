@@ -5,12 +5,12 @@ import java.util.Random;
 
 
 public class Nazwy {
-    private ArrayList<String> nazwySpolek = new ArrayList<String>();
-    private ArrayList<String> imiona = new ArrayList<String>();
-    private ArrayList<String> nazwiska = new ArrayList<String>();
-    private Random random;
+    private static ArrayList<String> nazwySpolek = new ArrayList<String>();
+    private static ArrayList<String> imiona = new ArrayList<String>();
+    private static ArrayList<String> nazwiska = new ArrayList<String>();
+    private static Random random;
 
-    public Nazwy(){
+    public Nazwy() {
         random = new Random();
 
         nazwySpolek.add("Ga$ & Die$el");
@@ -43,15 +43,15 @@ public class Nazwy {
         nazwiska.add("Salami");
     }
 
-    public String getNazwaSpolki(){
+    public static String getNazwaSpolki() {
         return nazwySpolek.get(random.nextInt(nazwySpolek.size()));
     }
 
-    public String getImie(){
+    public static String getImie() {
         return imiona.get(random.nextInt(imiona.size()));
     }
 
-    public String getNazwisko(){
+    public static String getNazwisko() {
         return imiona.get(random.nextInt(nazwiska.size()));
     }
 }

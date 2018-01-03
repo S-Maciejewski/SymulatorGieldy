@@ -9,10 +9,14 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainWindow.fxml"));
+//        Parent root = loader.load();
+
         primaryStage.setTitle("Symulator Gieldy");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
