@@ -12,13 +12,8 @@ public class Portfel {
     private Map<Fundusz, Integer> jednostkiFunduszy = new HashMap<Fundusz, Integer>();
 
     private double wartoscPortfela;
-    private Waluta walutaRozliczeniowa;
 
-    public Portfel(Waluta walutaPortfela) {
-        this.walutaRozliczeniowa = walutaPortfela;
-    }
-
-    public double przeliczPortfel() {    //waluta hardcoded, w razie potrzeby można dodać wybór waluty rozliczeniowej
+    public double przeliczPortfel() {
         for (Entry<Spolka, Integer> entry : akcje.entrySet()) {
             wartoscPortfela += entry.getKey().getKursAktualny() * entry.getValue();
         }

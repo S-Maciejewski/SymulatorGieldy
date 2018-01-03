@@ -5,10 +5,10 @@ import java.util.Random;
 
 
 public class Nazwy {
-    private static ArrayList<String> nazwySpolek = new ArrayList<String>();
-    private static ArrayList<String> imiona = new ArrayList<String>();
-    private static ArrayList<String> nazwiska = new ArrayList<String>();
-    private static Random random;
+    private ArrayList<String> nazwySpolek = new ArrayList<String>();
+    private ArrayList<String> imiona = new ArrayList<String>();
+    private ArrayList<String> nazwiska = new ArrayList<String>();
+    private Random random;
 
     public Nazwy() {
         random = new Random();
@@ -23,6 +23,8 @@ public class Nazwy {
         nazwySpolek.add("Macrosoft");
         nazwySpolek.add("Cruel Mortgage Bank");
         nazwySpolek.add("High Voltage Energy");
+        nazwySpolek.add("High tensile beams Ltd.");
+        nazwySpolek.add("Compressible flow water supply");
 
         imiona.add("Adam");
         imiona.add("Beatrice");
@@ -32,26 +34,30 @@ public class Nazwy {
         imiona.add("Francis");
         imiona.add("Glenn");
         imiona.add("Hans");
+        imiona.add("Leonardo");
+        imiona.add("Rafael");
 
         nazwiska.add("Klein");
         nazwiska.add("Lasagne");
         nazwiska.add("Mercredi");
         nazwiska.add("Doppelkupplungsgetriebe");
-        nazwiska.add("O/'Clock");
+        nazwiska.add("O'Clock");
         nazwiska.add("Petitbeurre");
         nazwiska.add("Richtig");
         nazwiska.add("Salami");
+        nazwiska.add("Toffifee");
+        nazwiska.add("Rafaello");
     }
 
-    public static String getNazwaSpolki() {
+    public String getNazwaSpolki() {
         return nazwySpolek.get(random.nextInt(nazwySpolek.size()));
     }
 
-    public static String getImie() {
+    public String getImie() {
         return imiona.get(random.nextInt(imiona.size()));
     }
 
-    public static String getNazwisko() {
-        return imiona.get(random.nextInt(nazwiska.size()));
+    public String getNazwisko() {
+        return nazwiska.get(random.nextInt(nazwiska.size()));
     }
 }

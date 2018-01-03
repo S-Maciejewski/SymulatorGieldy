@@ -7,11 +7,14 @@ import java.util.Random;
 
 public class Ekonomia {
     private ArrayList<Gielda> gieldy = new ArrayList<>();
-    private ArrayList<PodmiotInwestujacy> inwestorzy = new ArrayList<>();
+    private static ArrayList<PodmiotInwestujacy> inwestorzy = new ArrayList<>();
 
-    private Aktywa aktywa = new Aktywa();
+    private static Aktywa aktywa = new Aktywa();
 
-    private int nrSesji = 0;
+    private static int nrSesji = 0;
+    private static double podstawowyBudzet = 10000;
+
+
 
     public void przeliczSesje(){
         for(PodmiotInwestujacy inwestor : inwestorzy){  //TODO Wielowątkowość inwestorów
@@ -54,6 +57,7 @@ public class Ekonomia {
         for(Spolka spolka : aktywa.getSpolki()){
             spolka.przeliczWartosciMinMax();
             spolka.ustawKursOtwarcia();
+            spolka.ustawInneParametry();
             spolka.setWolumen(0);   //Zerowanie wolumenu na koniec każdej sesji
         }
 
@@ -61,6 +65,26 @@ public class Ekonomia {
             fundusz.wyliczWartoscJednostki();
         }
 
+    }
+
+    public static ArrayList<PodmiotInwestujacy> getInwestorzy() {
+        return inwestorzy;
+    }
+
+    public static Aktywa getAktywa() {
+        return aktywa;
+    }
+
+    public static int getNrSesji() {
+        return nrSesji;
+    }
+
+    public static void setNrSesji(int numerSesji) {
+        nrSesji = numerSesji;
+    }
+
+    public static double getPodstawowyBudzet() {
+        return podstawowyBudzet;
     }
 }
 

@@ -1,68 +1,82 @@
 package Model;
 
+import Infrastructure.Ekonomia;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Spolka {
     private String nazwa;
-    private Date dataPierwszejWyceny;
+    private String dataPierwszejWyceny;
 
     private double kursOtwarcia;
     private double kursAktualny;
     private double kursMinimalny;
     private double kursMaksymalny;
-    private double zysk;            //TODO Aktualizacje zysku, przychodu i obrotów
+    private double zysk;
     private double przychod;
     private double obroty;
     private double kapitalWlasny;
     private double kapitalZakladowy;
-    private double stabilnoscKursu; //TODO Domyślne wartości? 5?
+    private double stabilnoscKursu; //TODO
 
     private int wolumen;
     private int liczbaAkcji;
     private int liczbaAkcjiNaSprzedaz;
 
-    //TODO konstruktory zgodne z wymaganiami zadania (paramtery losowe nawet kiedy użytkownik tworzy spółkę)
-    public Spolka(String nazwa, Date data, double kurs, double kapitalZakladowy, int akcje, int akcjeNaSprzedaz){
+    private Random rand = new Random();
 
+    private ArrayList<Double> historiaKursu = new ArrayList<>();
+
+    public Spolka(String nazwa, double kurs, double kapitalZakladowy, int akcje, double freeFloat) {
+        this.nazwa = nazwa;
+        this.kursAktualny = kurs;
+        this.kapitalZakladowy = kapitalZakladowy;
+        this.liczbaAkcji = akcje;
+        this.liczbaAkcjiNaSprzedaz = (int) (akcje * freeFloat);
+
+        this.stabilnoscKursu = rand.nextInt(10);
+        this.kapitalWlasny = Ekonomia.getPodstawowyBudzet() * rand.nextInt(1000);
+        this.dataPierwszejWyceny = rand.nextInt(31)+"/"+rand.nextInt(12)+"/"+rand.nextInt(2017);
     }
 
-    public Spolka(){
+//    public Spolka(){
+//
+//    }
 
+    public void przeliczWartosciMinMax() {
+        if (kursMinimalny > kursAktualny)
+            kursMinimalny = kursAktualny;
+        if (kursMaksymalny < kursAktualny)
+            kursMaksymalny = kursAktualny;
     }
 
-    public void przeliczWartosciMinMax(){
-        if(kursMinimalny>kursAktualny)
-            kursMinimalny=kursAktualny;
-        if(kursMaksymalny<kursAktualny)
-            kursMaksymalny=kursAktualny;
-    }
-
-    public void ustawKursOtwarcia(){
+    public void ustawKursOtwarcia() {
         kursOtwarcia = kursAktualny;
+    }
+
+    public void ustawInneParametry() {
+        historiaKursu.add(kursAktualny);
+        obroty = kursAktualny * liczbaAkcji / 100 * rand.nextDouble();
+        zysk = Ekonomia.getPodstawowyBudzet() * rand.nextInt(10) * rand.nextDouble() * obroty;
+        przychod = zysk * rand.nextInt(50) * rand.nextDouble();
+
+        stabilnoscKursu += rand.nextDouble() - rand.nextDouble();
+        kapitalWlasny += kapitalWlasny*(rand.nextDouble() - rand.nextDouble())/10;
+
     }
 
     public String getNazwa() {
         return nazwa;
     }
 
-//    public void setNazwa(String nazwa) {
-//        this.nazwa = nazwa;
-//    }
-
-    public Date getDataPierwszejWyceny() {
+    public String getDataPierwszejWyceny() {
         return dataPierwszejWyceny;
     }
 
-//    public void setDataPierwszejWyceny(Date dataPierwszejWyceny) {
-//        this.dataPierwszejWyceny = dataPierwszejWyceny;
-//    }
-
     public double getKursOtwarcia() {
         return kursOtwarcia;
-    }
-
-    public void setKursOtwarcia(double kursOtwarcia) {
-        this.kursOtwarcia = kursOtwarcia;
     }
 
     public double getKursAktualny() {
@@ -77,56 +91,28 @@ public class Spolka {
         return kursMinimalny;
     }
 
-    public void setKursMinimalny(double kursMinimalny) {
-        this.kursMinimalny = kursMinimalny;
-    }
-
     public double getKursMaksymalny() {
         return kursMaksymalny;
-    }
-
-    public void setKursMaksymalny(double kursMaksymalny) {
-        this.kursMaksymalny = kursMaksymalny;
     }
 
     public double getZysk() {
         return zysk;
     }
 
-    public void setZysk(double zysk) {
-        this.zysk = zysk;
-    }
-
     public double getPrzychod() {
         return przychod;
-    }
-
-    public void setPrzychod(double przychod) {
-        this.przychod = przychod;
     }
 
     public double getKapitalWlasny() {
         return kapitalWlasny;
     }
 
-    public void setKapitalWlasny(double kapitalWlasny) {
-        this.kapitalWlasny = kapitalWlasny;
-    }
-
     public double getKapitalZakladowy() {
         return kapitalZakladowy;
     }
 
-//    public void setKapitalZakladowy(double kapitalZakladowy) {
-//        this.kapitalZakladowy = kapitalZakladowy;
-//    }
-
     public double getObroty() {
         return obroty;
-    }
-
-    public void setObroty(double obroty) {
-        this.obroty = obroty;
     }
 
     public int getWolumen() {
@@ -141,10 +127,6 @@ public class Spolka {
         return liczbaAkcji;
     }
 
-    public void setLiczbaAkcji(int liczbaAkcji) {
-        this.liczbaAkcji = liczbaAkcji;
-    }
-
     public int getLiczbaAkcjiNaSprzedaz() {
         return liczbaAkcjiNaSprzedaz;
     }
@@ -157,7 +139,4 @@ public class Spolka {
         return stabilnoscKursu;
     }
 
-    public void setStabilnoscKursu(double stabilnoscKursu) {
-        this.stabilnoscKursu = stabilnoscKursu;
-    }
 }

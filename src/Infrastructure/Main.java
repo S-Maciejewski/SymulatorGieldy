@@ -11,11 +11,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainWindow.fxml"));
-//        Parent root = loader.load();
 
         primaryStage.setTitle("Symulator Gieldy");
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 800, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -1,23 +1,27 @@
 package Model;
 
+import java.util.Random;
+
 public class Inwestor extends PodmiotInwestujacy {
     private String pesel;
 
-    private double budzet;
+    //private double budzet;
 
-    public Inwestor(String imieInwestora, String nazwiskoInwestora, String peselInwestora, Waluta walutaRozliczeniowa) {
+    public Inwestor(String imieInwestora, String nazwiskoInwestora, double budzet) {
         setImie(imieInwestora);
         setNazwisko(nazwiskoInwestora);
-        this.pesel = peselInwestora;
-        setPortfel(new Portfel(walutaRozliczeniowa));
-        this.budzet = 0;
+        setPortfel(new Portfel());
+        setBudzet(budzet);
+
+        //Pesel generowany automatycznie
+        this.pesel = "";
+        for (int i = 0; i < 11; i++) {
+            this.pesel += rand.nextInt(10);
+        }
+        System.out.println("Pesel: " + pesel);
+
+        setAgresja(rand.nextInt(49) + 1);
+
     }
 
-    public double getBudzet() {
-        return budzet;
-    }
-
-    public void setBudzet(double budzet) {
-        this.budzet = budzet;
-    }
 }

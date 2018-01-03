@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Infrastructure.Controller">
+   <children>
+      <TextField fx:id="nazwa" layoutX="88.0" layoutY="14.0" prefHeight="31.0" prefWidth="374.0" />
+      <TextField fx:id="kurs" layoutX="88.0" layoutY="54.0" prefHeight="31.0" prefWidth="260.0" />
+      <TextField fx:id="kapitalZakladowy" layoutX="198.0" layoutY="175.0" prefHeight="31.0" prefWidth="151.0" />
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="22.0" prefWidth="74.0" text="Nazwa">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="54.0" prefHeight="31.0" prefWidth="124.0" text="Kurs">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="13.0" layoutY="175.0" prefHeight="31.0" prefWidth="186.0" text="Kapitał zakładowy">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="potwierdzSpolke" layoutX="362.0" layoutY="61.0" mnemonicParsing="false" onAction="#potwierdzenieSpolki" prefHeight="68.0" prefWidth="124.0" text="Dodaj spółkę" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="zamknij" layoutX="362.0" layoutY="141.0" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="68.0" prefWidth="124.0" text="Zamknij" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="14.0" layoutY="95.0" prefHeight="31.0" prefWidth="124.0" text="Akcje">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="akcje" layoutX="88.0" layoutY="95.0" prefHeight="31.0" prefWidth="260.0" />
+      <Label layoutX="14.0" layoutY="136.0" prefHeight="31.0" prefWidth="124.0" text="Free float">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="freeFloat" layoutX="117.0" layoutY="136.0" prefHeight="31.0" prefWidth="232.0" />
+   </children>
+</Pane>

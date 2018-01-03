@@ -12,6 +12,9 @@ public abstract class PodmiotInwestujacy {
     private int agresja;    //zakres od 1 do 50
     private double budzet;
 
+    protected Random rand = new Random();
+
+    private ArrayList<Double> historiaWartosciPortfela = new ArrayList<>();
 
     public String getImie() {
         return imie;
@@ -37,6 +40,17 @@ public abstract class PodmiotInwestujacy {
         this.portfel = portfel;
     }
 
+    public void setAgresja(int agresja) {
+        this.agresja = agresja;
+    }
+
+    public void setBudzet(double Budzet) {
+        this.budzet = budzet;
+    }
+
+    public double getBudzet() {
+        return budzet;
+    }
 
     //TODO działania inwstorów wielowątkowych
     private void sprzedajAkcje() {
@@ -198,4 +212,6 @@ public abstract class PodmiotInwestujacy {
         }
 
     }
+
+
 }
