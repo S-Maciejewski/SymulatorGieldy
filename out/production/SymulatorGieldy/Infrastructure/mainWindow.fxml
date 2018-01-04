@@ -36,12 +36,15 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <ToolBar layoutX="-1.0" layoutY="39.0" prefHeight="40.0" prefWidth="800.0">
               <items>
-                  <Button fx:id="pokazInwestorow" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="30.0" prefWidth="150.0" text="Pokaż inwestorów" />
+                  <Button fx:id="pokazInwestorow" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż inwestorów" />
                 <Button fx:id="pokazSpolki" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż spółki" />
-                  <Button fx:id="pokazWaluty" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż waluty" />
+                  <Button fx:id="pokazWaluty" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż walutyPrzykladowe" />
                   <Button fx:id="pokazSurowce" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż surowce" />
                   <Button fx:id="pokazGieldy" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Pokaż giełdy" />
               </items>
@@ -59,6 +62,14 @@
                   <Font size="16.0" />
                </font>
             </Label>
+            <Button fx:id="zamknij" layoutX="659.0" layoutY="214.0" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="67.0" prefWidth="125.0" text="Zamknij" textAlignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="214.0" prefWidth="598.0">
          <children>

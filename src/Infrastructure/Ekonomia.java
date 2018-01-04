@@ -15,53 +15,56 @@ public class Ekonomia {
     private static double podstawowyBudzet = 10000;
 
 
-
-    public void przeliczSesje(){
-        for(PodmiotInwestujacy inwestor : inwestorzy){  //TODO Wielowątkowość inwestorów
+    public void przeliczSesje() {
+        for (PodmiotInwestujacy inwestor : inwestorzy) {  //TODO Wielowątkowość inwestorów
             inwestor.podejmijDzialanie(aktywa);
         }
 
         losoweZmianyCen();
         aktualizacjaParametrowAktywow();
     }
+
     //TODO NTH Stabilność zależna od giełdy
-    private void losoweZmianyCen(){
-        for(Surowiec surowiec : aktywa.getSurowce()){
+    private void losoweZmianyCen() {
+        for (Surowiec surowiec : aktywa.getSurowce()) {
             Random rand = new Random();
             double stabilnosc = 7;
-            double mnoznik = rand.nextDouble()/stabilnosc;
+            double mnoznik = rand.nextDouble() / stabilnosc;
 
-            surowiec.setWartosc(surowiec.getWartosc()*mnoznik + surowiec.getWartosc());
+            surowiec.getHistoriaKursu().add(surowiec.getWartosc());
+            surowiec.setWartosc(surowiec.getWartosc() * mnoznik + surowiec.getWartosc());
         }
 
-        for(Waluta waluta : aktywa.getWaluty()){
+        for (Waluta waluta : aktywa.getWaluty()) {
             Random rand = new Random();
             double stablinosc = 5;
-            double mnoznik = rand.nextDouble()/stablinosc;
+            double mnoznik = rand.nextDouble() / stablinosc;
 
-            waluta.setWartosc(waluta.getWartosc()*mnoznik + waluta.getWartosc());
+            waluta.getHistoriaKursu().add(waluta.getWartosc());
+            waluta.setWartosc(waluta.getWartosc() * mnoznik + waluta.getWartosc());
         }
 
-        for(Spolka spolka : aktywa.getSpolki()){
+        for (Spolka spolka : aktywa.getSpolki()) {
             Random rand = new Random();
-            double mnoznik = rand.nextDouble()/spolka.getStabilnoscKursu();
+            double mnoznik = rand.nextDouble() / spolka.getStabilnoscKursu();
 
-            spolka.setKursAktualny(spolka.getKursAktualny()*mnoznik + spolka.getKursAktualny());
+            spolka.setKursAktualny(spolka.getKursAktualny() * mnoznik + spolka.getKursAktualny());
         }
     }
 
-    private void aktualizacjaParametrowAktywow(){
-        for(Surowiec surowiec : aktywa.getSurowce())
+    private void aktualizacjaParametrowAktywow() {
+        for (Surowiec surowiec : aktywa.getSurowce())
             surowiec.przeliczWartosciMinMax();
 
-        for(Spolka spolka : aktywa.getSpolki()){
+        for (Spolka spolka : aktywa.getSpolki()) {
             spolka.przeliczWartosciMinMax();
             spolka.ustawKursOtwarcia();
             spolka.ustawInneParametry();
             spolka.setWolumen(0);   //Zerowanie wolumenu na koniec każdej sesji
         }
 
-        for(Fundusz fundusz : aktywa.getFunduszeInwestycyjne()){
+        for (Fundusz fundusz : aktywa.getFunduszeInwestycyjne()) {
+            fundusz.getHistoriaKursu().add(fundusz.getWartoscJednostki());
             fundusz.wyliczWartoscJednostki();
         }
 

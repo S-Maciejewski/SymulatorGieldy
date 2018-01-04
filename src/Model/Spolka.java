@@ -36,14 +36,12 @@ public class Spolka {
         this.liczbaAkcji = akcje;
         this.liczbaAkcjiNaSprzedaz = (int) (akcje * freeFloat);
 
-        this.stabilnoscKursu = rand.nextInt(10);
+        this.stabilnoscKursu = rand.nextInt(10) + 1;
         this.kapitalWlasny = Ekonomia.getPodstawowyBudzet() * rand.nextInt(1000);
-        this.dataPierwszejWyceny = rand.nextInt(31)+"/"+rand.nextInt(12)+"/"+rand.nextInt(2017);
+        this.dataPierwszejWyceny = rand.nextInt(31) + "/" + rand.nextInt(12) + "/" + (rand.nextInt(118) + 1900);
+        System.out.println("Stabilnosc kursu " + stabilnoscKursu);
+        System.out.println("Kapital wlasny " + kapitalWlasny + ", data wyceny " + dataPierwszejWyceny);
     }
-
-//    public Spolka(){
-//
-//    }
 
     public void przeliczWartosciMinMax() {
         if (kursMinimalny > kursAktualny)
@@ -63,7 +61,7 @@ public class Spolka {
         przychod = zysk * rand.nextInt(50) * rand.nextDouble();
 
         stabilnoscKursu += rand.nextDouble() - rand.nextDouble();
-        kapitalWlasny += kapitalWlasny*(rand.nextDouble() - rand.nextDouble())/10;
+        kapitalWlasny += kapitalWlasny * (rand.nextDouble() - rand.nextDouble()) / 10;
 
     }
 

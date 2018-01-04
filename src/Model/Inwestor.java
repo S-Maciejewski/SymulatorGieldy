@@ -1,5 +1,7 @@
 package Model;
 
+import Infrastructure.Ekonomia;
+
 import java.util.Random;
 
 public class Inwestor extends PodmiotInwestujacy {
@@ -21,7 +23,5 @@ public class Inwestor extends PodmiotInwestujacy {
         System.out.println("Pesel: " + pesel);
 
         setAgresja(rand.nextInt(49) + 1);
-
     }
-
 }

@@ -8,6 +8,7 @@ public class Waluta {
     private ArrayList<String> listaKrajow = new ArrayList<String>();
     private double wartosc; //Wartość w głównej walucie
     private boolean czyGlowna;
+    private ArrayList<Double> historiaKursu = new ArrayList<>();
 
     public Waluta(String nazwa, double wartosc){
         this.nazwa = nazwa;
@@ -44,6 +45,10 @@ public class Waluta {
 
     public void setCzyGlowna(boolean czyGlowna) {
         this.czyGlowna = czyGlowna;
+    }
+
+    public ArrayList<Double> getHistoriaKursu() {
+        return historiaKursu;
     }
 }
 

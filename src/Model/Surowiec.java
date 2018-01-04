@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Surowiec {
     private String nazwa;
     private String jednostkaHandlowa;
@@ -9,6 +11,8 @@ public class Surowiec {
     private double wartosc;
     private double wartoscMin;
     private double wartoscMax;
+
+    private ArrayList<Double> historiaKursu = new ArrayList<>();
 
     public void przeliczWartosciMinMax(){
         if(wartosc<=wartoscMin)
@@ -63,5 +67,9 @@ public class Surowiec {
 
     public void setWartoscMax(double wartoscMax) {
         this.wartoscMax = wartoscMax;
+    }
+
+    public ArrayList<Double> getHistoriaKursu() {
+        return historiaKursu;
     }
 }

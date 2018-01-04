@@ -1,13 +1,15 @@
 package Repository;
 
+import Infrastructure.Ekonomia;
 import Model.Waluta;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-public class Waluty {
+public class WalutyPrzykladowe {
     private ArrayList<Waluta> waluty = new ArrayList<Waluta>();
 
-    public Waluty() {
+    public WalutyPrzykladowe() {
         ArrayList<String> nazwyKrajow = new ArrayList<>();
 
         Waluta waluta = new Waluta("PLN", 1);   //TODO Konstruktory surowców, walut i spółek
@@ -40,5 +42,16 @@ public class Waluty {
 
     public ArrayList<Waluta> getWaluty() {
         return waluty;
+    }
+
+    public Waluta getWaluta(){
+        Random rand = new Random();
+
+        Waluta waluta;
+        do{
+            waluta = waluty.get(rand.nextInt(waluty.size()));
+        } while(Ekonomia.getAktywa().getWaluty().contains(waluta));
+
+        return waluta;
     }
 }

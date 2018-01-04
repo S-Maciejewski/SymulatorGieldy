@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -22,16 +21,17 @@ public class Controller {
     private Button przeliczSesje, dodajInwestora, dodajSpolke, dodajWalute, dodajSurowiec, dodajGielde,
             pokazInwestorow, pokazSpolki, pokazWaluty, pokazSurowce, pokazGieldy, zamknij;
     @FXML
-    private Button potwierdzInwestora, potwierdzSpolke; //Czy potrzebne?
+    private Button potwierdzInwestora, potwierdzSpolke, potwierdzWalute; //Czy potrzebne?
     @FXML
     private Label nrSesji;
     @FXML
-    private TextField imie, nazwisko, budzet, nazwa, kurs, akcje, freeFloat, kapitalZakladowy;
+    private TextField imie, nazwisko, budzet, nazwa, kurs, akcje, freeFloat, kapitalZakladowy,
+            nazwaWaluty, wartoscWaluty;
     @FXML
     private CheckBox czyFundusz;
 
     private Random rand = new Random();
-
+    //TODO INDEKSY!!!
     public void executeMenuAction(ActionEvent event) {
 
         if (event.getSource().equals(przeliczSesje)) {
@@ -51,7 +51,7 @@ public class Controller {
             } else if (event.getSource().equals(dodajSpolke)) {
                 dodawanieSpolki();
             } else if (event.getSource().equals(dodajWalute)) {
-
+                dodawanieWaluty();
             } else if (event.getSource().equals(dodajSurowiec)) {
 
             } else if (event.getSource().equals(dodajGielde)) {
@@ -101,7 +101,7 @@ public class Controller {
 
     public void potwierdzenieInwestora() {
         System.out.println("Pojawil sie nowy inwestor");
-        System.out.println("Imie: " + imie.getText());
+        System.out.println("Imie " + imie.getText());
         System.out.println("Nazwisko " + nazwisko.getText());
         System.out.println("Budżet " + Double.parseDouble(budzet.getText()));
 
@@ -144,7 +144,7 @@ public class Controller {
 
     public void potwierdzenieSpolki() {
         System.out.println("Pojawila sie nowa spolka");
-        System.out.println("Nazwa: " + nazwa.getText());
+        System.out.println("Nazwa " + nazwa.getText());
         System.out.println("Kurs " + kurs.getText());
         System.out.println("Akcje " + Integer.parseInt(akcje.getText()));
         System.out.println("FreeFloat " + Double.parseDouble(freeFloat.getText()));
@@ -158,4 +158,53 @@ public class Controller {
 
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
+
+    public void dodawanieWaluty() throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("dodawanieWaluty.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(dodajInwestora.getScene().getWindow());
+        stage.setTitle("Dodaj walute");
+
+        TextField nazwaWaluty = (TextField) root.lookup("#nazwaWaluty");
+        TextField wartoscWaluty = (TextField) root.lookup("#wartoscWaluty");
+
+        WalutyPrzykladowe walutyPrzykladowe = new WalutyPrzykladowe();
+        Waluta walutaLosowa = walutyPrzykladowe.getWaluta();
+
+        nazwaWaluty.setText(walutaLosowa.getNazwa());
+        wartoscWaluty.setText(walutaLosowa.getWartosc() + "");
+
+        stage.showAndWait();
+    }
+
+    public void potwierdzenieWaluty() {
+        System.out.println("Pojawila sie nowa waluta");
+        System.out.println("Nazwa " + nazwaWaluty.getText());
+        System.out.println("Wartosc " + wartoscWaluty.getText());
+
+        boolean znaleziono = false;
+        WalutyPrzykladowe walutyPrzykladowe = new WalutyPrzykladowe();
+        for (Waluta waluta : walutyPrzykladowe.getWaluty()) {
+            if (waluta.getNazwa().equals(nazwaWaluty.getText())) {
+                znaleziono = true;
+                Ekonomia.getAktywa().dodajWalute(waluta);
+                break;
+            }
+        }
+        if (!znaleziono)
+            Ekonomia.getAktywa().getWaluty().add(new Waluta(nazwaWaluty.getText(), Double.parseDouble(wartoscWaluty.getText())));
+
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
+    public void dodawanieSurowca(){
+
+    }
+
+    public void potwierdzenieSurowca(){
+
+    }
+
 }

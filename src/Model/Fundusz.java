@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Fundusz extends PodmiotInwestujacy {
@@ -8,6 +9,7 @@ public class Fundusz extends PodmiotInwestujacy {
     private int iloscJendostek;
     private int iloscJednostekNaSprzedaz;
 
+    private ArrayList<Double> historiaKursu = new ArrayList<>();
 
     public Fundusz(String imieSzefa, String nazwiskoSzefa, double wartoscJednostki) {
         setImie(imieSzefa);
@@ -45,5 +47,9 @@ public class Fundusz extends PodmiotInwestujacy {
 
     public void setIloscJednostekNaSprzedaz(int iloscJednostekNaSprzedaz) {
         this.iloscJednostekNaSprzedaz = iloscJednostekNaSprzedaz;
+    }
+
+    public ArrayList<Double> getHistoriaKursu() {
+        return historiaKursu;
     }
 }

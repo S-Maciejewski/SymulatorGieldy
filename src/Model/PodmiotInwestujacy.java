@@ -1,5 +1,7 @@
 package Model;
 
+import Infrastructure.Ekonomia;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -213,5 +215,10 @@ public abstract class PodmiotInwestujacy {
 
     }
 
+    public void zwiekszBudzetLosowo() {
+        if (rand.nextDouble() >= 0.25) {
+            setBudzet(getBudzet() + Ekonomia.getPodstawowyBudzet() * rand.nextDouble());
+        }
+    }
 
 }
