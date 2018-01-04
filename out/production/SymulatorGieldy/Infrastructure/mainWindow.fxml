@@ -15,24 +15,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Infrastructure.Controller">
+<SplitPane dividerPositions="0.46488294314381273" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Infrastructure.Controller">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="217.0" prefWidth="609.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="485.0" prefWidth="998.0">
          <children>
-            <ToolBar fx:id="toolBar" layoutX="-1.0" layoutY="-1.0" prefHeight="40.0" prefWidth="800.0">
+            <ToolBar fx:id="toolBar" layoutX="-1.0" layoutY="-1.0" prefHeight="40.0" prefWidth="1000.0">
                <items>
+                  <Pane prefHeight="26.0" prefWidth="16.0" />
                   <Button fx:id="dodajInwestora" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Dodaj inwestora" />
                   <Button fx:id="dodajSpolke" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Dodaj spółkę" />
                   <Button fx:id="dodajWalute" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Dodaj walutę" />
                   <Button fx:id="dodajSurowiec" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Dodaj surowiec" />
                   <Button fx:id="dodajGielde" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Dodaj giełdę" />
+                  <Button fx:id="dodajIndeks" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Dodaj indeks" />
                </items>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ToolBar>
-            <TextArea fx:id="top" editable="false" layoutX="14.0" layoutY="113.0" prefHeight="156.0" prefWidth="378.0" wrapText="true" />
-            <Button fx:id="przeliczSesje" defaultButton="true" layoutX="399.0" layoutY="218.0" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="37.0" prefWidth="156.0" text="Przelicz sesję" textAlignment="CENTER" textFill="#030bee" wrapText="true">
+            <TextArea fx:id="top" editable="false" layoutX="14.0" layoutY="90.0" prefHeight="156.0" prefWidth="378.0" wrapText="true" />
+            <Button fx:id="przeliczSesje" defaultButton="true" layoutX="404.0" layoutY="177.0" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="37.0" prefWidth="156.0" text="Przelicz sesję" textAlignment="CENTER" textFill="#030bee" wrapText="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -40,29 +42,31 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ToolBar layoutX="-1.0" layoutY="39.0" prefHeight="40.0" prefWidth="800.0">
+            <ToolBar layoutX="-1.0" layoutY="39.0" prefHeight="40.0" prefWidth="1000.0">
               <items>
+                  <Pane prefHeight="26.0" prefWidth="16.0" />
                   <Button fx:id="pokazInwestorow" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż inwestorów" />
                 <Button fx:id="pokazSpolki" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż spółki" />
-                  <Button fx:id="pokazWaluty" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż walutyPrzykladowe" />
+                  <Button fx:id="pokazWaluty" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż waluty" />
                   <Button fx:id="pokazSurowce" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż surowce" />
-                  <Button fx:id="pokazGieldy" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Pokaż giełdy" />
+                  <Button fx:id="pokazGieldy" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż giełdy" />
+                  <Button fx:id="pokazIndeksy" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż giełdy" />
               </items>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ToolBar>
-            <Label layoutX="444.0" layoutY="190.0" prefHeight="27.0" prefWidth="48.0" text="Sesja:" textAlignment="CENTER">
+            <Label layoutX="449.0" layoutY="149.0" prefHeight="27.0" prefWidth="48.0" text="Sesja:" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="nrSesji" layoutX="492.0" layoutY="191.0" text="0">
+            <Label fx:id="nrSesji" layoutX="497.0" layoutY="150.0" text="0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="zamknij" layoutX="659.0" layoutY="214.0" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="67.0" prefWidth="125.0" text="Zamknij" textAlignment="CENTER">
+            <Button fx:id="zamknij" layoutX="852.0" layoutY="150.0" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="67.0" prefWidth="125.0" text="Zamknij" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -74,14 +78,13 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="214.0" prefWidth="598.0">
          <children>
             <TextArea fx:id="console" editable="false" layoutX="6.0" layoutY="12.0" prefHeight="268.0" prefWidth="378.0" promptText="Dane:" />
-            <LineChart fx:id="wykres" disable="true" layoutX="399.0" layoutY="14.0" prefHeight="268.0" prefWidth="378.0" title="Wartość aktywów">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
+            <ListView fx:id="lista" layoutX="415.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0" />
+            <TableView fx:id="tabela" layoutX="728.0" layoutY="58.0" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
          </children>
       </AnchorPane>
   </items>

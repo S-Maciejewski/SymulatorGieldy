@@ -6,22 +6,34 @@ public abstract class Gielda {
     private String miasto;
     private String adresSiedziby;
 
-    private Waluta waluta;
     private double marza;
 
-   public Gielda(String nazwa, String kraj, String miasto, String adresSiedziby, Waluta waluta){
+   public Gielda(String nazwa, String kraj, String miasto, String adresSiedziby, double marza){
        this.nazwa = nazwa;
        this.kraj = kraj;
        this.kraj = miasto;
        this.kraj = adresSiedziby;
-       this.waluta = waluta;
+       this.marza = marza;
    }
 
     public double getMarza() {
         return marza;
     }
 
-    public void setMarza(double marza) {
-        this.marza = marza;
+
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public String getKraj() {
+        return kraj;
+    }
+
+    public String getMiasto() {
+        return miasto;
+    }
+
+    public String getAdresSiedziby() {
+        return adresSiedziby;
     }
 }

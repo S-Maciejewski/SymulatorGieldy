@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Ekonomia {
-    private ArrayList<Gielda> gieldy = new ArrayList<>();
+    private static ArrayList<Gielda> gieldy = new ArrayList<>();
     private static ArrayList<PodmiotInwestujacy> inwestorzy = new ArrayList<>();
 
     private static Aktywa aktywa = new Aktywa();
@@ -88,6 +88,10 @@ public class Ekonomia {
 
     public static double getPodstawowyBudzet() {
         return podstawowyBudzet;
+    }
+
+    public static void dodajGielde(Gielda gielda) {
+        gieldy.add(gielda);
     }
 }
 

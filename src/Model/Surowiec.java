@@ -6,7 +6,7 @@ public class Surowiec {
     private String nazwa;
     private String jednostkaHandlowa;
 
-    private Waluta waluta;
+//    private Waluta waluta;
 
     private double wartosc;
     private double wartoscMin;
@@ -14,36 +14,35 @@ public class Surowiec {
 
     private ArrayList<Double> historiaKursu = new ArrayList<>();
 
-    public void przeliczWartosciMinMax(){
-        if(wartosc<=wartoscMin)
-            wartoscMin=wartosc;
-        if(wartosc>=wartoscMax)
-            wartoscMax=wartosc;
+    public Surowiec(String nazwa, String jednostkaHandlowa, double wartosc) {
+        this.nazwa = nazwa;
+        this.jednostkaHandlowa = jednostkaHandlowa;
+        this.wartosc = wartosc;
+    }
+
+    public void przeliczWartosciMinMax() {
+        if (wartosc <= wartoscMin)
+            wartoscMin = wartosc;
+        if (wartosc >= wartoscMax)
+            wartoscMax = wartosc;
     }
 
     public String getNazwa() {
         return nazwa;
     }
 
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
-
     public String getJednostkaHandlowa() {
         return jednostkaHandlowa;
     }
 
-    public void setJednostkaHandlowa(String jednostkaHandlowa) {
-        this.jednostkaHandlowa = jednostkaHandlowa;
-    }
 
-    public Waluta getWaluta() {
-        return waluta;
-    }
-
-    public void setWaluta(Waluta waluta) {
-        this.waluta = waluta;
-    }
+//    public Waluta getWaluta() {
+//        return waluta;
+//    }
+//
+//    public void setWaluta(Waluta waluta) {
+//        this.waluta = waluta;
+//    }
 
     public double getWartosc() {
         return wartosc;
@@ -51,22 +50,6 @@ public class Surowiec {
 
     public void setWartosc(double wartosc) {
         this.wartosc = wartosc;
-    }
-
-    public double getWartoscMin() {
-        return wartoscMin;
-    }
-
-    public void setWartoscMin(double wartoscMin) {
-        this.wartoscMin = wartoscMin;
-    }
-
-    public double getWartoscMax() {
-        return wartoscMax;
-    }
-
-    public void setWartoscMax(double wartoscMax) {
-        this.wartoscMax = wartoscMax;
     }
 
     public ArrayList<Double> getHistoriaKursu() {

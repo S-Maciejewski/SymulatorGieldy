@@ -4,18 +4,15 @@ import java.util.ArrayList;
 
 public class GieldaSurowcow extends Gielda {
 
-    private ArrayList<Surowiec> surowce = new ArrayList<Surowiec>();
+    private ArrayList<Surowiec> surowce;
 
-    public GieldaSurowcow(String nazwa, String kraj, String miasto, String adresSiedziby, Waluta waluta) {
-        super(nazwa, kraj, miasto, adresSiedziby, waluta);
+    public GieldaSurowcow(String nazwa, String kraj, String miasto, String adresSiedziby, double marza) {
+        super(nazwa, kraj, miasto, adresSiedziby, marza);
+        surowce = new ArrayList<Surowiec>();
     }
 
     public ArrayList<Surowiec> getSurowce() {
         return surowce;
-    }
-
-    public void setSurowce(ArrayList<Surowiec> surowce) {
-        this.surowce = surowce;
     }
 
     public void dodajSurowiec(Surowiec surowiec) {

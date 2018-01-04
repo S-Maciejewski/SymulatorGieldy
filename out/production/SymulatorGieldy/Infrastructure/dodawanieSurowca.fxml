@@ -16,25 +16,19 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Infrastructure.Controller">
    <children>
-      <TextField fx:id="imie" layoutX="107.0" layoutY="46.0" />
-      <TextField fx:id="nazwisko" layoutX="107.0" layoutY="94.0" />
-      <TextField fx:id="budzet" layoutX="107.0" layoutY="143.0" />
-      <Label layoutX="14.0" layoutY="46.0" prefHeight="22.0" prefWidth="74.0" text="Imię">
+      <TextField fx:id="nazwaSurowca" layoutX="101.0" layoutY="61.0" prefHeight="31.0" prefWidth="203.0" />
+      <TextField fx:id="wartoscSurowca" layoutX="180.0" layoutY="158.0" prefHeight="31.0" prefWidth="124.0" />
+      <Label layoutX="8.0" layoutY="61.0" prefHeight="22.0" prefWidth="74.0" text="Nazwa">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="94.0" prefHeight="31.0" prefWidth="124.0" text="Nazwisko">
+      <Label layoutX="8.0" layoutY="158.0" prefHeight="31.0" prefWidth="178.0" text="Wartość jednostki">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="143.0" prefHeight="31.0" prefWidth="124.0" text="Budżet">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <Button fx:id="potwierdzInwestora" layoutX="329.0" layoutY="43.0" mnemonicParsing="false" onAction="#potwierdzenieInwestora" prefHeight="68.0" prefWidth="124.0" text="Dodaj inwestora" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="potwierdzSurowiec" layoutX="329.0" layoutY="43.0" mnemonicParsing="false" onAction="#potwierdzenieSurowca" prefHeight="68.0" prefWidth="124.0" text="Dodaj surowiec" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>
@@ -44,5 +38,11 @@
             <Font size="17.0" />
          </font>
       </Button>
+      <Label layoutX="8.0" layoutY="112.0" prefHeight="31.0" prefWidth="105.0" text="Jednostka ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="jednostkaSurowca" layoutX="109.0" layoutY="112.0" prefHeight="31.0" prefWidth="197.0" />
    </children>
 </Pane>

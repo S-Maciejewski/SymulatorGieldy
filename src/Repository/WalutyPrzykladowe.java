@@ -12,7 +12,7 @@ public class WalutyPrzykladowe {
     public WalutyPrzykladowe() {
         ArrayList<String> nazwyKrajow = new ArrayList<>();
 
-        Waluta waluta = new Waluta("PLN", 1);   //TODO Konstruktory surowców, walut i spółek
+        Waluta waluta = new Waluta("PLN", 1);
         nazwyKrajow.add("Polska");
         waluta.setListaKrajow(nazwyKrajow);
         waluty.add(waluta);
@@ -44,7 +44,7 @@ public class WalutyPrzykladowe {
         return waluty;
     }
 
-    public Waluta getWaluta(){
+    public Waluta getWaluta(){  //Podaje losową walutę z bazy
         Random rand = new Random();
 
         Waluta waluta;
