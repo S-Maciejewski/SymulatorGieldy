@@ -18,6 +18,8 @@ public class Surowiec {
         this.nazwa = nazwa;
         this.jednostkaHandlowa = jednostkaHandlowa;
         this.wartosc = wartosc;
+        wartoscMax = wartosc;
+        wartoscMin = wartosc;
     }
 
     public void przeliczWartosciMinMax() {

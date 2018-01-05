@@ -11,15 +11,14 @@ public abstract class Gielda {
    public Gielda(String nazwa, String kraj, String miasto, String adresSiedziby, double marza){
        this.nazwa = nazwa;
        this.kraj = kraj;
-       this.kraj = miasto;
-       this.kraj = adresSiedziby;
+       this.miasto = miasto;
+       this.adresSiedziby = adresSiedziby;
        this.marza = marza;
    }
 
     public double getMarza() {
         return marza;
     }
-
 
     public String getNazwa() {
         return nazwa;

@@ -44,13 +44,14 @@ public class WalutyPrzykladowe {
         return waluty;
     }
 
-    public Waluta getWaluta(){  //Podaje losową walutę z bazy
+    public Waluta getWaluta() {  //Podaje losową walutę z bazy
         Random rand = new Random();
 
+        //TODO Unikalność walut
         Waluta waluta;
-        do{
+        do {
             waluta = waluty.get(rand.nextInt(waluty.size()));
-        } while(Ekonomia.getAktywa().getWaluty().contains(waluta));
+        } while (Ekonomia.getAktywa().getWaluty().contains(waluta));
 
         return waluta;
     }

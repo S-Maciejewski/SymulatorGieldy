@@ -15,6 +15,9 @@ public class Main extends Application {
         primaryStage.setTitle("Symulator Gieldy");
         Scene scene = new Scene(root, 1000, 600);
         primaryStage.setScene(scene);
+
+        Ekonomia ekonomia = new Ekonomia();
+        ekonomia.inicjalizujSymulacje();
         primaryStage.show();
     }
 

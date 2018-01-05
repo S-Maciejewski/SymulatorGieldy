@@ -1,6 +1,7 @@
 package Infrastructure;
 
 import Model.*;
+import Repository.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,46 +14,81 @@ public class Ekonomia {
 
     private static int nrSesji = 0;
     private static double podstawowyBudzet = 10000;
+    private static Random rand = new Random();
 
 
-    public void przeliczSesje() {
+    public static void przeliczSesje() {
         for (PodmiotInwestujacy inwestor : inwestorzy) {  //TODO Wielowątkowość inwestorów
             inwestor.podejmijDzialanie(aktywa);
         }
 
         losoweZmianyCen();
         aktualizacjaParametrowAktywow();
+        losoweZmianyBudzetu();
+    }
+
+    public void inicjalizujSymulacje() {
+        Nazwy nazwy = new Nazwy();
+        for (int i = 0; i < 3; i++)
+            inwestorzy.add(new Inwestor(nazwy.getImie(), nazwy.getNazwisko(), rand.nextInt((int) podstawowyBudzet)));
+        for (int i = 0; i < 2; i++) {
+            Fundusz fundusz = new Fundusz(nazwy.getImie(), nazwy.getNazwisko(), rand.nextInt((int) podstawowyBudzet));
+            inwestorzy.add(fundusz);
+            aktywa.dodajFundusz(fundusz);
+        }
+        for (int i = 0; i < 4; i++)
+            aktywa.dodajSpolke(new Spolka(nazwy.getNazwaSpolki(), podstawowyBudzet * rand.nextDouble() / 100,
+                    podstawowyBudzet * 100 * rand.nextDouble(), rand.nextInt(1000000 + 100000), rand.nextDouble()));
+        Surowce surowce = new Surowce();
+        for (int i = 0; i < 2; i++)
+            aktywa.dodajSurowiec(surowce.getSurowiec());
+        WalutyPrzykladowe walutyPrzykladowe = new WalutyPrzykladowe();
+        aktywa.dodajWalute(walutyPrzykladowe.getWaluty().get(0));   //Dodawanie PLN
+        for (int i = 0; i < 2; i++)
+            aktywa.dodajWalute(walutyPrzykladowe.getWaluta());
+
     }
 
     //TODO NTH Stabilność zależna od giełdy
-    private void losoweZmianyCen() {
+    private static void losoweZmianyCen() {
         for (Surowiec surowiec : aktywa.getSurowce()) {
-            Random rand = new Random();
-            double stabilnosc = 7;
-            double mnoznik = rand.nextDouble() / stabilnosc;
+
+            double stabilnosc = 7; //Parametr symulacji
+            double mnoznik = rand.nextDouble() / stabilnosc - rand.nextDouble() / stabilnosc;
 
             surowiec.getHistoriaKursu().add(surowiec.getWartosc());
             surowiec.setWartosc(surowiec.getWartosc() * mnoznik + surowiec.getWartosc());
+            if (surowiec.getWartosc() <= 0)
+                surowiec.setWartosc(1);
         }
 
         for (Waluta waluta : aktywa.getWaluty()) {
+            if(waluta.getNazwa().equals("PLN")){        //TODO zjebane waluty
+                System.out.println("PLNY");
+                break;
+            }
+
             Random rand = new Random();
-            double stablinosc = 5;
-            double mnoznik = rand.nextDouble() / stablinosc;
+            double stabilnosc = 5;
+            double mnoznik = rand.nextDouble() / stabilnosc - rand.nextDouble() / stabilnosc;
 
             waluta.getHistoriaKursu().add(waluta.getWartosc());
             waluta.setWartosc(waluta.getWartosc() * mnoznik + waluta.getWartosc());
+            if (waluta.getWartosc() <= 0)
+                waluta.setWartosc(1);
         }
 
         for (Spolka spolka : aktywa.getSpolki()) {
             Random rand = new Random();
-            double mnoznik = rand.nextDouble() / spolka.getStabilnoscKursu();
+            double mnoznik = rand.nextDouble() / spolka.getStabilnoscKursu() - rand.nextDouble() / spolka.getStabilnoscKursu();
 
             spolka.setKursAktualny(spolka.getKursAktualny() * mnoznik + spolka.getKursAktualny());
+            if (spolka.getKursAktualny() <= 0)
+                spolka.setKursAktualny(1);
         }
     }
 
-    private void aktualizacjaParametrowAktywow() {
+    private static void aktualizacjaParametrowAktywow() {
         for (Surowiec surowiec : aktywa.getSurowce())
             surowiec.przeliczWartosciMinMax();
 
@@ -70,8 +106,22 @@ public class Ekonomia {
 
     }
 
+    private static void losoweZmianyBudzetu(){
+        for(PodmiotInwestujacy inwestor : inwestorzy)
+            inwestor.zwiekszBudzetLosowo();
+    }
+
     public static ArrayList<PodmiotInwestujacy> getInwestorzy() {
         return inwestorzy;
+    }
+
+    public static ArrayList<Inwestor> getInwestorzyIndywidualni(){
+        ArrayList<Inwestor> inwestorzyIndywidualni = new ArrayList<>();
+        for(PodmiotInwestujacy inwestor : inwestorzy){
+            if(inwestor.getClass().equals(Inwestor.class))
+                inwestorzyIndywidualni.add((Inwestor)inwestor);
+        }
+        return inwestorzyIndywidualni;
     }
 
     public static Aktywa getAktywa() {
@@ -90,8 +140,13 @@ public class Ekonomia {
         return podstawowyBudzet;
     }
 
+    public static ArrayList<Gielda> getGieldy() {
+        return gieldy;
+    }
+
     public static void dodajGielde(Gielda gielda) {
         gieldy.add(gielda);
     }
+
 }
 

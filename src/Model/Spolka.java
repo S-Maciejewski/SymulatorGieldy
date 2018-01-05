@@ -35,6 +35,8 @@ public class Spolka {
         this.kapitalZakladowy = kapitalZakladowy;
         this.liczbaAkcji = akcje;
         this.liczbaAkcjiNaSprzedaz = (int) (akcje * freeFloat);
+        kursMaksymalny = kurs;
+        kursMinimalny = kurs;
 
         this.stabilnoscKursu = rand.nextInt(10) + 1;
         this.kapitalWlasny = Ekonomia.getPodstawowyBudzet() * rand.nextInt(1000);

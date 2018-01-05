@@ -20,7 +20,7 @@ public class Inwestor extends PodmiotInwestujacy {
         for (int i = 0; i < 11; i++) {
             this.pesel += rand.nextInt(10);
         }
-        System.out.println("Pesel: " + pesel);
+       // System.out.println("Pesel: " + pesel);
 
         setAgresja(rand.nextInt(49) + 1);
     }

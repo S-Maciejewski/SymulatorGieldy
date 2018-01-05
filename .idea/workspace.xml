@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fe9d9e8-4518-4ad8-bb2e-5bd8acf162d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/dodawanieGieldy.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Repository/Gieldy.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/wyswietlanieInwestora.fxml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/Controller.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/Controller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/Ekonomia.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/Ekonomia.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/Main.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Fundusz.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Fundusz.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Gielda.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Gielda.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/GieldaPW.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/GieldaPW.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/GieldaSurowcow.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/GieldaSurowcow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/GieldaWalut.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/GieldaWalut.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Inwestor.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Inwestor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/PodmiotInwestujacy.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/PodmiotInwestujacy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Surowiec.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Surowiec.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Waluta.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Waluta.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Repository/Surowce.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Repository/Surowce.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Spolka.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Model/Spolka.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Repository/Gieldy.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Repository/Gieldy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Repository/WalutyPrzykladowe.class" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Repository/WalutyPrzykladowe.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/mainWindow.fxml" afterPath="$PROJECT_DIR$/out/production/SymulatorGieldy/Infrastructure/mainWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Infrastructure/Controller.java" afterPath="$PROJECT_DIR$/src/Infrastructure/Controller.java" />
@@ -25,13 +18,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Infrastructure/Main.java" afterPath="$PROJECT_DIR$/src/Infrastructure/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Infrastructure/mainWindow.fxml" afterPath="$PROJECT_DIR$/src/Infrastructure/mainWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Gielda.java" afterPath="$PROJECT_DIR$/src/Model/Gielda.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/GieldaPW.java" afterPath="$PROJECT_DIR$/src/Model/GieldaPW.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/GieldaSurowcow.java" afterPath="$PROJECT_DIR$/src/Model/GieldaSurowcow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/GieldaWalut.java" afterPath="$PROJECT_DIR$/src/Model/GieldaWalut.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Inwestor.java" afterPath="$PROJECT_DIR$/src/Model/Inwestor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java" afterPath="$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Spolka.java" afterPath="$PROJECT_DIR$/src/Model/Spolka.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Surowiec.java" afterPath="$PROJECT_DIR$/src/Model/Surowiec.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/Surowce.java" afterPath="$PROJECT_DIR$/src/Repository/Surowce.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Waluta.java" afterPath="$PROJECT_DIR$/src/Model/Waluta.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/Gieldy.java" afterPath="$PROJECT_DIR$/src/Repository/Gieldy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/WalutyPrzykladowe.java" afterPath="$PROJECT_DIR$/src/Repository/WalutyPrzykladowe.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Infrastructure/wyswietlanieInwestora.fxml" afterPath="$PROJECT_DIR$/src/Infrastructure/dodawanieSurowca.fxml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,87 +40,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+              <folding>
+                <element signature="e#682#683#0" expanded="true" />
+                <element signature="e#710#711#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="278" column="21" lean-forward="false" selection-start-line="278" selection-start-column="21" selection-end-line="278" selection-end-column="21" />
+            <state relative-caret-position="456">
+              <caret line="437" column="0" lean-forward="true" selection-start-line="437" selection-start-column="0" selection-end-line="437" selection-end-column="0" />
               <folding>
-                <element signature="e#1553#1588#0" expanded="false" />
                 <element signature="method#dodawanieInwestora#0;class#Controller#0" expanded="false" />
                 <element signature="method#potwierdzenieInwestora#0;class#Controller#0" expanded="false" />
                 <element signature="method#dodawanieSpolki#0;class#Controller#0" expanded="false" />
                 <element signature="method#potwierdzenieSpolki#0;class#Controller#0" expanded="false" />
                 <element signature="method#dodawanieWaluty#0;class#Controller#0" expanded="false" />
                 <element signature="method#potwierdzenieWaluty#0;class#Controller#0" expanded="false" />
+                <element signature="method#dodawanieSurowca#0;class#Controller#0" expanded="false" />
                 <element signature="method#potwierdzenieSurowca#0;class#Controller#0" expanded="false" />
+                <element signature="method#dodawanieGieldy#0;class#Controller#0" expanded="false" />
+                <element signature="method#potwierdzenieGieldy#0;class#Controller#0" expanded="false" />
+                <element signature="method#zaktualizujTopInwestorow#0;class#Controller#0" expanded="false" />
+                <element signature="method#wyswietlanieInwestorow#0;class#Controller#0" expanded="false" />
+                <element signature="method#wyswietlanieWalut#0;class#Controller#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gielda.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Gielda.java">
+      <file leaf-file-name="PodmiotInwestujacy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="-2322">
+              <caret line="99" column="24" lean-forward="false" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
               <folding>
-                <element signature="method#Gielda#0;class#Gielda#0" expanded="false" />
+                <element signature="method#sprzedajAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
+                <element signature="method#sprzedajSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gieldy.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Repository/Gieldy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Surowce.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Repository/Surowce.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GieldaPW.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/GieldaPW.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GieldaSurowcow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/GieldaSurowcow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GieldaWalut.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/GieldaWalut.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -135,15 +93,72 @@
       <file leaf-file-name="Ekonomia.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="93" column="27" lean-forward="false" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
+            <state relative-caret-position="989">
+              <caret line="65" column="77" lean-forward="false" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
               <folding>
-                <element signature="method#przeliczSesje#0;class#Ekonomia#0" expanded="false" />
-                <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+                <element signature="method#inicjalizujSymulacje#0;class#Ekonomia#0" expanded="false" />
                 <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
-                <element signature="e#2834#2835#0" expanded="true" />
-                <element signature="e#2868#2869#0" expanded="true" />
+                <element signature="method#losoweZmianyBudzetu#0;class#Ekonomia#0" expanded="false" />
+                <element signature="method#getInwestorzyIndywidualni#0;class#Ekonomia#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Inwestor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Inwestor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WalutyPrzykladowe.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/WalutyPrzykladowe.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Spolka.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Spolka.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-739">
+              <caret line="31" column="99" lean-forward="false" selection-start-line="31" selection-start-column="99" selection-end-line="31" selection-end-column="99" />
+              <folding>
+                <element signature="method#Spolka#0;class#Spolka#0" expanded="false" />
+                <element signature="method#przeliczWartosciMinMax#0;class#Spolka#0" expanded="false" />
+                <element signature="method#ustawInneParametry#0;class#Spolka#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Waluta.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Waluta.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Surowiec.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Surowiec.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,22 +199,23 @@
         <option value="$PROJECT_DIR$/src/Repository/Nazwy.java" />
         <option value="$PROJECT_DIR$/src/Model/Portfel.java" />
         <option value="$PROJECT_DIR$/src/Repository/Waluty.java" />
-        <option value="$PROJECT_DIR$/src/Model/Inwestor.java" />
-        <option value="$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java" />
-        <option value="$PROJECT_DIR$/src/Model/Spolka.java" />
-        <option value="$PROJECT_DIR$/src/Model/Waluta.java" />
         <option value="$PROJECT_DIR$/src/Model/Fundusz.java" />
-        <option value="$PROJECT_DIR$/src/Repository/WalutyPrzykladowe.java" />
-        <option value="$PROJECT_DIR$/src/Model/Surowiec.java" />
         <option value="$PROJECT_DIR$/src/Repository/Surowce.java" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Main.java" />
         <option value="$PROJECT_DIR$/src/Model/GieldaPW.java" />
         <option value="$PROJECT_DIR$/src/Model/GieldaSurowcow.java" />
         <option value="$PROJECT_DIR$/src/Model/GieldaWalut.java" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Ekonomia.java" />
         <option value="$PROJECT_DIR$/src/Model/Gielda.java" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Repository/WalutyPrzykladowe.java" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Main.java" />
+        <option value="$PROJECT_DIR$/src/Model/Inwestor.java" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/DisplayController.java" />
+        <option value="$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java" />
+        <option value="$PROJECT_DIR$/src/Model/Spolka.java" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Ekonomia.java" />
         <option value="$PROJECT_DIR$/src/Repository/Gieldy.java" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Model/Waluta.java" />
+        <option value="$PROJECT_DIR$/src/Model/Surowiec.java" />
       </list>
     </option>
   </component>
@@ -210,10 +226,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2188" />
-    <option name="y" value="-16" />
-    <option name="width" value="1550" />
-    <option name="height" value="838" />
+    <option name="x" value="2213" />
+    <option name="y" value="-32" />
+    <option name="width" value="1936" />
+    <option name="height" value="882" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -255,6 +271,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -289,9 +308,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -460,11 +476,13 @@
       <workItem from="1515064553050" duration="4848000" />
       <workItem from="1515076120812" duration="3099000" />
       <workItem from="1515090812409" duration="8890000" />
+      <workItem from="1515155390530" duration="11982000" />
+      <workItem from="1515174837643" duration="6173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68703000" />
+    <option name="totallyTimeSpent" value="86858000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -480,33 +498,33 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21364653" sideWeight="0.49785176" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17425968" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22147651" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22147651" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17132115" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17615467" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39932886" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,28 +535,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Repository/WalutyPrzykladowe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="10" column="84" lean-forward="false" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -548,11 +556,10 @@
         <state relative-caret-position="1210">
           <caret line="55" column="79" lean-forward="false" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
           <folding>
-            <element signature="method#przeliczSesje#0;class#Ekonomia#0" expanded="false" />
-            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#inicjalizujSymulacje#0;class#Ekonomia#0" expanded="false" />
             <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
-            <element signature="e#2834#2835#0" expanded="true" />
-            <element signature="e#2868#2869#0" expanded="true" />
+            <element signature="method#losoweZmianyBudzetu#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#getInwestorzyIndywidualni#0;class#Ekonomia#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -562,7 +569,7 @@
         <state relative-caret-position="440">
           <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="26" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -572,10 +579,10 @@
         <state relative-caret-position="44">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#setIloscJednostekNaSprzedaz#0;class#Fundusz#0" expanded="false" />
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="false" />
+            <element signature="e#1567#1568#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -592,10 +599,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#1139#1140#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -604,7 +608,9 @@
         <state relative-caret-position="352">
           <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#Spolka#0;class#Spolka#0" expanded="false" />
+            <element signature="method#przeliczWartosciMinMax#0;class#Spolka#0" expanded="false" />
+            <element signature="method#ustawInneParametry#0;class#Spolka#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -624,14 +630,6 @@
           <folding>
             <element signature="method#sprzedajAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
             <element signature="method#sprzedajSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#sprzedajWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#sprzedajJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zakupAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zakupSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zakupWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zakupJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#podejmijDzialanie#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zwiekszBudzetLosowo#0;class#PodmiotInwestujacy#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -641,8 +639,8 @@
         <state relative-caret-position="352">
           <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -667,11 +665,10 @@
         <state relative-caret-position="154">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="method#przeliczSesje#0;class#Ekonomia#0" expanded="false" />
-            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#inicjalizujSymulacje#0;class#Ekonomia#0" expanded="false" />
             <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
-            <element signature="e#2834#2835#0" expanded="true" />
-            <element signature="e#2868#2869#0" expanded="true" />
+            <element signature="method#losoweZmianyBudzetu#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#getInwestorzyIndywidualni#0;class#Ekonomia#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -681,8 +678,8 @@
         <state relative-caret-position="352">
           <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -707,11 +704,10 @@
         <state relative-caret-position="154">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="method#przeliczSesje#0;class#Ekonomia#0" expanded="false" />
-            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#inicjalizujSymulacje#0;class#Ekonomia#0" expanded="false" />
             <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
-            <element signature="e#2834#2835#0" expanded="true" />
-            <element signature="e#2868#2869#0" expanded="true" />
+            <element signature="method#losoweZmianyBudzetu#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#getInwestorzyIndywidualni#0;class#Ekonomia#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -721,8 +717,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -747,8 +743,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -758,8 +754,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -769,8 +765,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -778,16 +774,14 @@
     <entry file="file://$PROJECT_DIR$/.idea/dictionaries/Seba.xml" />
     <entry file="file://$PROJECT_DIR$/src/Model/Kurs.java" />
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/mainWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1134">
           <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-          <folding>
-            <marker date="1515076653835" expanded="true" signature="5682:5693" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/DodawanieInwestoraController.java" />
@@ -797,20 +791,20 @@
         <state relative-caret-position="297">
           <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/dodawanieInwestora.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="569">
           <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/Nazwy.java">
@@ -829,14 +823,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/dodawanieSpolki.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-648">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="38" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://D:/BR-AG/db.converter/src/controler/MainClass.java">
@@ -847,14 +841,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/dodawanieWaluty.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Aktywa.java">
@@ -865,159 +859,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Inwestor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="221" column="5" lean-forward="false" selection-start-line="221" selection-start-column="5" selection-end-line="221" selection-end-column="5" />
-          <folding>
-            <element signature="method#sprzedajAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#sprzedajSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#sprzedajWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#sprzedajJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zakupAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zakupSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zakupWaluty#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zakupJednostkiFunduszu#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#podejmijDzialanie#0;class#PodmiotInwestujacy#0" expanded="false" />
-            <element signature="method#zwiekszBudzetLosowo#0;class#PodmiotInwestujacy#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Spolka.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Waluta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#1139#1140#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Fundusz.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
           <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#setIloscJednostekNaSprzedaz#0;class#Fundusz#0" expanded="false" />
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="false" />
+            <element signature="e#1567#1568#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/dodawanieSurowca.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/dodawanieGieldy.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Surowiec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-          <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/WalutyPrzykladowe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="55" column="5" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/dodawanieGieldy.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/Surowce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Gielda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding>
-            <element signature="method#Gielda#0;class#Gielda#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/GieldaWalut.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="93" column="27" lean-forward="false" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
-          <folding>
-            <element signature="method#przeliczSesje#0;class#Ekonomia#0" expanded="false" />
-            <element signature="method#losoweZmianyCen#0;class#Ekonomia#0" expanded="false" />
-            <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
-            <element signature="e#2834#2835#0" expanded="true" />
-            <element signature="e#2868#2869#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1029,37 +910,148 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/GieldaPW.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Gielda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="233">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/GieldaPW.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="278" column="21" lean-forward="false" selection-start-line="278" selection-start-column="21" selection-end-line="278" selection-end-column="21" />
+        <state relative-caret-position="405">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
-            <element signature="e#1553#1588#0" expanded="false" />
-            <element signature="method#dodawanieInwestora#0;class#Controller#0" expanded="false" />
-            <element signature="method#potwierdzenieInwestora#0;class#Controller#0" expanded="false" />
-            <element signature="method#dodawanieSpolki#0;class#Controller#0" expanded="false" />
-            <element signature="method#potwierdzenieSpolki#0;class#Controller#0" expanded="false" />
-            <element signature="method#dodawanieWaluty#0;class#Controller#0" expanded="false" />
-            <element signature="method#potwierdzenieWaluty#0;class#Controller#0" expanded="false" />
-            <element signature="method#potwierdzenieSurowca#0;class#Controller#0" expanded="false" />
+            <element signature="e#375#376#0" expanded="false" />
+            <element signature="e#405#406#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/Surowce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/DisplayController.java" />
+    <entry file="file://$PROJECT_DIR$/src/Repository/WalutyPrzykladowe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Inwestor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding>
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/PodmiotInwestujacy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2322">
+          <caret line="99" column="24" lean-forward="false" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+          <folding>
+            <element signature="method#sprzedajAkcje#0;class#PodmiotInwestujacy#0" expanded="false" />
+            <element signature="method#sprzedajSurowce#0;class#PodmiotInwestujacy#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Spolka.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-739">
+          <caret line="31" column="99" lean-forward="false" selection-start-line="31" selection-start-column="99" selection-end-line="31" selection-end-column="99" />
+          <folding>
+            <element signature="method#Spolka#0;class#Spolka#0" expanded="false" />
+            <element signature="method#przeliczWartosciMinMax#0;class#Spolka#0" expanded="false" />
+            <element signature="method#ustawInneParametry#0;class#Spolka#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/Gieldy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+        <state relative-caret-position="108">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#Gieldy#0;class#Gieldy#0" expanded="false" />
+            <element signature="method#getGielda#0;class#Gieldy#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Ekonomia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="989">
+          <caret line="65" column="77" lean-forward="false" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
+          <folding>
+            <element signature="method#inicjalizujSymulacje#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#aktualizacjaParametrowAktywow#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#losoweZmianyBudzetu#0;class#Ekonomia#0" expanded="false" />
+            <element signature="method#getInwestorzyIndywidualni#0;class#Ekonomia#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Waluta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Surowiec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="437" column="0" lean-forward="true" selection-start-line="437" selection-start-column="0" selection-end-line="437" selection-end-column="0" />
+          <folding>
+            <element signature="method#dodawanieInwestora#0;class#Controller#0" expanded="false" />
+            <element signature="method#potwierdzenieInwestora#0;class#Controller#0" expanded="false" />
+            <element signature="method#dodawanieSpolki#0;class#Controller#0" expanded="false" />
+            <element signature="method#potwierdzenieSpolki#0;class#Controller#0" expanded="false" />
+            <element signature="method#dodawanieWaluty#0;class#Controller#0" expanded="false" />
+            <element signature="method#potwierdzenieWaluty#0;class#Controller#0" expanded="false" />
+            <element signature="method#dodawanieSurowca#0;class#Controller#0" expanded="false" />
+            <element signature="method#potwierdzenieSurowca#0;class#Controller#0" expanded="false" />
+            <element signature="method#dodawanieGieldy#0;class#Controller#0" expanded="false" />
+            <element signature="method#potwierdzenieGieldy#0;class#Controller#0" expanded="false" />
+            <element signature="method#zaktualizujTopInwestorow#0;class#Controller#0" expanded="false" />
+            <element signature="method#wyswietlanieInwestorow#0;class#Controller#0" expanded="false" />
+            <element signature="method#wyswietlanieWalut#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -6,69 +6,63 @@ import Infrastructure.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Gieldy {   //TODO jedna lista by wszystkie złączyć
-    private ArrayList<GieldaPW> gieldyPW;
-    private ArrayList<GieldaWalut> gieldyWalut;
-    private ArrayList<GieldaSurowcow> gieldySurowcow;
+public class Gieldy {
+    private ArrayList<Gielda> gieldy;
 
     public Gieldy() {
-        gieldyPW = new ArrayList<>();
+        gieldy = new ArrayList<>();
 
-        GieldaPW gieldaPW = new GieldaPW("GPW", "Polska", "Warszawa", "Ksiazeca 4",
+        Gielda gielda = new GieldaPW("GPW", "Polska", "Warszawa", "Ksiazeca 4",
                 0.0037);
-        gieldyPW.add(gieldaPW);
+        gieldy.add(gielda);
 
-        gieldaPW = new GieldaPW("NewConnect", "Polska", "Warszawa", "Ksiazeca 4",
+        gielda = new GieldaPW("NewConnect", "Polska", "Warszawa", "Ksiazeca 4",
                 0.0025);
-        gieldyPW.add(gieldaPW);
+        gieldy.add(gielda);
 
-        gieldaPW = new GieldaPW("NASDAQ", "USA", "Nowy Jork", "Broadway 165", 0.0064);
-        gieldyPW.add(gieldaPW);
+        gielda = new GieldaPW("NASDAQ", "USA", "Nowy Jork", "Broadway 165", 0.0064);
+        gieldy.add(gielda);
 
 
-        gieldyWalut = new ArrayList<>();
-
-        GieldaWalut gieldaWalut = new GieldaWalut("Deutche Borse", "Niemcy", "Berlin",
+        gielda = new GieldaWalut("Deutche Borse", "Niemcy", "Berlin",
                 "Unter den Linden 36", 0.0052);
-        gieldyWalut.add(gieldaWalut);
+        gieldy.add(gielda);
 
-        gieldaWalut = new GieldaWalut("STOXX", "Szwajcaria", "Zurych",
+        gielda = new GieldaWalut("STOXX", "Szwajcaria", "Zurych",
                 "Manessestrasse 85", 0.0021);
-        gieldyWalut.add(gieldaWalut);
+        gieldy.add(gielda);
 
 
-        gieldySurowcow = new ArrayList<>();
-
-        GieldaSurowcow gieldaSurowcow = new GieldaSurowcow("NYSE", "USA", "Nowy Jork",
+        gielda = new GieldaSurowcow("NYSE", "USA", "Nowy Jork",
                 "11 Wall Street", 0.0040);
-        gieldySurowcow.add(gieldaSurowcow);
+        gieldy.add(gielda);
 
-        gieldaSurowcow = new GieldaSurowcow("Euronext", "Holandia", "Amsterdam",
+        gielda = new GieldaSurowcow("Euronext", "Holandia", "Amsterdam",
                 "Postbus 19163", 0.0083);
-        gieldySurowcow.add(gieldaSurowcow);
+        gieldy.add(gielda);
 
+    }
+
+    public ArrayList<Gielda> getGieldy() {
+        return gieldy;
     }
 
     public Gielda getGielda() {
         Random rand = new Random();
-        int randNum = rand.nextInt(3);
-        Gielda gielda;
+        Gielda gieldaLosowa;
+        boolean zajeta;
 
-        switch (randNum) {
-            case 0:
-                gielda = gieldyPW.get(rand.nextInt(gieldyPW.size()));
-                break;
-            case 1:
-                gielda = gieldySurowcow.get(rand.nextInt(gieldySurowcow.size()));
-                break;
-            case 2:
-                gielda = gieldyWalut.get(rand.nextInt(gieldyWalut.size()));
-                break;
-            default:
-                gielda = gieldyPW.get(rand.nextInt(gieldyPW.size()));
-        }
+        do{
+            zajeta = false;
+            gieldaLosowa = gieldy.get(rand.nextInt(gieldy.size()));
+            for(Gielda gielda : gieldy){
+                if(gielda.getNazwa().equals(gieldaLosowa.getNazwa()))
+                    zajeta = true;
+            }
 
-        return gielda;
+        } while(!zajeta);
+
+        return gieldaLosowa;
     }
 
 }

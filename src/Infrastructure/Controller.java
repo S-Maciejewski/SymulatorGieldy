@@ -3,7 +3,6 @@ package Infrastructure;
 import Model.*;
 import Repository.*;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -22,10 +22,8 @@ import java.io.IOException;
 public class Controller {
 
     @FXML
-    private Button przeliczSesje, dodajInwestora, dodajSpolke, dodajWalute, dodajSurowiec, dodajGielde,
-            pokazInwestorow, pokazSpolki, pokazWaluty, pokazSurowce, pokazGieldy, zamknij;
-    @FXML   //Czy potrzebne?
-    private Button potwierdzInwestora, potwierdzSpolke, potwierdzWalute, potwierdzSurowiec, potwierdzGielde;
+    private Button przeliczSesje, dodajInwestora, dodajSpolke, dodajWalute, dodajSurowiec, dodajGielde, dodajIndeks,
+            pokazInwestorow, pokazSpolki, pokazWaluty, pokazSurowce, pokazGieldy, pokazIndeksy, zamknij;
     @FXML
     private Label nrSesji;
     @FXML
@@ -33,28 +31,32 @@ public class Controller {
             nazwaWaluty, wartoscWaluty, nazwaSurowca, jednostkaSurowca, wartoscSurowca,
             nazwaGieldy, kraj, miasto, adres, marza;
     @FXML
+    private TextArea console;
+    @FXML
     private CheckBox czyFundusz;
     @FXML
     private ChoiceBox<String> typ;
+    @FXML
+    private TableView topTabela, tabela;
 
     private Random rand = new Random();
 
-    //TODO INDEKSY!!!
     public void executeMenuAction(ActionEvent event) {
 
         if (event.getSource().equals(przeliczSesje)) {
             Ekonomia.setNrSesji(Ekonomia.getNrSesji() + 1);
 
             nrSesji.setText(Ekonomia.getNrSesji() + "");
-            //TODO wywołanie przeliczenia sesji
-            //TODO aktualizacja top inwestorów
+
+            Ekonomia.przeliczSesje();
+            zaktualizujTopInwestorow();
         }
 
         if (event.getSource().equals(zamknij))
             zamknijOkno((Stage) zamknij.getScene().getWindow());
 
         try {
-            if (event.getSource().equals(dodajInwestora)) {     //TODO dodawanie
+            if (event.getSource().equals(dodajInwestora)) {     //TODO dodawanie indeksów
                 dodawanieInwestora();
             } else if (event.getSource().equals(dodajSpolke)) {
                 dodawanieSpolki();
@@ -63,15 +65,15 @@ public class Controller {
             } else if (event.getSource().equals(dodajSurowiec)) {
                 dodawanieSurowca();
             } else if (event.getSource().equals(dodajGielde)) {
-                dodawanieGieldy();
+                dodawanieGieldy();  //TODO powtarzające się nazwy
             } else if (event.getSource().equals(pokazInwestorow)) {     //TODO wyswietlanie
-
+                wyswietlanieInwestorow();
             } else if (event.getSource().equals(pokazSpolki)) {
-
+                wyswietlanieSpolek();
             } else if (event.getSource().equals(pokazWaluty)) {
-
+                wyswietlanieWalut();
             } else if (event.getSource().equals(pokazSurowce)) {
-
+                wyswietlanieSurowcow();
             } else if (event.getSource().equals(pokazGieldy)) {
 
             }
@@ -143,9 +145,10 @@ public class Controller {
 
         nazwa.setText(nazwy.getNazwaSpolki());
         kurs.setText(Ekonomia.getPodstawowyBudzet() * rand.nextDouble() / 100 + "");
+        kapitalZakladowy.setText(Ekonomia.getPodstawowyBudzet() * 100 * rand.nextDouble() + "");
         akcje.setText(rand.nextInt(1000000) + 100000 + "");
         freeFloat.setText(rand.nextDouble() + "");
-        kapitalZakladowy.setText(Ekonomia.getPodstawowyBudzet() * 100 * rand.nextDouble() + "");
+
 
         stage.showAndWait();
     }
@@ -243,10 +246,10 @@ public class Controller {
                 Ekonomia.getAktywa().dodajSurowiec(surowiec);
                 break;
             }
-
-            if (!znaleziono)
-                Ekonomia.getAktywa().dodajSurowiec(new Surowiec(nazwaSurowca.getText(), jednostkaSurowca.getText(), Double.parseDouble(wartoscSurowca.getText())));
         }
+        if (!znaleziono)
+            Ekonomia.getAktywa().dodajSurowiec(new Surowiec(nazwaSurowca.getText(), jednostkaSurowca.getText(),
+                    Double.parseDouble(wartoscSurowca.getText())));
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
@@ -260,7 +263,7 @@ public class Controller {
 
         TextField nazwaGieldy = (TextField) root.lookup("#nazwaGieldy");
         TextField kraj = (TextField) root.lookup("#kraj");
-        TextField miasto = (TextField) root.lookup("miasto");
+        TextField miasto = (TextField) root.lookup("#miasto");
         TextField adres = (TextField) root.lookup("#adres");
         TextField marza = (TextField) root.lookup("#marza");
 
@@ -275,14 +278,167 @@ public class Controller {
         marza.setText(gielda.getMarza() + "");
 
         ChoiceBox<String> typ = (ChoiceBox<String>) root.lookup("#typ");
-
-        typ.setValue();
         typ.getItems().addAll("Giełda papierów wartościowych", "Giełda walut", "Giełda surowców");
+
+        if (gielda.getClass().equals(GieldaPW.class))
+            typ.setValue("Giełda papierów wartościowych");
+        else if (gielda.getClass().equals(GieldaWalut.class))
+            typ.setValue("Giełda walut");
+        else
+            typ.setValue("Giełda surowców");
+
         stage.showAndWait();
     }
 
     public void potwierdzenieGieldy() {
+        System.out.println("Pojawila sie nowa gielda");
+        System.out.println("Nazwa " + nazwaGieldy.getText());
+        System.out.println("Kraj " + kraj.getText());
+        System.out.println("Miasto " + miasto.getText());
+        System.out.println("Adres siedziby  " + adres.getText());
+        System.out.println("Marza " + marza.getText());
+
+        boolean znaleziono = false;
+        Gieldy gieldy = new Gieldy();
+        for (Gielda gielda : gieldy.getGieldy()) {
+            if (gielda.getNazwa().equals(nazwaGieldy.getText())) {
+                znaleziono = true;
+                Ekonomia.getGieldy().add(gielda);
+                break;
+            }
+        }
+        if (!znaleziono) {
+            if (typ.getValue().equals("Giełda papierów wartościowych"))
+                Ekonomia.dodajGielde(new GieldaPW(nazwaGieldy.getText(), kraj.getText(), miasto.getText(),
+                        adres.getText(), Double.parseDouble(marza.getText())));
+            else if (typ.getValue().equals("Giełda walut"))
+                Ekonomia.dodajGielde(new GieldaWalut(nazwaGieldy.getText(), kraj.getText(), miasto.getText(),
+                        adres.getText(), Double.parseDouble(marza.getText())));
+            else
+                Ekonomia.dodajGielde(new GieldaSurowcow(nazwaGieldy.getText(), kraj.getText(), miasto.getText(),
+                        adres.getText(), Double.parseDouble(marza.getText())));
+        }
+
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
+    //Wyswietlanie
+
+    public void zaktualizujTopInwestorow() {
+        ObservableList<PodmiotInwestujacy> podmioty = FXCollections.observableArrayList(Ekonomia.getInwestorzyIndywidualni());
+
+        TableColumn<PodmiotInwestujacy, String> imie = new TableColumn<>("Imię");
+        TableColumn<PodmiotInwestujacy, String> nazwisko = new TableColumn<>("Nazwisko");
+        TableColumn<PodmiotInwestujacy, Double> budzet = new TableColumn<>("Budżet");
+
+        imie.setMinWidth(80);
+        imie.setMaxWidth(80);
+        imie.setCellValueFactory(new PropertyValueFactory<>("imie"));
+
+        nazwisko.setMinWidth(160);
+        nazwisko.setMaxWidth(160);
+        nazwisko.setCellValueFactory(new PropertyValueFactory<>("nazwisko"));
+
+        budzet.setMinWidth(50);
+        budzet.setCellValueFactory(new PropertyValueFactory<>("budzet"));
+        budzet.setSortType(TableColumn.SortType.DESCENDING);
+
+        topTabela.getColumns().clear();
+
+        topTabela.setItems(podmioty);
+        topTabela.getColumns().addAll(imie, nazwisko, budzet);
+        topTabela.getSortOrder().add(budzet);
+    }
+
+    public void wyswietlanieInwestorow() {
+        tabela.getColumns().clear();
+        ObservableList<PodmiotInwestujacy> podmioty = FXCollections.observableArrayList(Ekonomia.getInwestorzy());
+        TableColumn<PodmiotInwestujacy, String> imie = new TableColumn<>("Imię");
+        TableColumn<PodmiotInwestujacy, String> nazwisko = new TableColumn<>("Nazwisko");
+        TableColumn<PodmiotInwestujacy, Double> budzet = new TableColumn<>("Budżet");
+        imie.setMinWidth(80);
+        imie.setMaxWidth(80);
+        imie.setCellValueFactory(new PropertyValueFactory<>("imie"));
+        nazwisko.setMinWidth(160);
+        nazwisko.setMaxWidth(160);
+        nazwisko.setCellValueFactory(new PropertyValueFactory<>("nazwisko"));
+        budzet.setMinWidth(50);
+        budzet.setCellValueFactory(new PropertyValueFactory<>("budzet"));
+
+        tabela.setItems(podmioty);
+        tabela.getColumns().addAll(imie, nazwisko, budzet);
+        console.setText("Na gieldzie funkcjonuje " + Ekonomia.getInwestorzyIndywidualni().size() + " inwestorow indywidualnych i " +
+                (Ekonomia.getInwestorzy().size() - Ekonomia.getInwestorzyIndywidualni().size() + " funduszy inwestycyjnych\n" +
+                        "Aby dowiedziec sie wiecej kliknij wybranego inwestora"));
 
     }
 
+    public void wyswietlanieSpolek() {
+        tabela.getColumns().clear();
+        ObservableList<Spolka> spolki = FXCollections.observableArrayList(Ekonomia.getAktywa().getSpolki());
+        TableColumn<Spolka, String> nazwa = new TableColumn<>("Nazwa");
+        TableColumn<Spolka, Double> kurs = new TableColumn<>("Kurs");
+        TableColumn<Spolka, Double> kursMax = new TableColumn<>("Kurs maksyalny");
+        TableColumn<Spolka, Double> kursMin = new TableColumn<>("Kurs minimalny");
+        nazwa.setMinWidth(200);
+        nazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
+        kurs.setMinWidth(60);
+        kurs.setCellValueFactory(new PropertyValueFactory<>("kursAktualny"));
+        kursMax.setMinWidth(60);
+        kursMax.setCellValueFactory(new PropertyValueFactory<>("kursMaksymalny"));
+        kursMin.setMinWidth(60);
+        kursMin.setCellValueFactory(new PropertyValueFactory<>("kursMinimalny"));
+
+        double lacznaWartosc = 0;
+        for (Spolka spolka : spolki) {
+            lacznaWartosc += spolka.getKursAktualny() * spolka.getLiczbaAkcji();
+        }
+
+        tabela.setItems(spolki);
+        tabela.getColumns().addAll(nazwa, kurs, kursMax, kursMin);
+        console.setText("Na gieldzie funkcjonuje " + spolki.size() + " spolek o lacznej wartosci " + lacznaWartosc + " PLN\n" +
+                "Aby dowiedziec sie wiecej kliknij wybrana spolke");
+    }
+
+    public void wyswietlanieWalut() {
+        tabela.getColumns().clear();
+        ObservableList<Waluta> waluty = FXCollections.observableArrayList(Ekonomia.getAktywa().getWaluty());
+        TableColumn<Spolka, String> nazwa = new TableColumn<>("Nazwa");
+        TableColumn<Spolka, Double> kurs = new TableColumn<>("Kurs");
+        nazwa.setMinWidth(200);
+        nazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
+        kurs.setMinWidth(60);
+        kurs.setCellValueFactory(new PropertyValueFactory<>("wartosc"));
+
+        tabela.setItems(waluty);
+        tabela.getColumns().addAll(nazwa, kurs);
+        console.setText("Na rynku funkcjonuje " + waluty.size() + " walut, waluta glowna to PLN " +
+                "\nAby dowiedziec sie wiecej kliknij wybrana walute");
+    }
+
+    public void wyswietlanieSurowcow() {
+        tabela.getColumns().clear();
+        ObservableList<Surowiec> surowce = FXCollections.observableArrayList(Ekonomia.getAktywa().getSurowce());
+        TableColumn<Surowiec, String> nazwa = new TableColumn<>("Nazwa");
+        TableColumn<Surowiec, String> jednostka = new TableColumn<>("Jednostka");
+        TableColumn<Surowiec, Double> kurs = new TableColumn<>("Wartość");
+        TableColumn<Surowiec, Double> kursMax = new TableColumn<>("Wartość maksymalna");
+        TableColumn<Surowiec, Double> kursMin = new TableColumn<>("Wartość minimalna");
+        nazwa.setMinWidth(80);
+        nazwa.setMaxWidth(80);
+        nazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
+        jednostka.setMinWidth(60);
+        jednostka.setCellValueFactory(new PropertyValueFactory<>("jednostkaHandlowa"));
+        kurs.setMinWidth(60);
+        kurs.setCellValueFactory(new PropertyValueFactory<>("wartosc"));
+        kursMax.setMinWidth(60);
+        kursMax.setCellValueFactory(new PropertyValueFactory<>("wartoscMax"));
+        kursMin.setMinWidth(60);
+        kursMin.setCellValueFactory(new PropertyValueFactory<>("wartoscMin"));
+
+        tabela.setItems(surowce);
+        tabela.getColumns().addAll(nazwa, jednostka, kurs, kursMax, kursMin);
+        console.setText("Na rynku funkcjonuje " + surowce.size() + " surowcow" + "\nAby dowiedziec sie wiecej kliknij " +
+                "wybrana walute");
+    }
 }
