@@ -37,15 +37,6 @@ public class Surowiec {
         return jednostkaHandlowa;
     }
 
-
-//    public Waluta getWaluta() {
-//        return waluta;
-//    }
-//
-//    public void setWaluta(Waluta waluta) {
-//        this.waluta = waluta;
-//    }
-
     public double getWartosc() {
         return wartosc;
     }

@@ -8,6 +8,7 @@ public class Nazwy {
     private ArrayList<String> nazwySpolek = new ArrayList<String>();
     private ArrayList<String> imiona = new ArrayList<String>();
     private ArrayList<String> nazwiska = new ArrayList<String>();
+    private ArrayList<String> indeksy = new ArrayList<>();
     private Random random;
 
     public Nazwy() {
@@ -47,6 +48,12 @@ public class Nazwy {
         nazwiska.add("Salami");
         nazwiska.add("Toffifee");
         nazwiska.add("Rafaello");
+
+        indeksy.add("Top IG");
+        indeksy.add("Broke IG");
+        indeksy.add("Indeks upadlych");
+        indeksy.add("Biggest and richest");
+
     }
 
     public String getNazwaSpolki() {
@@ -59,5 +66,9 @@ public class Nazwy {
 
     public String getNazwisko() {
         return nazwiska.get(random.nextInt(nazwiska.size()));
+    }
+
+    public String getNazwaIndeksu() {
+        return indeksy.get(random.nextInt(indeksy.size()));
     }
 }

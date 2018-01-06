@@ -16,7 +16,7 @@ public abstract class PodmiotInwestujacy {
 
     protected Random rand = new Random();
 
-    private ArrayList<Double> historiaWartosciPortfela = new ArrayList<>();
+    private ArrayList<Double> historiaWartosciMajatku = new ArrayList<>();
 
     public String getImie() {
         return imie;
@@ -44,6 +44,10 @@ public abstract class PodmiotInwestujacy {
 
     public void setAgresja(int agresja) {
         this.agresja = agresja;
+    }
+
+    public int getAgresja(){
+        return agresja;
     }
 
     public void setBudzet(double budzet) {
@@ -178,6 +182,8 @@ public abstract class PodmiotInwestujacy {
     }
 
     public void podejmijDzialanie(Aktywa stanAktywow) {
+        historiaWartosciMajatku.add(budzet+portfel.przeliczPortfel());  //Czy nie zbyt obciążające?
+
         Random rand = new Random();
         int randNum;
 
@@ -228,5 +234,10 @@ public abstract class PodmiotInwestujacy {
             setBudzet(getBudzet() + Ekonomia.getPodstawowyBudzet() * rand.nextDouble());
         }
     }
+
+    public ArrayList<Double> getHistoriaWartosciMajatku() {
+        return historiaWartosciMajatku;
+    }
+
 
 }

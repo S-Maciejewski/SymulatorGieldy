@@ -12,7 +12,7 @@ public class Ekonomia {
 
     private static Aktywa aktywa = new Aktywa();
 
-    private static int nrSesji = 0;
+    private static int nrSesji = 1;
     private static double podstawowyBudzet = 10000;
     private static Random rand = new Random();
 
@@ -46,6 +46,8 @@ public class Ekonomia {
         aktywa.dodajWalute(walutyPrzykladowe.getWaluty().get(0));   //Dodawanie PLN
         for (int i = 0; i < 2; i++)
             aktywa.dodajWalute(walutyPrzykladowe.getWaluta());
+        Gieldy gieldyPrzykladowe = new Gieldy();
+        gieldy.add(gieldyPrzykladowe.getGielda());
 
     }
 
@@ -63,19 +65,16 @@ public class Ekonomia {
         }
 
         for (Waluta waluta : aktywa.getWaluty()) {
-            if(waluta.getNazwa().equals("PLN")){        //TODO zjebane waluty
-                System.out.println("PLNY");
-                break;
+            if (!waluta.getNazwa().equals("PLN")) {
+                Random rand = new Random();
+                double stabilnosc = 5;
+                double mnoznik = rand.nextDouble() / stabilnosc - rand.nextDouble() / stabilnosc;
+
+                waluta.getHistoriaKursu().add(waluta.getWartosc());
+                waluta.setWartosc(waluta.getWartosc() * mnoznik + waluta.getWartosc());
+                if (waluta.getWartosc() <= 0)
+                    waluta.setWartosc(1);
             }
-
-            Random rand = new Random();
-            double stabilnosc = 5;
-            double mnoznik = rand.nextDouble() / stabilnosc - rand.nextDouble() / stabilnosc;
-
-            waluta.getHistoriaKursu().add(waluta.getWartosc());
-            waluta.setWartosc(waluta.getWartosc() * mnoznik + waluta.getWartosc());
-            if (waluta.getWartosc() <= 0)
-                waluta.setWartosc(1);
         }
 
         for (Spolka spolka : aktywa.getSpolki()) {
@@ -106,8 +105,8 @@ public class Ekonomia {
 
     }
 
-    private static void losoweZmianyBudzetu(){
-        for(PodmiotInwestujacy inwestor : inwestorzy)
+    private static void losoweZmianyBudzetu() {
+        for (PodmiotInwestujacy inwestor : inwestorzy)
             inwestor.zwiekszBudzetLosowo();
     }
 
@@ -115,11 +114,11 @@ public class Ekonomia {
         return inwestorzy;
     }
 
-    public static ArrayList<Inwestor> getInwestorzyIndywidualni(){
+    public static ArrayList<Inwestor> getInwestorzyIndywidualni() {
         ArrayList<Inwestor> inwestorzyIndywidualni = new ArrayList<>();
-        for(PodmiotInwestujacy inwestor : inwestorzy){
-            if(inwestor.getClass().equals(Inwestor.class))
-                inwestorzyIndywidualni.add((Inwestor)inwestor);
+        for (PodmiotInwestujacy inwestor : inwestorzy) {
+            if (inwestor.getClass().equals(Inwestor.class))
+                inwestorzyIndywidualni.add((Inwestor) inwestor);
         }
         return inwestorzyIndywidualni;
     }
@@ -148,5 +147,40 @@ public class Ekonomia {
         gieldy.add(gielda);
     }
 
+    public static ArrayList<String> getNazwySpolek() {
+        ArrayList<String> nazwy = new ArrayList<>();
+        for (Spolka spolka : aktywa.getSpolki()) {
+            nazwy.add(spolka.getNazwa());
+        }
+        return nazwy;
+    }
+
+    public static ArrayList<GieldaPW> getGieldyPW() {
+        ArrayList<GieldaPW> gieldyPW = new ArrayList<>();
+
+        for (Gielda gielda : gieldy) {
+            if (gielda.getClass().equals(GieldaPW.class)) {
+                //System.out.println(gielda.getNazwa() + " jest PW");
+                gieldyPW.add((GieldaPW) gielda);                     //Czy aby na pewno?
+            }
+        }
+        return gieldyPW;
+    }
+
+    public static ArrayList<Indeks> getIndeksy() {
+        ArrayList<Indeks> indeksy = new ArrayList<>();
+        for (GieldaPW gieldaPW : getGieldyPW())
+            for (Indeks indeks : gieldaPW.getIndeksy())
+                indeksy.add(indeks);
+        return indeksy;
+    }
+
+    public static void removeInwestor(Inwestor inwestor){
+        inwestorzy.remove(inwestor);
+    }
+
+    public static void removeFundusz(Fundusz fundusz){
+        inwestorzy.remove(fundusz);
+    }
 }
 

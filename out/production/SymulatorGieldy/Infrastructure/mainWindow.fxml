@@ -49,7 +49,7 @@
                   <Button fx:id="pokazWaluty" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż waluty" />
                   <Button fx:id="pokazSurowce" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż surowce" />
                   <Button fx:id="pokazGieldy" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż giełdy" />
-                  <Button fx:id="pokazIndeksy" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż giełdy" />
+                  <Button fx:id="pokazIndeksy" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="25.0" prefWidth="150.0" text="Pokaż indeksy" />
               </items>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -60,7 +60,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="nrSesji" layoutX="903.0" layoutY="180.0" prefHeight="25.0" prefWidth="48.0" text="0" textAlignment="CENTER">
+            <Label fx:id="nrSesji" layoutX="903.0" layoutY="180.0" prefHeight="25.0" prefWidth="48.0" text="1" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
@@ -86,8 +86,14 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="214.0" prefWidth="598.0">
          <children>
-            <TextArea fx:id="console" editable="false" layoutX="643.0" layoutY="14.0" prefHeight="268.0" prefWidth="326.0" promptText="Dane:" wrapText="true" />
-            <TableView fx:id="tabela" layoutX="14.0" layoutY="14.0" prefHeight="268.0" prefWidth="609.0" />
+            <TextArea fx:id="console" editable="false" layoutX="642.0" layoutY="14.0" prefHeight="261.0" prefWidth="326.0" promptText="Dane:" wrapText="true" />
+            <TableView fx:id="tabela" layoutX="14.0" layoutY="14.0" onMouseClicked="#pokazSzczegoly" prefHeight="261.0" prefWidth="609.0" />
+            <Label layoutX="6.0" layoutY="277.0" prefHeight="28.0" prefWidth="468.0" text="Po więcej szczegółów kliknij wybraną pozycję">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <ToggleButton fx:id="procent" layoutX="394.0" layoutY="275.0" mnemonicParsing="false" text="Wykresy w ujęciu procentowym" />
          </children>
       </AnchorPane>
   </items>

@@ -29,10 +29,6 @@ public class Fundusz extends PodmiotInwestujacy {
         return iloscJendostek;
     }
 
-    public void setIloscJendostek(int iloscJendostek) {
-        this.iloscJendostek = iloscJendostek;
-    }
-
     public double getWartoscJednostki() {
         return wartoscJednostki;
     }

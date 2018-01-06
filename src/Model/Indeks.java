@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Indeks {
     private String nazwa;
     private ArrayList<Spolka> spolki = new ArrayList<Spolka>();
+    private double wartosc;
 
     public String getNazwa() {
         return nazwa;
@@ -22,7 +23,10 @@ public class Indeks {
         this.spolki = spolki;
     }
 
-    public void dodajSpolke(Spolka spolka){
-        spolki.add(spolka);
+    public void wyliczWartosc() {
+        wartosc = 0;
+        for (Spolka spolka : spolki) {
+            wartosc += spolka.getKursAktualny() * spolka.getLiczbaAkcji();
+        }
     }
 }

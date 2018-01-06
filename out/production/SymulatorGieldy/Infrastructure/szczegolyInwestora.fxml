@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Infrastructure.Controller">
+   <children>
+      <TextField fx:id="imie" editable="false" layoutX="107.0" layoutY="99.0" />
+      <TextField fx:id="nazwisko" editable="false" layoutX="107.0" layoutY="147.0" />
+      <TextField fx:id="budzet" editable="false" layoutX="107.0" layoutY="199.0" />
+      <Label layoutX="14.0" layoutY="99.0" prefHeight="22.0" prefWidth="74.0" text="Imię">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="147.0" prefHeight="31.0" prefWidth="124.0" text="Nazwisko">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="199.0" prefHeight="31.0" prefWidth="124.0" text="Budżet">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="zamknij" layoutX="549.0" layoutY="418.0" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="68.0" prefWidth="124.0" text="Zamknij" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <LineChart fx:id="wykres" layoutX="309.0" layoutY="3.0" legendVisible="false" prefHeight="361.0" prefWidth="392.0" title="Wykres wartości majątku w czasie">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Label layoutX="14.0" layoutY="430.0" prefHeight="31.0" prefWidth="171.0" text="Wartość portfela">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="wartoscPortfela" editable="false" layoutX="185.0" layoutY="430.0" />
+      <Label layoutX="14.0" layoutY="251.0" prefHeight="22.0" prefWidth="74.0" text="PESEL">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pesel" editable="false" layoutX="107.0" layoutY="251.0" />
+      <Label layoutX="14.0" layoutY="303.0" prefHeight="22.0" prefWidth="74.0" text="Agresja">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="agresja" editable="false" layoutX="107.0" layoutY="303.0" />
+      <Label layoutX="62.0" layoutY="31.0" prefHeight="31.0" prefWidth="231.0" text="Szczegóły inwestora">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="usun" layoutX="452.0" layoutY="371.0" mnemonicParsing="false" onAction="#usunInwestora" prefHeight="31.0" prefWidth="221.0" text="Usuń obiekt z systemu" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

@@ -1,4 +1,7 @@
 package Infrastructure;
+/*
+    TODO comment
+ */
 
 import Model.*;
 import Repository.*;
@@ -9,6 +12,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.Chart;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
@@ -23,23 +29,32 @@ public class Controller {
 
     @FXML
     private Button przeliczSesje, dodajInwestora, dodajSpolke, dodajWalute, dodajSurowiec, dodajGielde, dodajIndeks,
-            pokazInwestorow, pokazSpolki, pokazWaluty, pokazSurowce, pokazGieldy, pokazIndeksy, zamknij;
+            pokazInwestorow, pokazSpolki, pokazWaluty, pokazSurowce, pokazGieldy, pokazIndeksy, zamknij, usun;
     @FXML
     private Label nrSesji;
     @FXML
     private TextField imie, nazwisko, budzet, nazwa, kurs, akcje, freeFloat, kapitalZakladowy,
             nazwaWaluty, wartoscWaluty, nazwaSurowca, jednostkaSurowca, wartoscSurowca,
-            nazwaGieldy, kraj, miasto, adres, marza;
+            nazwaGieldy, kraj, miasto, adres, marza, nazwaIndeksu,
+            pesel, agresja, wartoscPortfela, ilosc, wartosc;
     @FXML
     private TextArea console;
     @FXML
     private CheckBox czyFundusz;
     @FXML
-    private ChoiceBox<String> typ;
+    private ChoiceBox<String> typ, wyborSpolki, wyborGieldy;
     @FXML
     private TableView topTabela, tabela;
+    @FXML
+    private LineChart<String, Number> wykres;
+    @FXML
+    private ToggleButton procent;
 
     private Random rand = new Random();
+    private ArrayList<String> nazwySpolek, nazwyGieldPW;
+
+    //TODO pozmieniac public na private
+
 
     public void executeMenuAction(ActionEvent event) {
 
@@ -66,7 +81,9 @@ public class Controller {
                 dodawanieSurowca();
             } else if (event.getSource().equals(dodajGielde)) {
                 dodawanieGieldy();  //TODO powtarzające się nazwy
-            } else if (event.getSource().equals(pokazInwestorow)) {     //TODO wyswietlanie
+            } else if (event.getSource().equals(dodajIndeks)) {
+                dodawanieIndeksu();
+            } else if (event.getSource().equals(pokazInwestorow)) {     //TODO wyswietlanie okien z wykresami
                 wyswietlanieInwestorow();
             } else if (event.getSource().equals(pokazSpolki)) {
                 wyswietlanieSpolek();
@@ -75,7 +92,9 @@ public class Controller {
             } else if (event.getSource().equals(pokazSurowce)) {
                 wyswietlanieSurowcow();
             } else if (event.getSource().equals(pokazGieldy)) {
-
+                wyswietlanieGield();
+            } else if (event.getSource().equals(pokazIndeksy)) {
+                wyswietlanieIndeksow();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -86,6 +105,8 @@ public class Controller {
     public void zamknijOkno(Stage stage) {
         stage.close();
     }
+
+    //Dodawanie
 
     public void dodawanieInwestora() throws IOException {
 
@@ -322,6 +343,74 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
+    public void dodawanieIndeksu() throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("dodawanieIndeksu.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(dodajInwestora.getScene().getWindow());
+        stage.setTitle("Dodaj indeks");
+
+        TextField nazwaIndeksu = (TextField) root.lookup("#nazwaIndeksu");
+        nazwySpolek = new ArrayList<>();
+        nazwyGieldPW = new ArrayList<>();
+
+        Nazwy nazwy = new Nazwy();
+        nazwaIndeksu.setText(nazwy.getNazwaIndeksu());
+
+        ChoiceBox<String> wyborGieldy = (ChoiceBox<String>) root.lookup("#wyborGieldy");
+//        for (Gielda gielda : Ekonomia.getGieldy()) {
+//            if (gielda.getClass().equals(GieldaPW.class))
+//                nazwyGieldPW.add(gielda.getNazwa());
+//        }
+        Ekonomia.getGieldyPW();
+        for (GieldaPW gieldaPW : Ekonomia.getGieldyPW()) {
+            nazwyGieldPW.add(gieldaPW.getNazwa());
+        }
+
+        wyborGieldy.getItems().addAll(nazwyGieldPW);
+        if (nazwyGieldPW.size() > 0)
+            wyborGieldy.setValue(nazwyGieldPW.get(rand.nextInt(nazwyGieldPW.size())));
+        else
+            wyborGieldy.setValue("Brak gield papierow wartosciowych");
+
+        ChoiceBox<String> typ = (ChoiceBox<String>) root.lookup("#wyborSpolki");
+        typ.getItems().addAll(Ekonomia.getNazwySpolek());
+        typ.setValue(Ekonomia.getNazwySpolek().get(rand.nextInt(Ekonomia.getNazwySpolek().size())));
+
+        stage.showAndWait();
+    }   //TODO do poprawy
+
+    public void dodawanieDoIndeksu() {
+        nazwySpolek.add(wyborSpolki.getValue());
+    }
+
+    public void potwierdzenieIndeksu() {
+        System.out.println("Pojawil sie nowy indeks");
+        System.out.println("Nazwa " + nazwaIndeksu.getText());
+
+        Indeks indeks = new Indeks();
+        indeks.setNazwa(nazwaIndeksu.getText());
+
+        ArrayList<Spolka> spolki = new ArrayList<>();
+        for (Spolka spolka : Ekonomia.getAktywa().getSpolki()) {
+            for (String nazwa : nazwySpolek) {
+                if (nazwa.equals(spolka.getNazwa())) {
+                    spolki.add(spolka);
+                    break;
+                }
+            }
+        }
+        indeks.setSpolki(spolki);
+
+        for (GieldaPW gieldaPW : Ekonomia.getGieldyPW()) {
+            if (gieldaPW.getNazwa().equals(wyborGieldy.getValue())) {
+                gieldaPW.dodajIndeks(indeks);
+                break;
+            }
+        }
+    }   //TODO do poprawy
+
     //Wyswietlanie
 
     public void zaktualizujTopInwestorow() {
@@ -416,7 +505,7 @@ public class Controller {
                 "\nAby dowiedziec sie wiecej kliknij wybrana walute");
     }
 
-    public void wyswietlanieSurowcow() {
+    public void wyswietlanieSurowcow() {    //TODO Błąd z wartoscMax i wartoscMin
         tabela.getColumns().clear();
         ObservableList<Surowiec> surowce = FXCollections.observableArrayList(Ekonomia.getAktywa().getSurowce());
         TableColumn<Surowiec, String> nazwa = new TableColumn<>("Nazwa");
@@ -440,5 +529,164 @@ public class Controller {
         tabela.getColumns().addAll(nazwa, jednostka, kurs, kursMax, kursMin);
         console.setText("Na rynku funkcjonuje " + surowce.size() + " surowcow" + "\nAby dowiedziec sie wiecej kliknij " +
                 "wybrana walute");
+    }
+
+    public void wyswietlanieGield() {
+        tabela.getColumns().clear();
+        ObservableList<Gielda> gieldy = FXCollections.observableArrayList(Ekonomia.getGieldy());
+        TableColumn<Gielda, String> nazwa = new TableColumn<>("Nazwa");
+        TableColumn<Gielda, String> kraj = new TableColumn<>("Kraj");
+        TableColumn<Gielda, String> miasto = new TableColumn<>("Miasto");
+        TableColumn<Gielda, String> adres = new TableColumn<>("Adres");
+        TableColumn<Gielda, Double> marza = new TableColumn<>("Marza");
+        nazwa.setMinWidth(200);
+        nazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
+        kraj.setMinWidth(60);
+        kraj.setCellValueFactory(new PropertyValueFactory<>("kraj"));
+        miasto.setMinWidth(60);
+        miasto.setCellValueFactory(new PropertyValueFactory<>("miasto"));
+        adres.setMinWidth(80);
+        adres.setCellValueFactory(new PropertyValueFactory<>("adresSiedziby"));
+        marza.setMinWidth(60);
+        marza.setCellValueFactory(new PropertyValueFactory<>("marza"));
+
+        tabela.setItems(gieldy);
+        tabela.getColumns().addAll(nazwa, kraj, miasto, adres, marza);
+        console.setText("Na rynku funkcjonuje " + gieldy.size() + " gield" + "\nAby dowiedziec sie wiecej kliknij " +
+                "wybrana gielde");
+    }
+
+    public void wyswietlanieIndeksow() {
+        tabela.getColumns().clear();
+        ObservableList<Indeks> indeksy = FXCollections.observableArrayList(Ekonomia.getIndeksy());
+        for (Indeks indeks : indeksy)
+            indeks.wyliczWartosc();
+
+        TableColumn<Indeks, String> nazwa = new TableColumn<>("Nazwa");
+        TableColumn<Indeks, Double> wartosc = new TableColumn<>("Wartość");
+
+        nazwa.setMinWidth(100);
+        nazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
+        wartosc.setMinWidth(100);
+        wartosc.setCellValueFactory(new PropertyValueFactory<>("wartosc"));
+    }
+
+    //Szczegóły
+
+    public void pokazSzczegoly() {
+        System.out.println(tabela.getSelectionModel().getSelectedItem().getClass());
+
+        try {
+            if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Inwestor.class)) {
+                szczegolyInwestora((Inwestor) tabela.getSelectionModel().getSelectedItem());
+            } else if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Fundusz.class)) {
+                szczegolyFunduszu((Fundusz) tabela.getSelectionModel().getSelectedItem());
+            } else if(tabela.getSelectionModel().getSelectedItem().getClass().equals(Spolka.class)){
+                szczegolySpolki((Spolka)tabela.getSelectionModel().getSelectedItem());
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Nie znaleziono dopowiedniego pliku .fxml - prosze sprawdzic zawartosc folderu Infrastructure");
+        }
+
+    }
+
+    private LineChart<String, Number> stworzWykres(Parent root, ArrayList<Double> historiaWartosci) {
+        LineChart<String, Number> wykres = (LineChart<String, Number>) root.lookup("#wykres");
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        if (procent.isSelected()) {
+            series.getData().add(new XYChart.Data<>(1 + "", 100));
+            for (int i = 1; i < historiaWartosci.size(); i++) {
+                series.getData().add(new XYChart.Data<>((i + 1) + "",
+                        historiaWartosci.get(i) / historiaWartosci.get(0) * 100));
+            }
+        } else
+            for (int i = 0; i < historiaWartosci.size(); i++)
+                series.getData().add(new XYChart.Data<>((i + 1) + "", historiaWartosci.get(i)));
+
+        wykres.getData().add(series);
+
+        return wykres;
+    }
+
+    public void szczegolyInwestora(Inwestor inwestor) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("szczegolyInwestora.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(tabela.getScene().getWindow());
+        stage.setTitle("Szczegoly inwestora");
+
+        TextField imie = (TextField) root.lookup("#imie");
+        TextField nazwisko = (TextField) root.lookup("#nazwisko");
+        TextField budzet = (TextField) root.lookup("#budzet");
+        TextField pesel = (TextField) root.lookup("#pesel");
+        TextField agresja = (TextField) root.lookup("#agresja");
+        TextField wartoscPortfela = (TextField) root.lookup("#wartoscPortfela");
+
+        imie.setText(inwestor.getImie());
+        nazwisko.setText(inwestor.getNazwisko());
+        budzet.setText(inwestor.getBudzet() + "");
+        pesel.setText(inwestor.getPesel());
+        agresja.setText(inwestor.getAgresja() + "");
+        wartoscPortfela.setText(inwestor.getPortfel().przeliczPortfel() + "");
+
+        LineChart<String, Number> wykres = stworzWykres(root, inwestor.getHistoriaWartosciMajatku());
+        stage.showAndWait();
+    }
+
+    public void usunInwestora() {
+        for (Inwestor inwestor : Ekonomia.getInwestorzyIndywidualni()) {
+            if (inwestor.getImie().equals(imie.getText()) && inwestor.getNazwisko().equals(nazwisko.getText())) {
+                Ekonomia.removeInwestor(inwestor);
+                break;
+            }
+        }
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
+    public void szczegolyFunduszu(Fundusz fundusz) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("szczegolyFunduszu.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(tabela.getScene().getWindow());
+        stage.setTitle("Szczegoly funduszu inwestycyjnego");
+
+        TextField imie = (TextField) root.lookup("#imie");
+        TextField nazwisko = (TextField) root.lookup("#nazwisko");
+        TextField budzet = (TextField) root.lookup("#budzet");
+        TextField agresja = (TextField) root.lookup("#agresja");
+        TextField wartosc = (TextField) root.lookup("#wartosc");
+        TextField ilosc = (TextField) root.lookup("#ilosc");
+        TextField wartoscPortfela = (TextField) root.lookup("#wartoscPortfela");
+
+        imie.setText(fundusz.getImie());
+        nazwisko.setText(fundusz.getNazwisko());
+        budzet.setText(fundusz.getBudzet() + "");
+        agresja.setText(fundusz.getAgresja() + "");
+        wartosc.setText(fundusz.getWartoscJednostki() + "");    //TODO błąd?
+        ilosc.setText(fundusz.getIloscJendostek() + "");
+        wartoscPortfela.setText(fundusz.getPortfel().przeliczPortfel() + "");
+
+        LineChart<String, Number> wykres = stworzWykres(root, fundusz.getHistoriaWartosciMajatku());
+        stage.showAndWait();
+    }
+
+    public void usunFundusz() {
+        for (PodmiotInwestujacy fundusz : Ekonomia.getInwestorzy()) {
+            if (fundusz.getImie().equals(imie.getText()) && fundusz.getNazwisko().equals(nazwisko.getText()) &&
+                    fundusz.getClass().equals(Fundusz.class)) {
+                Ekonomia.removeFundusz((Fundusz) fundusz);
+                break;
+            }
+        }
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
+    public void szczegolySpolki(Spolka spolka) throws IOException{
+
+
     }
 }
