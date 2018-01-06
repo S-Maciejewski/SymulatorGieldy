@@ -36,7 +36,11 @@ public class Aktywa {
         return funduszeInwestycyjne;
     }
 
-    public void dodajFundusz(Fundusz fundusz){
+    public void dodajFundusz(Fundusz fundusz) {
         funduszeInwestycyjne.add(fundusz);
+    }
+
+    public void removeSpolka(Spolka spolka) {
+        spolki.remove(spolka);
     }
 }

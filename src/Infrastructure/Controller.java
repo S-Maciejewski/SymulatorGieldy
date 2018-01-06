@@ -36,7 +36,8 @@ public class Controller {
     private TextField imie, nazwisko, budzet, nazwa, kurs, akcje, freeFloat, kapitalZakladowy,
             nazwaWaluty, wartoscWaluty, nazwaSurowca, jednostkaSurowca, wartoscSurowca,
             nazwaGieldy, kraj, miasto, adres, marza, nazwaIndeksu,
-            pesel, agresja, wartoscPortfela, ilosc, wartosc;
+            pesel, agresja, wartoscPortfela, ilosc, wartosc,
+            data, kursOtwarcia, kursMax, kursMin, wolumen, kapital, obroty, przychody, zysk;
     @FXML
     private TextArea console;
     @FXML
@@ -581,8 +582,8 @@ public class Controller {
                 szczegolyInwestora((Inwestor) tabela.getSelectionModel().getSelectedItem());
             } else if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Fundusz.class)) {
                 szczegolyFunduszu((Fundusz) tabela.getSelectionModel().getSelectedItem());
-            } else if(tabela.getSelectionModel().getSelectedItem().getClass().equals(Spolka.class)){
-                szczegolySpolki((Spolka)tabela.getSelectionModel().getSelectedItem());
+            } else if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Spolka.class)) {
+                szczegolySpolki((Spolka) tabela.getSelectionModel().getSelectedItem());
             }
 
         } catch (IOException e) {
@@ -685,8 +686,65 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void szczegolySpolki(Spolka spolka) throws IOException{
+    public void szczegolySpolki(Spolka spolka) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("szczegolySpolki.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(tabela.getScene().getWindow());
+        stage.setTitle("Szczegoly spolki");
 
+        TextField nazwa = (TextField) root.lookup("#nazwa");
+        TextField data = (TextField) root.lookup("#data");
+        TextField kurs = (TextField) root.lookup("#kurs");
+        TextField kursOtwarcia = (TextField) root.lookup("#kursOtwarcia");
+        TextField kursMax = (TextField) root.lookup("#kursMax");
+        TextField kursMin = (TextField) root.lookup("#kursMin");
+        TextField wolumen = (TextField) root.lookup("#wolumen");
+        TextField akcje = (TextField) root.lookup("#akcje");
+        TextField freeFloat = (TextField) root.lookup("#freeFloat");
+        TextField kapital = (TextField) root.lookup("#kapital");
+        TextField kapitalZakladowy = (TextField) root.lookup("#kapitalZakladowy");
+        TextField obroty = (TextField) root.lookup("#obroty");
+        TextField przychody = (TextField) root.lookup("#przychody");
+        TextField zysk = (TextField) root.lookup("#zysk");
+
+        nazwa.setText(spolka.getNazwa());
+        data.setText(spolka.getDataPierwszejWyceny());
+        kurs.setText(spolka.getKursAktualny() + "");
+        kursOtwarcia.setText(spolka.getKursOtwarcia() + "");
+        kursMax.setText(spolka.getKursMaksymalny() + "");
+        kursMin.setText(spolka.getKursMinimalny() + "");
+        wolumen.setText(spolka.getWolumen() + "");
+        akcje.setText(spolka.getLiczbaAkcji() + "");
+        freeFloat.setText(spolka.getLiczbaAkcjiNaSprzedaz() + "");
+        kapital.setText(spolka.getKapitalWlasny() + "");
+        kapitalZakladowy.setText(spolka.getKapitalZakladowy() + "");
+        obroty.setText(spolka.getObroty() + "");
+        przychody.setText(spolka.getPrzychod() + "");
+        zysk.setText(spolka.getZysk() + "");
+
+        LineChart<String, Number> wykres = stworzWykres(root, spolka.getHistoriaKursu());
+        stage.showAndWait();
+    }
+
+    public void usunSpolke() {
+        for (Spolka spolka : Ekonomia.getAktywa().getSpolki()) {
+            if (spolka.getNazwa().equals(nazwa.getText()) && spolka.getDataPierwszejWyceny().equals(data.getText())) {
+                Ekonomia.getAktywa().removeSpolka(spolka);
+                break;
+            }
+        }
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
+    public void szczegolyWaluty(Waluta waluta) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("szczegolyWaluty.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(tabela.getScene().getWindow());
+        stage.setTitle("Szczegoly waluty");
 
     }
 }

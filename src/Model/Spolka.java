@@ -139,4 +139,7 @@ public class Spolka {
         return stabilnoscKursu;
     }
 
+    public ArrayList<Double> getHistoriaKursu() {
+        return historiaKursu;
+    }
 }

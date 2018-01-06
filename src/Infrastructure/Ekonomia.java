@@ -95,7 +95,8 @@ public class Ekonomia {
             spolka.przeliczWartosciMinMax();
             spolka.ustawKursOtwarcia();
             spolka.ustawInneParametry();
-            spolka.setWolumen(0);   //Zerowanie wolumenu na koniec każdej sesji
+            //Wolumen jako wartość łącznego obrotu akcjami spółki?
+            //spolka.setWolumen(0);   //Zerowanie wolumenu na koniec każdej sesji
         }
 
         for (Fundusz fundusz : aktywa.getFunduszeInwestycyjne()) {
