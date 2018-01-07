@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Surowiec {
+public class Surowiec implements Serializable{
     private String nazwa;
     private String jednostkaHandlowa;
 

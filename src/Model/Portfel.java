@@ -1,11 +1,12 @@
 package Model;
 
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Portfel {
+public class Portfel implements Serializable{
     private Map<Spolka, Integer> akcje = new HashMap<Spolka, Integer>();
     private Map<Surowiec, Integer> surowce = new HashMap<Surowiec, Integer>();
     private Map<Waluta, Integer> waluty = new HashMap<Waluta, Integer>();

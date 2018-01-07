@@ -3,17 +3,18 @@ package Infrastructure;
 import Model.*;
 import Repository.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Ekonomia {
+public class Ekonomia implements Serializable{
     private static ArrayList<Gielda> gieldy = new ArrayList<>();
     private static ArrayList<PodmiotInwestujacy> inwestorzy = new ArrayList<>();
 
     private static Aktywa aktywa = new Aktywa();
 
     private static int nrSesji = 1;
-    private static double podstawowyBudzet = 10000;
+    private static double podstawowyBudzet = 10000; //Parametr symulacji
     private static Random rand = new Random();
 
 
@@ -192,6 +193,19 @@ public class Ekonomia {
     public static void removeGielda(Gielda gielda) {
         gieldy.remove(gielda);
     }
+
+    public void setGieldy(ArrayList<Gielda> gieldy){
+        this.gieldy = gieldy;
+    }
+
+    public void setInwestorzy(ArrayList<PodmiotInwestujacy> inwestorzy){
+        this.inwestorzy = inwestorzy;
+    }
+
+    public void setAktywa(Aktywa aktywa){
+        this.aktywa = aktywa;
+    }
+
 
 }
 

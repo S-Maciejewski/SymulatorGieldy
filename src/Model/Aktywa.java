@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Aktywa {
+public class Aktywa implements Serializable{
     private ArrayList<Spolka> spolki = new ArrayList<>();
     private ArrayList<Surowiec> surowce = new ArrayList<>();
     private ArrayList<Waluta> waluty = new ArrayList<>();

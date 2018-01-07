@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Indeks {
+public class Indeks implements Serializable{
     private String nazwa;
     private ArrayList<Spolka> spolki = new ArrayList<Spolka>();
     private double wartosc;

@@ -2,12 +2,13 @@ package Model;
 
 import Infrastructure.Ekonomia;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
-public abstract class PodmiotInwestujacy {
+public abstract class PodmiotInwestujacy implements Serializable{
     private String imie;
     private String nazwisko;
     private Portfel portfel;

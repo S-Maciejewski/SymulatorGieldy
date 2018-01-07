@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static Zapis zapis;
+    public static Ekonomia ekonomia;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
@@ -16,13 +19,16 @@ public class Main extends Application {
         Scene scene = new Scene(root, 1000, 600);
         primaryStage.setScene(scene);
 
-        Ekonomia ekonomia = new Ekonomia();
-        ekonomia.inicjalizujSymulacje();
         primaryStage.show();
     }
 
 
     public static void main(String[] args) {
+        ekonomia = new Ekonomia();
+        ekonomia.inicjalizujSymulacje();
+
+        zapis = new Zapis();
+
         launch(args);
     }
 }

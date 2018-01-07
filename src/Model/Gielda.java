@@ -1,6 +1,8 @@
 package Model;
 
-public abstract class Gielda {
+import java.io.Serializable;
+
+public abstract class Gielda implements Serializable{
     private String nazwa;
     private String kraj;
     private String miasto;

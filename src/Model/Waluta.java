@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Waluta {
+public class Waluta implements Serializable{
 
     private String nazwa;
     private ArrayList<String> listaKrajow;

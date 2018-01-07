@@ -66,11 +66,14 @@ public class Controller {
     //TODO pozmieniac public na private
 
     public void wykonajZapis(){
-        
+        Main.zapis.zapisz();
+        console.setText("Pomyślnie dodkonano zapisu do pliku zapis.txt");
     }
 
     public void wykonajOdczyt(){
-
+        Main.zapis.wczytaj();
+        console.setText("Pomyślnie dodonano odczytu z pliku zapis.txt\n" +
+                "Aby odświeżyć informacje na ekranie, przejdź do kolejnej tury");
     }
 
     public void executeMenuAction(ActionEvent event) {
