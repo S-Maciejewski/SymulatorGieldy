@@ -18,13 +18,19 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Infrastructure.Controller">
    <children>
       <TextField fx:id="nazwa" editable="false" layoutX="107.0" layoutY="99.0" />
-      <TextField fx:id="kurs" editable="false" layoutX="107.0" layoutY="147.0" />
+      <TextField fx:id="jednostkaSurowca" editable="false" layoutX="107.0" layoutY="147.0" />
+      <TextField fx:id="wartoscSurowca" editable="false" layoutX="107.0" layoutY="199.0" />
       <Label layoutX="14.0" layoutY="99.0" prefHeight="22.0" prefWidth="74.0" text="Nazwa">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="147.0" prefHeight="31.0" prefWidth="124.0" text="Kurs">
+      <Label layoutX="14.0" layoutY="147.0" prefHeight="31.0" prefWidth="99.0" text="Jednostka">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="199.0" prefHeight="31.0" prefWidth="124.0" text="Wartość">
          <font>
             <Font size="21.0" />
          </font>
@@ -34,7 +40,7 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <LineChart fx:id="wykres" layoutX="309.0" layoutY="3.0" legendVisible="false" prefHeight="361.0" prefWidth="392.0" title="Wykres ceny waluty w czasie">
+      <LineChart fx:id="wykres" layoutX="309.0" layoutY="3.0" legendVisible="false" prefHeight="361.0" prefWidth="392.0" title="Wykres wartości surowca w czasie">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -42,21 +48,27 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-      <Label layoutX="100.0" layoutY="219.0" prefHeight="31.0" prefWidth="135.0" text="Lista krajów">
+      <Label layoutX="14.0" layoutY="375.0" prefHeight="31.0" prefWidth="198.0" text="Wartość maksymalna">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="27.0" prefHeight="31.0" prefWidth="231.0" text="Szczegóły waluty">
+      <TextField fx:id="kursMax" editable="false" layoutX="216.0" layoutY="375.0" />
+      <Label layoutX="14.0" layoutY="429.0" prefHeight="31.0" prefWidth="198.0" text="Wartość minimalna">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Button fx:id="usun" layoutX="452.0" layoutY="371.0" mnemonicParsing="false" onAction="#usunWalute" prefHeight="31.0" prefWidth="221.0" text="Usuń obiekt z systemu" textAlignment="CENTER" wrapText="true">
+      <TextField fx:id="kursMin" editable="false" layoutX="216.0" layoutY="429.0" />
+      <Label layoutX="62.0" layoutY="31.0" prefHeight="31.0" prefWidth="231.0" text="Szczegóły surowca">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="usun" layoutX="452.0" layoutY="371.0" mnemonicParsing="false" onAction="#usunSurowiec" prefHeight="31.0" prefWidth="221.0" text="Usuń obiekt z systemu" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <ListView fx:id="lista" editable="true" layoutX="58.0" layoutY="252.0" prefHeight="218.0" prefWidth="200.0" />
    </children>
 </Pane>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Infrastructure.Controller">
+   <children>
+      <TextField fx:id="nazwa" editable="false" layoutX="251.0" layoutY="99.0" prefHeight="31.0" prefWidth="269.0" />
+      <TextField fx:id="kraj" editable="false" layoutX="251.0" layoutY="147.0" prefHeight="31.0" prefWidth="269.0" />
+      <Label layoutX="158.0" layoutY="99.0" prefHeight="22.0" prefWidth="74.0" text="Nazwa">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="158.0" layoutY="147.0" prefHeight="31.0" prefWidth="124.0" text="Kraj">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="zamknij" layoutX="549.0" layoutY="418.0" mnemonicParsing="false" onAction="#executeMenuAction" prefHeight="68.0" prefWidth="124.0" text="Zamknij" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="151.0" layoutY="24.0" prefHeight="55.0" prefWidth="206.0" text="Szczegóły giełdy">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="usun" layoutX="452.0" layoutY="371.0" mnemonicParsing="false" onAction="#usunGielde" prefHeight="31.0" prefWidth="221.0" text="Usuń obiekt z systemu" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="158.0" layoutY="190.0" prefHeight="31.0" prefWidth="124.0" text="Miasto">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="158.0" layoutY="235.0" prefHeight="31.0" prefWidth="154.0" text="Adres siedziby">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="158.0" layoutY="278.0" prefHeight="31.0" prefWidth="124.0" text="Marża">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="miasto" editable="false" layoutX="251.0" layoutY="190.0" prefHeight="31.0" prefWidth="269.0" />
+      <TextField fx:id="adres" editable="false" layoutX="301.0" layoutY="235.0" prefHeight="31.0" prefWidth="221.0" />
+      <TextField fx:id="marza" editable="false" layoutX="251.0" layoutY="278.0" prefHeight="31.0" prefWidth="269.0" />
+      <Label fx:id="rodzaj" layoutX="312.0" layoutY="36.0" prefHeight="31.0" prefWidth="237.0" text="papierów wartościowych">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

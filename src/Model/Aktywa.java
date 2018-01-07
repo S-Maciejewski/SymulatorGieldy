@@ -43,4 +43,12 @@ public class Aktywa {
     public void removeSpolka(Spolka spolka) {
         spolki.remove(spolka);
     }
+
+    public void removeWaluta(Waluta waluta) {
+        waluty.remove(waluta);
+    }
+
+    public void removeSurowiec(Surowiec surowiec){
+        surowce.remove(surowiec);
+    }
 }

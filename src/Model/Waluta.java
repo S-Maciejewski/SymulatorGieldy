@@ -5,13 +5,14 @@ import java.util.ArrayList;
 public class Waluta {
 
     private String nazwa;
-    private ArrayList<String> listaKrajow = new ArrayList<String>();
+    private ArrayList<String> listaKrajow;
     private double wartosc; //Wartość w głównej walucie
     private ArrayList<Double> historiaKursu = new ArrayList<>();
 
     public Waluta(String nazwa, double wartosc){
         this.nazwa = nazwa;
         this.wartosc = wartosc;
+        listaKrajow = new ArrayList<>();
     }
 
     public String getNazwa() {
@@ -24,6 +25,7 @@ public class Waluta {
 
     public void setListaKrajow(ArrayList<String> listaKrajow) {
         this.listaKrajow = listaKrajow;
+//        System.out.println(this.getListaKrajow());
     }
 
     public void dodajKraj(String nazwaKraju) {

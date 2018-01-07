@@ -7,6 +7,8 @@ public class Indeks {
     private ArrayList<Spolka> spolki = new ArrayList<Spolka>();
     private double wartosc;
 
+    private ArrayList<Double> historiaWartosci = new ArrayList<>();
+
     public String getNazwa() {
         return nazwa;
     }
@@ -28,5 +30,13 @@ public class Indeks {
         for (Spolka spolka : spolki) {
             wartosc += spolka.getKursAktualny() * spolka.getLiczbaAkcji();
         }
+    }
+
+    public double getWartosc() {
+        return wartosc;
+    }
+
+    public ArrayList<Double> getHistoriaWartosci() {
+        return historiaWartosci;
     }
 }

@@ -104,6 +104,11 @@ public class Ekonomia {
             fundusz.wyliczWartoscJednostki();
         }
 
+        for(Indeks indeks : getIndeksy()){
+            indeks.wyliczWartosc();
+            indeks.getHistoriaWartosci().add(indeks.getWartosc());
+        }
+
     }
 
     private static void losoweZmianyBudzetu() {
@@ -176,12 +181,17 @@ public class Ekonomia {
         return indeksy;
     }
 
-    public static void removeInwestor(Inwestor inwestor){
+    public static void removeInwestor(Inwestor inwestor) {
         inwestorzy.remove(inwestor);
     }
 
-    public static void removeFundusz(Fundusz fundusz){
+    public static void removeFundusz(Fundusz fundusz) {
         inwestorzy.remove(fundusz);
     }
+
+    public static void removeGielda(Gielda gielda) {
+        gieldy.remove(gielda);
+    }
+
 }
 

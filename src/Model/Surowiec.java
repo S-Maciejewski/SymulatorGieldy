@@ -6,8 +6,6 @@ public class Surowiec {
     private String nazwa;
     private String jednostkaHandlowa;
 
-//    private Waluta waluta;
-
     private double wartosc;
     private double wartoscMin;
     private double wartoscMax;
@@ -39,6 +37,14 @@ public class Surowiec {
 
     public double getWartosc() {
         return wartosc;
+    }
+
+    public double getWartoscMax() {
+        return wartoscMax;
+    }
+
+    public double getWartoscMin() {
+        return wartoscMin;
     }
 
     public void setWartosc(double wartosc) {

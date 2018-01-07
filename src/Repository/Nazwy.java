@@ -1,5 +1,8 @@
 package Repository;
 
+import Infrastructure.Ekonomia;
+import Model.Spolka;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -57,7 +60,19 @@ public class Nazwy {
     }
 
     public String getNazwaSpolki() {
-        return nazwySpolek.get(random.nextInt(nazwySpolek.size()));
+        boolean unikalne;
+        String nazwa;
+        do {
+            unikalne = true;
+            nazwa = nazwySpolek.get(random.nextInt(nazwySpolek.size()));
+            for (Spolka spolka : Ekonomia.getAktywa().getSpolki()) {
+                if (nazwa.equals(spolka.getNazwa())) {
+                    unikalne = false;
+                    break;
+                }
+            }
+        } while (!unikalne);
+        return nazwa;
     }
 
     public String getImie() {

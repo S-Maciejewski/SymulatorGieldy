@@ -16,10 +16,17 @@ import javafx.scene.chart.Chart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -31,7 +38,7 @@ public class Controller {
     private Button przeliczSesje, dodajInwestora, dodajSpolke, dodajWalute, dodajSurowiec, dodajGielde, dodajIndeks,
             pokazInwestorow, pokazSpolki, pokazWaluty, pokazSurowce, pokazGieldy, pokazIndeksy, zamknij, usun;
     @FXML
-    private Label nrSesji;
+    private Label nrSesji, rodzaj;
     @FXML
     private TextField imie, nazwisko, budzet, nazwa, kurs, akcje, freeFloat, kapitalZakladowy,
             nazwaWaluty, wartoscWaluty, nazwaSurowca, jednostkaSurowca, wartoscSurowca,
@@ -50,12 +57,21 @@ public class Controller {
     private LineChart<String, Number> wykres;
     @FXML
     private ToggleButton procent;
+    @FXML
+    private ListView lista;
 
     private Random rand = new Random();
-    private ArrayList<String> nazwySpolek, nazwyGieldPW;
+    private ArrayList<String> nazwySpolek = new ArrayList<>(), nazwyGieldPW;
 
     //TODO pozmieniac public na private
 
+    public void wykonajZapis(){
+        
+    }
+
+    public void wykonajOdczyt(){
+
+    }
 
     public void executeMenuAction(ActionEvent event) {
 
@@ -353,17 +369,15 @@ public class Controller {
         stage.setTitle("Dodaj indeks");
 
         TextField nazwaIndeksu = (TextField) root.lookup("#nazwaIndeksu");
-        nazwySpolek = new ArrayList<>();
+        //getNazwySpolek().clear();
+        nazwySpolek.clear();
         nazwyGieldPW = new ArrayList<>();
 
         Nazwy nazwy = new Nazwy();
         nazwaIndeksu.setText(nazwy.getNazwaIndeksu());
 
         ChoiceBox<String> wyborGieldy = (ChoiceBox<String>) root.lookup("#wyborGieldy");
-//        for (Gielda gielda : Ekonomia.getGieldy()) {
-//            if (gielda.getClass().equals(GieldaPW.class))
-//                nazwyGieldPW.add(gielda.getNazwa());
-//        }
+
         Ekonomia.getGieldyPW();
         for (GieldaPW gieldaPW : Ekonomia.getGieldyPW()) {
             nazwyGieldPW.add(gieldaPW.getNazwa());
@@ -380,7 +394,7 @@ public class Controller {
         typ.setValue(Ekonomia.getNazwySpolek().get(rand.nextInt(Ekonomia.getNazwySpolek().size())));
 
         stage.showAndWait();
-    }   //TODO do poprawy
+    }
 
     public void dodawanieDoIndeksu() {
         nazwySpolek.add(wyborSpolki.getValue());
@@ -410,7 +424,9 @@ public class Controller {
                 break;
             }
         }
-    }   //TODO do poprawy
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
 
     //Wyswietlanie
 
@@ -568,15 +584,16 @@ public class Controller {
 
         nazwa.setMinWidth(100);
         nazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
-        wartosc.setMinWidth(100);
+        wartosc.setMinWidth(150);
         wartosc.setCellValueFactory(new PropertyValueFactory<>("wartosc"));
+
+        tabela.setItems(indeksy);
+        tabela.getColumns().addAll(nazwa,wartosc);
     }
 
     //Szczegóły
 
     public void pokazSzczegoly() {
-        System.out.println(tabela.getSelectionModel().getSelectedItem().getClass());
-
         try {
             if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Inwestor.class)) {
                 szczegolyInwestora((Inwestor) tabela.getSelectionModel().getSelectedItem());
@@ -584,13 +601,22 @@ public class Controller {
                 szczegolyFunduszu((Fundusz) tabela.getSelectionModel().getSelectedItem());
             } else if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Spolka.class)) {
                 szczegolySpolki((Spolka) tabela.getSelectionModel().getSelectedItem());
+            } else if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Waluta.class)) {
+                szczegolyWaluty((Waluta) tabela.getSelectionModel().getSelectedItem());
+            } else if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Surowiec.class)) {
+                szczegolySurowca((Surowiec) tabela.getSelectionModel().getSelectedItem());
+            } else if (tabela.getSelectionModel().getSelectedItem().getClass().equals(GieldaPW.class) ||
+                    tabela.getSelectionModel().getSelectedItem().getClass().equals(GieldaWalut.class) ||
+                    tabela.getSelectionModel().getSelectedItem().getClass().equals(GieldaSurowcow.class)) {
+                szczegolyGieldy((Gielda) tabela.getSelectionModel().getSelectedItem());
+            } else if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Indeks.class)) {
+                szczegolyIndeksu((Indeks) tabela.getSelectionModel().getSelectedItem());
             }
 
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Nie znaleziono dopowiedniego pliku .fxml - prosze sprawdzic zawartosc folderu Infrastructure");
         }
-
     }
 
     private LineChart<String, Number> stworzWykres(Parent root, ArrayList<Double> historiaWartosci) {
@@ -745,6 +771,137 @@ public class Controller {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(tabela.getScene().getWindow());
         stage.setTitle("Szczegoly waluty");
+        TextField nazwa = (TextField) root.lookup("#nazwa");
+        TextField kurs = (TextField) root.lookup("#kurs");
+        ListView lista = (ListView) root.lookup("#lista");
 
+//        kraje.addAll(waluta.getListaKrajow());
+        nazwa.setText(waluta.getNazwa());
+        kurs.setText(waluta.getWartosc() + "");
+        System.out.println(waluta.getListaKrajow());
+        for (String kraj : waluta.getListaKrajow()) {    //TODO Czemu nie działa?
+            lista.getItems().add(kraj);
+            System.out.println("Waluta jest w " + kraj);
+        }
+
+
+        LineChart<String, Number> wykres = stworzWykres(root, waluta.getHistoriaKursu());
+        stage.showAndWait();
     }
+
+    public void usunWalute() {
+        for (Waluta waluta : Ekonomia.getAktywa().getWaluty()) {
+            if (waluta.getNazwa().equals(nazwa.getText())) {
+                Ekonomia.getAktywa().removeWaluta(waluta);
+                break;
+            }
+        }
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
+    public void szczegolySurowca(Surowiec surowiec) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("szczegolySurowca.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(tabela.getScene().getWindow());
+        stage.setTitle("Szczegoly surowca");
+        TextField nazwa = (TextField) root.lookup("#nazwa");
+        TextField jednostkaSurowca = (TextField) root.lookup("#jednostkaSurowca");
+        TextField wartoscSurowca = (TextField) root.lookup("#wartoscSurowca");
+        TextField kursMax = (TextField) root.lookup("#kursMax");
+        TextField kursMin = (TextField) root.lookup("#kursMin");
+
+        nazwa.setText(surowiec.getNazwa());
+        jednostkaSurowca.setText(surowiec.getJednostkaHandlowa());
+        wartoscSurowca.setText(surowiec.getWartosc() + "");
+        kursMax.setText(surowiec.getWartoscMax() + "");
+        kursMin.setText(surowiec.getWartoscMin() + "");
+
+        LineChart<String, Number> wykres = stworzWykres(root, surowiec.getHistoriaKursu());
+        stage.showAndWait();
+    }
+
+    public void usunSurowiec() {
+        for (Surowiec surowiec : Ekonomia.getAktywa().getSurowce()) {
+            if (surowiec.getNazwa().equals(nazwa.getText())) {
+                Ekonomia.getAktywa().removeSurowiec(surowiec);
+                break;
+            }
+        }
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
+    public void szczegolyGieldy(Gielda gielda) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("szczegolyGieldy.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(tabela.getScene().getWindow());
+        stage.setTitle("Szczegoly gieldy");
+
+        TextField nazwa = (TextField) root.lookup("#nazwa");
+        TextField kraj = (TextField) root.lookup("#kraj");
+        TextField miasto = (TextField) root.lookup("#miasto");
+        TextField adres = (TextField) root.lookup("#adres");
+        TextField marza = (TextField) root.lookup("#marza");
+        Label rodzaj = (Label) root.lookup("#rodzaj");
+
+        if (gielda.getClass().equals(GieldaPW.class)) {
+            rodzaj.setText("papierów wartościowych");
+        } else if (gielda.getClass().equals(GieldaWalut.class)) {
+            rodzaj.setText("walut");
+        } else
+            rodzaj.setText("surowców");
+        nazwa.setText(gielda.getNazwa());
+        kraj.setText(gielda.getKraj());
+        miasto.setText(gielda.getMiasto());
+        adres.setText(gielda.getAdresSiedziby());
+        marza.setText(gielda.getMarza() + "");
+
+        stage.showAndWait();
+    }
+
+    public void usunGielde() {
+        for (Gielda gielda : Ekonomia.getGieldy()) {
+            if (gielda.getNazwa().equals(nazwa.getText())) {
+                Ekonomia.removeGielda(gielda);
+                break;
+            }
+        }
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
+    public void szczegolyIndeksu(Indeks indeks) throws IOException {    //TODO
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("szczegolyIndeksu.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(tabela.getScene().getWindow());
+        stage.setTitle("Szczegoly indeksu");
+        TextField nazwa = (TextField) root.lookup("#nazwa");
+        TextField kurs = (TextField) root.lookup("#kurs");
+        ListView lista = (ListView) root.lookup("#lista");
+
+        nazwa.setText(indeks.getNazwa());
+        kurs.setText(indeks.getWartosc() + "");
+        for(Spolka spolka : indeks.getSpolki()){
+            lista.getItems().add(spolka.getNazwa());
+        }
+
+        LineChart<String, Number> wykres = stworzWykres(root, indeks.getHistoriaWartosci());
+        stage.showAndWait();
+    }
+
+    public void usunIndeks() {
+        for(Indeks indeks : Ekonomia.getIndeksy()){
+            for(GieldaPW gieldaPW : Ekonomia.getGieldyPW()){
+                if(gieldaPW.getIndeksy().contains(indeks)){
+                    gieldaPW.getIndeksy().remove(indeks);
+                }
+            }
+        }
+        zamknijOkno((Stage) zamknij.getScene().getWindow());
+    }
+
 }
