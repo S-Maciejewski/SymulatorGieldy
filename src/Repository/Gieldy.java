@@ -1,11 +1,13 @@
 package Repository;
 
 import Model.*;
-import Infrastructure.*;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Klasa zawierająca przykładowe giełdy
+ */
 public class Gieldy {
     private ArrayList<Gielda> gieldy;
 

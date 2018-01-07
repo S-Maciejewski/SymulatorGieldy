@@ -2,6 +2,10 @@ package Model;
 
 import Infrastructure.Ekonomia;
 
+/**
+ * Klasa, która rozszerza PodmiotInwestujący, reprezentująca inwestora indywidualnego. Po PodmiotInwestujący
+ * implementuje interfejs Runnable i każdy obiekt tej klasy jest uruchamiany w systemie jako osobny wątek
+ */
 public class Inwestor extends PodmiotInwestujacy {
     private String pesel;
 

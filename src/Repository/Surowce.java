@@ -7,6 +7,9 @@ import Model.Surowiec;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Klasa zawierająca przykładowe surowce
+ */
 public class Surowce {
 
     private ArrayList<Surowiec> surowce = new ArrayList<>();

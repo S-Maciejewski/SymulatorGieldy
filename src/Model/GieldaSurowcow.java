@@ -2,6 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ * Klasa, która reprezentuje giełdę surowców
+ */
 public class GieldaSurowcow extends Gielda {
 
     private ArrayList<Surowiec> surowce;

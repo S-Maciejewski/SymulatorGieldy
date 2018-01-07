@@ -3,6 +3,9 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Klasa, w której zgromazone są wszystkie aktywa obecne na rynku
+ */
 public class Aktywa implements Serializable{
     private ArrayList<Spolka> spolki = new ArrayList<>();
     private ArrayList<Surowiec> surowce = new ArrayList<>();

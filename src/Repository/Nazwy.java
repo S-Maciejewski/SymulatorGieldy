@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
+/**
+ * Klasa zawierające przykładowe imiona i nazwiska dla inwestorów oraz nazwy dla spółek i indeksów
+ */
 public class Nazwy {
     private ArrayList<String> nazwySpolek = new ArrayList<String>();
     private ArrayList<String> imiona = new ArrayList<String>();

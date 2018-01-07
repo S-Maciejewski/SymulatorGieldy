@@ -2,6 +2,9 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * Klasa nadrzędna dla wszystkich rodzajów giełdy
+ */
 public abstract class Gielda implements Serializable{
     private String nazwa;
     private String kraj;

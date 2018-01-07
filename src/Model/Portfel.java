@@ -6,7 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Portfel implements Serializable{
+/**
+ * Klasa, której zadaniem jest przechowywanie informacji o aktywach posiadanych przez dany PodmiotInwestujacy.
+ * Znajdujące się w niej pola (mapy) pozwalają przechowywać informację o ilości posiadanych aktywów danego typu.
+ */
+public class Portfel implements Serializable {
     private Map<Spolka, Integer> akcje = new HashMap<Spolka, Integer>();
     private Map<Surowiec, Integer> surowce = new HashMap<Surowiec, Integer>();
     private Map<Waluta, Integer> waluty = new HashMap<Waluta, Integer>();
@@ -14,6 +18,11 @@ public class Portfel implements Serializable{
 
     private double wartoscPortfela;
 
+    /**
+     * Metoda, która oblicza wartość wszystkich instrumentów finansowych w portfelu inwestora (poza jego budżetem)
+     *
+     * @return wartoscPortfela inwestora
+     */
     public double przeliczPortfel() {
         for (Entry<Spolka, Integer> entry : akcje.entrySet()) {
             wartoscPortfela += entry.getKey().getKursAktualny() * entry.getValue();

@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Główna klasa, której zadaniem jest uruchomienie aplikacji
+ */
 public class Main extends Application {
 
     public static Zapis zapis;

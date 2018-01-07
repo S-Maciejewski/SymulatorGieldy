@@ -1,6 +1,7 @@
 package Infrastructure;
 /*
-    TODO comment
+    Powodem, dla krótego cała obsługa GUI jest w jednej klasie jest chęć minimalizowania ilości klas związanych
+    z obsługą GUI, tak, aby cały powiązany z panelem kontrolnym kod był w jednym miejscu
  */
 
 import Model.*;
@@ -12,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.Chart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
@@ -21,17 +21,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
 import java.io.IOException;
 
+/**
+ * Klasa realizująca całą obsługę GUI
+ */
 public class Controller {
 
     @FXML
@@ -61,21 +61,29 @@ public class Controller {
     private ListView lista;
 
     private Random rand = new Random();
-    private ArrayList<String> nazwySpolek = new ArrayList<>(), nazwyGieldPW;
+    private ArrayList<String> nazwySpolek = new ArrayList<>();
 
-    //TODO pozmieniac public na private
-
-    public void wykonajZapis(){
+    /**
+     * Metoda zapisu powiązana z przyciskiem na panelu kontrolnym, wywołuje metodę klasy Zapis
+     */
+    public void wykonajZapis() {
         Main.zapis.zapisz();
         console.setText("Pomyślnie dodkonano zapisu do pliku zapis.txt");
     }
 
-    public void wykonajOdczyt(){
+    /**
+     * Metoda odczytu powiązana z przyciskiem na panelu kontrolnym, wywołuje metodę klasy Zapis
+     */
+    public void wykonajOdczyt() {
         Main.zapis.wczytaj();
         console.setText("Pomyślnie dodonano odczytu z pliku zapis.txt\n" +
-                "Aby odświeżyć informacje na ekranie, przejdź do kolejnej tury");
+                "Aby odświeżyć informacje na ekranie, przejdź do kolejnej tury lub pokaż wybrane instumenty");
     }
 
+    /**
+     * Główna metoda odpowiadająca za obsługę akcji, które użytownik podejmuje w panelu kontrolnym
+     * @param event wydarzenie wywołane interakcją użytkownika
+     */
     public void executeMenuAction(ActionEvent event) {
 
         if (event.getSource().equals(przeliczSesje)) {
@@ -122,13 +130,13 @@ public class Controller {
         }
     }
 
-    public void zamknijOkno(Stage stage) {
+    private void zamknijOkno(Stage stage) {
         stage.close();
     }
 
     //Dodawanie
 
-    public void dodawanieInwestora() throws IOException {
+    private void dodawanieInwestora() throws IOException {
 
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("dodawanieInwestora.fxml"));
@@ -160,14 +168,16 @@ public class Controller {
             Fundusz fundusz = new Fundusz(imie.getText(), nazwisko.getText(), Double.parseDouble(budzet.getText()));
             Ekonomia.getAktywa().dodajFundusz(fundusz);
             Ekonomia.getInwestorzy().add(fundusz);
+            new Thread(fundusz).run();
         } else {
             Inwestor inwestor = new Inwestor(imie.getText(), nazwisko.getText(), Double.parseDouble(budzet.getText()));
             Ekonomia.getInwestorzy().add(inwestor);
+            new Thread(inwestor).run();
         }
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void dodawanieSpolki() throws IOException {
+    private void dodawanieSpolki() throws IOException {
 
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("dodawanieSpolki.fxml"));
@@ -211,7 +221,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void dodawanieWaluty() throws IOException {
+    private void dodawanieWaluty() throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("dodawanieWaluty.fxml"));
         stage.setScene(new Scene(root));
@@ -251,7 +261,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void dodawanieSurowca() throws IOException {
+    private void dodawanieSurowca() throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("dodawanieSurowca.fxml"));
         stage.setScene(new Scene(root));
@@ -294,7 +304,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void dodawanieGieldy() throws IOException {
+    private void dodawanieGieldy() throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("dodawanieGieldy.fxml"));
         stage.setScene(new Scene(root));
@@ -363,7 +373,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void dodawanieIndeksu() throws IOException {
+    private void dodawanieIndeksu() throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("dodawanieIndeksu.fxml"));
         stage.setScene(new Scene(root));
@@ -374,7 +384,7 @@ public class Controller {
         TextField nazwaIndeksu = (TextField) root.lookup("#nazwaIndeksu");
         //getNazwySpolek().clear();
         nazwySpolek.clear();
-        nazwyGieldPW = new ArrayList<>();
+        ArrayList<String> nazwyGieldPW = new ArrayList<>();
 
         Nazwy nazwy = new Nazwy();
         nazwaIndeksu.setText(nazwy.getNazwaIndeksu());
@@ -389,8 +399,11 @@ public class Controller {
         wyborGieldy.getItems().addAll(nazwyGieldPW);
         if (nazwyGieldPW.size() > 0)
             wyborGieldy.setValue(nazwyGieldPW.get(rand.nextInt(nazwyGieldPW.size())));
-        else
+        else{
+            wyborGieldy.getItems().add("Brak gield papierow wartosciowych");
             wyborGieldy.setValue("Brak gield papierow wartosciowych");
+        }
+
 
         ChoiceBox<String> typ = (ChoiceBox<String>) root.lookup("#wyborSpolki");
         typ.getItems().addAll(Ekonomia.getNazwySpolek());
@@ -430,10 +443,9 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-
     //Wyswietlanie
 
-    public void zaktualizujTopInwestorow() {
+    private void zaktualizujTopInwestorow() {
         ObservableList<PodmiotInwestujacy> podmioty = FXCollections.observableArrayList(Ekonomia.getInwestorzyIndywidualni());
 
         TableColumn<PodmiotInwestujacy, String> imie = new TableColumn<>("Imię");
@@ -459,7 +471,7 @@ public class Controller {
         topTabela.getSortOrder().add(budzet);
     }
 
-    public void wyswietlanieInwestorow() {
+    private void wyswietlanieInwestorow() {
         tabela.getColumns().clear();
         ObservableList<PodmiotInwestujacy> podmioty = FXCollections.observableArrayList(Ekonomia.getInwestorzy());
         TableColumn<PodmiotInwestujacy, String> imie = new TableColumn<>("Imię");
@@ -482,7 +494,7 @@ public class Controller {
 
     }
 
-    public void wyswietlanieSpolek() {
+    private void wyswietlanieSpolek() {
         tabela.getColumns().clear();
         ObservableList<Spolka> spolki = FXCollections.observableArrayList(Ekonomia.getAktywa().getSpolki());
         TableColumn<Spolka, String> nazwa = new TableColumn<>("Nazwa");
@@ -509,7 +521,7 @@ public class Controller {
                 "Aby dowiedziec sie wiecej kliknij wybrana spolke");
     }
 
-    public void wyswietlanieWalut() {
+    private void wyswietlanieWalut() {
         tabela.getColumns().clear();
         ObservableList<Waluta> waluty = FXCollections.observableArrayList(Ekonomia.getAktywa().getWaluty());
         TableColumn<Spolka, String> nazwa = new TableColumn<>("Nazwa");
@@ -525,7 +537,7 @@ public class Controller {
                 "\nAby dowiedziec sie wiecej kliknij wybrana walute");
     }
 
-    public void wyswietlanieSurowcow() {    //TODO Błąd z wartoscMax i wartoscMin
+    private void wyswietlanieSurowcow() {    //TODO Błąd z wartoscMax i wartoscMin
         tabela.getColumns().clear();
         ObservableList<Surowiec> surowce = FXCollections.observableArrayList(Ekonomia.getAktywa().getSurowce());
         TableColumn<Surowiec, String> nazwa = new TableColumn<>("Nazwa");
@@ -551,7 +563,7 @@ public class Controller {
                 "wybrana walute");
     }
 
-    public void wyswietlanieGield() {
+    private void wyswietlanieGield() {
         tabela.getColumns().clear();
         ObservableList<Gielda> gieldy = FXCollections.observableArrayList(Ekonomia.getGieldy());
         TableColumn<Gielda, String> nazwa = new TableColumn<>("Nazwa");
@@ -576,7 +588,7 @@ public class Controller {
                 "wybrana gielde");
     }
 
-    public void wyswietlanieIndeksow() {
+    private void wyswietlanieIndeksow() {
         tabela.getColumns().clear();
         ObservableList<Indeks> indeksy = FXCollections.observableArrayList(Ekonomia.getIndeksy());
         for (Indeks indeks : indeksy)
@@ -591,11 +603,15 @@ public class Controller {
         wartosc.setCellValueFactory(new PropertyValueFactory<>("wartosc"));
 
         tabela.setItems(indeksy);
-        tabela.getColumns().addAll(nazwa,wartosc);
+        tabela.getColumns().addAll(nazwa, wartosc);
     }
 
     //Szczegóły
 
+    /**
+     * Metoda, której zadaniem jest wywołanie odpowiedniej metody wyświetlającej szczegóły
+     * w reakcji na kliknięcie użytwkownika na wiersz tabeli
+     */
     public void pokazSzczegoly() {
         try {
             if (tabela.getSelectionModel().getSelectedItem().getClass().equals(Inwestor.class)) {
@@ -640,7 +656,7 @@ public class Controller {
         return wykres;
     }
 
-    public void szczegolyInwestora(Inwestor inwestor) throws IOException {
+    private void szczegolyInwestora(Inwestor inwestor) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("szczegolyInwestora.fxml"));
         stage.setScene(new Scene(root));
@@ -676,7 +692,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void szczegolyFunduszu(Fundusz fundusz) throws IOException {
+    private void szczegolyFunduszu(Fundusz fundusz) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("szczegolyFunduszu.fxml"));
         stage.setScene(new Scene(root));
@@ -715,7 +731,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void szczegolySpolki(Spolka spolka) throws IOException {
+    private void szczegolySpolki(Spolka spolka) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("szczegolySpolki.fxml"));
         stage.setScene(new Scene(root));
@@ -767,7 +783,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void szczegolyWaluty(Waluta waluta) throws IOException {
+    private void szczegolyWaluty(Waluta waluta) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("szczegolyWaluty.fxml"));
         stage.setScene(new Scene(root));
@@ -781,12 +797,11 @@ public class Controller {
 //        kraje.addAll(waluta.getListaKrajow());
         nazwa.setText(waluta.getNazwa());
         kurs.setText(waluta.getWartosc() + "");
-        System.out.println(waluta.getListaKrajow());
+//        System.out.println(waluta.getListaKrajow());
         for (String kraj : waluta.getListaKrajow()) {    //TODO Czemu nie działa?
             lista.getItems().add(kraj);
             System.out.println("Waluta jest w " + kraj);
         }
-
 
         LineChart<String, Number> wykres = stworzWykres(root, waluta.getHistoriaKursu());
         stage.showAndWait();
@@ -802,7 +817,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void szczegolySurowca(Surowiec surowiec) throws IOException {
+    private void szczegolySurowca(Surowiec surowiec) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("szczegolySurowca.fxml"));
         stage.setScene(new Scene(root));
@@ -835,7 +850,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void szczegolyGieldy(Gielda gielda) throws IOException {
+    private void szczegolyGieldy(Gielda gielda) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("szczegolyGieldy.fxml"));
         stage.setScene(new Scene(root));
@@ -875,7 +890,7 @@ public class Controller {
         zamknijOkno((Stage) zamknij.getScene().getWindow());
     }
 
-    public void szczegolyIndeksu(Indeks indeks) throws IOException {    //TODO
+    private void szczegolyIndeksu(Indeks indeks) throws IOException {    //TODO
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("szczegolyIndeksu.fxml"));
         stage.setScene(new Scene(root));
@@ -888,7 +903,7 @@ public class Controller {
 
         nazwa.setText(indeks.getNazwa());
         kurs.setText(indeks.getWartosc() + "");
-        for(Spolka spolka : indeks.getSpolki()){
+        for (Spolka spolka : indeks.getSpolki()) {
             lista.getItems().add(spolka.getNazwa());
         }
 
@@ -897,9 +912,9 @@ public class Controller {
     }
 
     public void usunIndeks() {
-        for(Indeks indeks : Ekonomia.getIndeksy()){
-            for(GieldaPW gieldaPW : Ekonomia.getGieldyPW()){
-                if(gieldaPW.getIndeksy().contains(indeks)){
+        for (Indeks indeks : Ekonomia.getIndeksy()) {
+            for (GieldaPW gieldaPW : Ekonomia.getGieldyPW()) {
+                if (gieldaPW.getIndeksy().contains(indeks)) {
                     gieldaPW.getIndeksy().remove(indeks);
                 }
             }

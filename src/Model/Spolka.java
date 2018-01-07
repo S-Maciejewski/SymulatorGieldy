@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * Klasa, która jest jednocześnie reprezentacją spółki i jednostką uczestnictwa w akcjonariacie spółki (akcja).
+ * Dzięki temu możliwe jest prostsze odwoływanie się do danych spółki np. z portfela, podczas obliczania jego wartosci
+ */
 public class Spolka implements Serializable{
     private String nazwa;
     private String dataPierwszejWyceny;
@@ -42,10 +46,11 @@ public class Spolka implements Serializable{
         this.stabilnoscKursu = rand.nextInt(10) + 1;
         this.kapitalWlasny = Ekonomia.getPodstawowyBudzet() * rand.nextInt(1000);
         this.dataPierwszejWyceny = rand.nextInt(31) + "/" + rand.nextInt(12) + "/" + (rand.nextInt(118) + 1900);
-        System.out.println("Stabilnosc kursu " + stabilnoscKursu);
-        System.out.println("Kapital wlasny " + kapitalWlasny + ", data wyceny " + dataPierwszejWyceny);
     }
 
+    /**
+     * Oblicza maksymalny i minimalny kurs akcji
+     */
     public void przeliczWartosciMinMax() {
         if (kursMinimalny > kursAktualny)
             kursMinimalny = kursAktualny;
@@ -57,6 +62,9 @@ public class Spolka implements Serializable{
         kursOtwarcia = kursAktualny;
     }
 
+    /**
+     * Aktualizuje co sesję parametry spółki takie jak obrót, przychód itp.
+     */
     public void ustawInneParametry() {
         historiaKursu.add(kursAktualny);
         obroty = kursAktualny * liczbaAkcji / 100 * rand.nextDouble();

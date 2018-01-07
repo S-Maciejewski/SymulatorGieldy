@@ -4,16 +4,25 @@ import Infrastructure.Ekonomia;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
-public abstract class PodmiotInwestujacy implements Serializable{
+/**
+ * Klasa abstrakcyjna, będąca nadzrzędną dla klas Inwestor i Fundusz. Zbiera w jednym miejscu wszystkie
+ * istotne dla obu klas pola i metody - to tutaj znajdują się wszystkie metody związane z działaniami podejmowanymi
+ * przez inwestorów
+ */
+public abstract class PodmiotInwestujacy implements Serializable, Runnable {
     private String imie;
     private String nazwisko;
     private Portfel portfel;
     private int agresja;    //zakres od 1 do 50
     private double budzet;
+
+    @Override
+    public void run() {
+        System.out.println("W systemie powstał nowy wątek podmiotu inwestujacego");
+    }
 
     protected Random rand = new Random();
 
@@ -47,7 +56,7 @@ public abstract class PodmiotInwestujacy implements Serializable{
         this.agresja = agresja;
     }
 
-    public int getAgresja(){
+    public int getAgresja() {
         return agresja;
     }
 
@@ -182,8 +191,13 @@ public abstract class PodmiotInwestujacy implements Serializable{
         }
     }
 
-    public void podejmijDzialanie(Aktywa stanAktywow) {
-        historiaWartosciMajatku.add(budzet+portfel.przeliczPortfel());  //Czy nie zbyt obciążające?
+    /**
+     * Synchronizowana metodo podejmowania działania przez inwestora. Synchronizacja
+     * wyklucza sytuację gdy np. dwóch inwestorów będzie chciało wykupić większą niż dozwolona ilośc akcji
+     * @param stanAktywow - aktualny stan aktywów pobrany z obiektu klasy Ekonomia
+     */
+    public synchronized void podejmijDzialanie(Aktywa stanAktywow) {
+        historiaWartosciMajatku.add(budzet + portfel.przeliczPortfel());  //Czy nie zbyt obciążające?
 
         Random rand = new Random();
         int randNum;

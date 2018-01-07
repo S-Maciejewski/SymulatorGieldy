@@ -3,6 +3,10 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Klasa, która impelemntuje indeks giełdowy. Jej obiekty mogą należeć jedynie do obiektu klasy GieldaPW jako
+ * elementy tablicy indeksy
+ */
 public class Indeks implements Serializable{
     private String nazwa;
     private ArrayList<Spolka> spolki = new ArrayList<Spolka>();

@@ -6,6 +6,9 @@ import Model.Waluta;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Klasa zawierająca przykładowe waluty
+ */
 public class WalutyPrzykladowe {
     private ArrayList<Waluta> waluty = new ArrayList<Waluta>();
 
@@ -38,6 +41,19 @@ public class WalutyPrzykladowe {
         waluty.add(waluta);
         nazwyKrajow.clear();
 
+        waluta = new Waluta("GBP", 5.205);
+        nazwyKrajow.add("Wielka Brytania");
+        waluta.setListaKrajow(nazwyKrajow);
+        waluty.add(waluta);
+        nazwyKrajow.clear();
+
+        waluta = new Waluta("RUB", 0.061);
+        nazwyKrajow.add("Rosja");
+        nazwyKrajow.add("Abchazja");
+        waluta.setListaKrajow(nazwyKrajow);
+        waluty.add(waluta);
+        nazwyKrajow.clear();
+
     }
 
     public ArrayList<Waluta> getWaluty() {
@@ -47,12 +63,26 @@ public class WalutyPrzykladowe {
     public Waluta getWaluta() {  //Podaje losową walutę z bazy
         Random rand = new Random();
 
-        //TODO Unikalność walut
-        Waluta waluta;
-        do {
-            waluta = waluty.get(rand.nextInt(waluty.size()));
-        } while (Ekonomia.getAktywa().getWaluty().contains(waluta));
+//        //TODO Unikalność walut
+//        Waluta waluta;
+//        do {
+//            waluta = waluty.get(rand.nextInt(waluty.size()));
+//        } while (Ekonomia.getAktywa().getWaluty().contains(waluta));
+//
+//        return waluta;
 
-        return waluta;
+        boolean unikalne;
+        Waluta walutaLosowa;
+        do {
+            unikalne = true;
+            walutaLosowa = waluty.get(rand.nextInt(waluty.size()));
+            for (Waluta waluta : Ekonomia.getAktywa().getWaluty()) {
+                if (walutaLosowa.getNazwa().equals(waluta.getNazwa())) {
+                    unikalne = false;
+                    break;
+                }
+            }
+        } while (!unikalne);
+        return walutaLosowa;
     }
 }

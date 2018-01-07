@@ -2,6 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ * Klasa, która reprezentuje giełdę walut
+ */
 public class GieldaWalut extends Gielda {
 
     private ArrayList<Waluta> waluty;

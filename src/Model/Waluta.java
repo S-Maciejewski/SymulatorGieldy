@@ -3,6 +3,9 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Klasa, która reprezentuje walutę (także jako jednostkę aktywów)
+ */
 public class Waluta implements Serializable{
 
     private String nazwa;

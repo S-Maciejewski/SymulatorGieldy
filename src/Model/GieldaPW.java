@@ -2,6 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ * Klasa, która reprezentuje giełdę papierów wartościowych
+ */
 public class GieldaPW extends Gielda {
 
     private ArrayList<Indeks> indeksy;

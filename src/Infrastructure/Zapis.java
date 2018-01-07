@@ -5,9 +5,15 @@ import Model.*;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Klasa odpowiedzialna za serializację i deserializację
+ */
 public class Zapis {
     private ObjectOutputStream out;
 
+    /**
+     * Metoda, która realizuje serializację danych z klasy Ekonomia do pliku zapis.txt
+     */
     public void zapisz(){
         try {
             out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("C:\\Users\\Public\\Documents\\zapis.txt")));
@@ -31,6 +37,9 @@ public class Zapis {
         }
     }
 
+    /**
+     * Metoda, która realizuje deserializację danych z pliku zapis.txt i aktualizację pól klasy Ekonomia
+     */
     public void wczytaj(){
         try {
             ObjectInputStream in = new ObjectInputStream(

@@ -3,6 +3,11 @@ package Model;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Klasa, która jest jednocześnie funduszem inwestycyjnym i jednostką funduszu inwestycyjnego, którą może
+ * kupić inwestor indywidualny. Implementuje po PodmiotInwestujący interfejs Runnable i przy tworzeniu obiektu
+ * tej klasy tworzony jest nowy wątek
+ */
 public class Fundusz extends PodmiotInwestujacy {
 
     private double wartoscJednostki;

@@ -7,6 +7,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Klasa, w której odbywa się większość symulacji - reprezentuje ona całe środowisko symulacji (wszystkie instrumenty
+ * finansowe i wszyscy inwestorzy są powiązani z tą klasą)
+ */
 public class Ekonomia implements Serializable{
     private static ArrayList<Gielda> gieldy = new ArrayList<>();
     private static ArrayList<PodmiotInwestujacy> inwestorzy = new ArrayList<>();
@@ -18,6 +22,10 @@ public class Ekonomia implements Serializable{
     private static Random rand = new Random();
 
 
+    /**
+     * Metoda opowiadająca za obliczanie paramatrów wszystkich obiektów w kolejnej sesji oraz za zakończenie
+     * bieżącej sesji
+     */
     public static void przeliczSesje() {
         for (PodmiotInwestujacy inwestor : inwestorzy) {  //TODO Wielowątkowość inwestorów
             inwestor.podejmijDzialanie(aktywa);
@@ -28,14 +36,23 @@ public class Ekonomia implements Serializable{
         losoweZmianyBudzetu();
     }
 
+    /**
+     * Metoda wywoływana na początek, dodająca do świata symulacji domyślne obiekty
+     */
     public void inicjalizujSymulacje() {
         Nazwy nazwy = new Nazwy();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++){    //Wielowątkowość
+            Inwestor inwestor = new Inwestor(nazwy.getImie(), nazwy.getNazwisko(),
+                    rand.nextInt((int) podstawowyBudzet));
+            (new Thread(inwestor)).run();
+
             inwestorzy.add(new Inwestor(nazwy.getImie(), nazwy.getNazwisko(), rand.nextInt((int) podstawowyBudzet)));
+        }
         for (int i = 0; i < 2; i++) {
             Fundusz fundusz = new Fundusz(nazwy.getImie(), nazwy.getNazwisko(), rand.nextInt((int) podstawowyBudzet));
             inwestorzy.add(fundusz);
             aktywa.dodajFundusz(fundusz);
+            (new Thread(fundusz)).run();
         }
         for (int i = 0; i < 4; i++)
             aktywa.dodajSpolke(new Spolka(nazwy.getNazwaSpolki(), podstawowyBudzet * rand.nextDouble() / 100,
@@ -52,7 +69,9 @@ public class Ekonomia implements Serializable{
 
     }
 
-    //TODO NTH Stabilność zależna od giełdy
+    /**
+     * Metoda, która odpowiada za zmiany cen na rynku
+     */
     private static void losoweZmianyCen() {
         for (Surowiec surowiec : aktywa.getSurowce()) {
 
@@ -88,6 +107,9 @@ public class Ekonomia implements Serializable{
         }
     }
 
+    /**
+     * Metoda, której zadaniem jest zaktualizowanie wszystkich aktywów na koniec każdej sesji
+     */
     private static void aktualizacjaParametrowAktywow() {
         for (Surowiec surowiec : aktywa.getSurowce())
             surowiec.przeliczWartosciMinMax();
@@ -112,6 +134,9 @@ public class Ekonomia implements Serializable{
 
     }
 
+    /**
+     * Metoda, która losowo zwiększa budżet inwestorów
+     */
     private static void losoweZmianyBudzetu() {
         for (PodmiotInwestujacy inwestor : inwestorzy)
             inwestor.zwiekszBudzetLosowo();

@@ -3,6 +3,10 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Klasa, która reprezentuje surowiec i jest jednocześnie jednostką surowca, którą inwestor może posiadać w
+ * swoim portfelu
+ */
 public class Surowiec implements Serializable{
     private String nazwa;
     private String jednostkaHandlowa;
@@ -21,6 +25,9 @@ public class Surowiec implements Serializable{
         wartoscMin = wartosc;
     }
 
+    /**
+     * Aktualizuje kurs minimalny i maksymalny surowca
+     */
     public void przeliczWartosciMinMax() {
         if (wartosc <= wartoscMin)
             wartoscMin = wartosc;
