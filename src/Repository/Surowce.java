@@ -20,7 +20,7 @@ public class Surowce {
         surowiec.przeliczWartosciMinMax();
         surowce.add(surowiec);
 
-        surowiec = new Surowiec("Srebro", "uncja",59.64 );
+        surowiec = new Surowiec("Srebro", "uncja", 59.64);
         surowiec.przeliczWartosciMinMax();
         surowce.add(surowiec);
 
@@ -42,15 +42,22 @@ public class Surowce {
         return surowce;
     }
 
-    public Surowiec getSurowiec() {  //Podaje losowy surowiec z bazy
+    public Surowiec getSurowiec() {
         Random rand = new Random();
 
-        Surowiec surowiec;
+        boolean unikalne;
+        Surowiec surowiecLosowy;
         do {
-            surowiec = surowce.get(rand.nextInt(surowce.size()));
-        } while (Ekonomia.getAktywa().getSurowce().contains(surowiec));
-
-        return surowiec;
+            unikalne = true;
+            surowiecLosowy = surowce.get(rand.nextInt(surowce.size()));
+            for (Surowiec surowiec : Ekonomia.getAktywa().getSurowce()) {
+                if (surowiecLosowy.getNazwa().equals(surowiec.getNazwa())) {
+                    unikalne = false;
+                    break;
+                }
+            }
+        } while (!unikalne);
+        return surowiecLosowy;
     }
 }
 

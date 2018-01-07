@@ -11,7 +11,7 @@ import java.util.Random;
  * Klasa, w której odbywa się większość symulacji - reprezentuje ona całe środowisko symulacji (wszystkie instrumenty
  * finansowe i wszyscy inwestorzy są powiązani z tą klasą)
  */
-public class Ekonomia implements Serializable{
+public class Ekonomia implements Serializable {
     private static ArrayList<Gielda> gieldy = new ArrayList<>();
     private static ArrayList<PodmiotInwestujacy> inwestorzy = new ArrayList<>();
 
@@ -41,7 +41,7 @@ public class Ekonomia implements Serializable{
      */
     public void inicjalizujSymulacje() {
         Nazwy nazwy = new Nazwy();
-        for (int i = 0; i < 3; i++){    //Wielowątkowość
+        for (int i = 0; i < 3; i++) {    //Wielowątkowość?
             Inwestor inwestor = new Inwestor(nazwy.getImie(), nazwy.getNazwisko(),
                     rand.nextInt((int) podstawowyBudzet));
             (new Thread(inwestor)).run();
@@ -58,14 +58,15 @@ public class Ekonomia implements Serializable{
             aktywa.dodajSpolke(new Spolka(nazwy.getNazwaSpolki(), podstawowyBudzet * rand.nextDouble() / 100,
                     podstawowyBudzet * 100 * rand.nextDouble(), rand.nextInt(1000000 + 100000), rand.nextDouble()));
         Surowce surowce = new Surowce();
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
             aktywa.dodajSurowiec(surowce.getSurowiec());
         WalutyPrzykladowe walutyPrzykladowe = new WalutyPrzykladowe();
         aktywa.dodajWalute(walutyPrzykladowe.getWaluty().get(0));   //Dodawanie PLN
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
             aktywa.dodajWalute(walutyPrzykladowe.getWaluta());
         Gieldy gieldyPrzykladowe = new Gieldy();
-        gieldy.add(gieldyPrzykladowe.getGielda());
+        for (int i = 0; i < 2; i++)
+            gieldy.add(gieldyPrzykladowe.getGielda());
 
     }
 
@@ -127,7 +128,7 @@ public class Ekonomia implements Serializable{
             fundusz.wyliczWartoscJednostki();
         }
 
-        for(Indeks indeks : getIndeksy()){
+        for (Indeks indeks : getIndeksy()) {
             indeks.wyliczWartosc();
             indeks.getHistoriaWartosci().add(indeks.getWartosc());
         }
@@ -219,15 +220,15 @@ public class Ekonomia implements Serializable{
         gieldy.remove(gielda);
     }
 
-    public void setGieldy(ArrayList<Gielda> gieldy){
+    public void setGieldy(ArrayList<Gielda> gieldy) {
         this.gieldy = gieldy;
     }
 
-    public void setInwestorzy(ArrayList<PodmiotInwestujacy> inwestorzy){
+    public void setInwestorzy(ArrayList<PodmiotInwestujacy> inwestorzy) {
         this.inwestorzy = inwestorzy;
     }
 
-    public void setAktywa(Aktywa aktywa){
+    public void setAktywa(Aktywa aktywa) {
         this.aktywa = aktywa;
     }
 

@@ -111,7 +111,7 @@
                </font>
             </Label>
             <ToggleButton fx:id="procent" layoutX="394.0" layoutY="275.0" mnemonicParsing="false" text="Wykresy w ujęciu procentowym" />
-            <ImageView fx:id="logo" fitHeight="171.0" fitWidth="312.0" layoutX="652.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo" fitHeight="177.0" fitWidth="312.0" layoutX="652.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo.png" />
                </image>

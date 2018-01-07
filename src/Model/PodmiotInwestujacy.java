@@ -22,6 +22,7 @@ public abstract class PodmiotInwestujacy implements Serializable, Runnable {
     @Override
     public void run() {
         System.out.println("W systemie powstał nowy wątek podmiotu inwestujacego");
+
     }
 
     protected Random rand = new Random();

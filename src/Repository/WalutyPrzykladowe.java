@@ -63,14 +63,6 @@ public class WalutyPrzykladowe {
     public Waluta getWaluta() {  //Podaje losową walutę z bazy
         Random rand = new Random();
 
-//        //TODO Unikalność walut
-//        Waluta waluta;
-//        do {
-//            waluta = waluty.get(rand.nextInt(waluty.size()));
-//        } while (Ekonomia.getAktywa().getWaluty().contains(waluta));
-//
-//        return waluta;
-
         boolean unikalne;
         Waluta walutaLosowa;
         do {

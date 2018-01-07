@@ -17,7 +17,6 @@ public class Zapis {
     public void zapisz(){
         try {
             out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("C:\\Users\\Public\\Documents\\zapis.txt")));
-            //out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("Infrastructure/zapis.txt")));
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Nie mozna stworzyc pliku zapisu");
