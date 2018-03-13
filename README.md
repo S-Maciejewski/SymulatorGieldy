@@ -1,5 +1,5 @@
 # SymulatorGieldy
-Projekt na Programowanie Obiektowe 2017/2018
+Projekt na Programowanie Obiektowe na 3. semestrze Informatyki, WI, PP.
 
 Celem programu jest uproszczona symulacja rynku giełdowego. Projekt zaliczeniowy na 2. roku informatyki na WI PP.
 Głównym celem projektu było zaznajomienie się z obsługą obiektów w języku Java oraz z JavaFX (w celu stworzenia GUI aplikacji).
